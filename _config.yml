@@ -24,8 +24,10 @@ github_username:  TyrangYang
 # Build settings
 markdown: kramdown
 # theme: jekyll-swiss
-# theme: minima
 remote_theme: broccolini/swiss
+# theme: minima
+# theme: jekyll-theme-so-simple
+
 theme_color: white
 plugins:
   - jekyll-feed
