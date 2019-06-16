@@ -1,8 +1,8 @@
 - title: Posts
-  url: /posts/
+  url: /
 - title: Resume
-  url: /_data/resume.pdf
-- title: External Page
-  url: https://whatever-site.com/page.html
+  url: /resume/
+- title: Note
+  url: /note/
 - title: Search
   url: /search/

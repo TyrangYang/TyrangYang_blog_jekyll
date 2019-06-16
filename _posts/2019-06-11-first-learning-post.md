@@ -3,10 +3,13 @@ layout: "post"
 title: "Learning Jekyll"
 date: "2019-06-11"
 author: Haolin Yang
-categories: "posts"
+categories: "note"
 # permalink: first/:title
 # The page is store in _site folder. The default url is decided by date. However the url will be change when you have categories. Permalink can decided the url utimatly if that exist.
 ---
+
+This is learning note for Jekyll
+
 ## Forder
 * _posts
 > Store all the blog post
@@ -42,7 +45,8 @@ Start the server with drafts
     jekyll serve --draft
 ```
 
-## 
+## Theme
+* jekyll-theme-so-simple
 
 
 
