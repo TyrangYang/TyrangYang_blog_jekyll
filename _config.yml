@@ -34,8 +34,8 @@ markdown: kramdown
 # theme: jekyll-swiss
 # remote_theme: broccolini/swiss
 # theme: minima
-theme: jekyll-theme-so-simple
-# remote_theme: "mmistakes/so-simple-theme"
+# theme: jekyll-theme-so-simple
+remote_theme: "mmistakes/so-simple-theme"
 
 plugins:
   - jekyll-feed
