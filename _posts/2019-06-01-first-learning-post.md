@@ -2,7 +2,8 @@
 layout: "post"
 title: "Learning Jekyll"
 date: "2019-06-11"
-categories: "jekyll learning"
+author: Haolin Yang
+categories: "posts"
 # permalink: first/:title
 # The page is store in _site folder. The default url is decided by date. However the url will be change when you have categories. Permalink can decided the url utimatly if that exist.
 ---
