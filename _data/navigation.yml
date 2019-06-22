@@ -1,8 +1,8 @@
-- title: Posts
+- title: Blog
   url: /
 - title: Resume
   url: /public/resume.pdf
 - title: Note
   url: /note/
-- title: Search
-  url: /search/
+- title: Main
+  url: https://tyrangyang.github.io/
