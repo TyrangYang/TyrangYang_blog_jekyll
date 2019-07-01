@@ -7,7 +7,7 @@ catagories: note
 
 ## Basic types
 | Type | Type name |
-| ----- | ------ |
+| :-----: | :-----: |
 | Integers | bytes, short, int, long|
 | Real number | float, double |
 | Boolean value | boolean |
