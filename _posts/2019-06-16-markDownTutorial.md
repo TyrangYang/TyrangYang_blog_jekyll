@@ -86,6 +86,7 @@ def add(self, a, b):
 ```
 
 ## Table (For github)
+
 | a     | pdf   | fed   | afd   | 2     |
 |------ |-----  |-----  |-----  |---    |
 | adfs  | sda   | pdf   | 1     | 3     |

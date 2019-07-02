@@ -6,8 +6,9 @@ catagories: note
 ---
 
 ## Basic types
+
 | Type | Type name |
-| :-----: | :-----: |
+| :--: | :---:     |
 | Integers | bytes, short, int, long|
 | Real number | float, double |
 | Boolean value | boolean |
@@ -55,6 +56,9 @@ int a = 1;
 int res = a + ++a;
 // res = 3; a = 2.
 ```
+
+## For loop
+for(**int** i=0; i < n ; i++)
 
 
 
