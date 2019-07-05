@@ -7,13 +7,6 @@ catagories: note
 
 ## Basic types
 
-| Type | Type name |
-| :--: | :---:     |
-| Integers | bytes, short, int, long|
-| Real number | float, double |
-| Boolean value | boolean |
-| Characters | char |
-
 Every type have a default value:
 
 | Type | Representation | Initial value | Storage | Max. value |
@@ -60,5 +53,99 @@ int res = a + ++a;
 ## For loop
 for(**int** i=0; i < n ; i++)
 
+## Break or continue the outer loop
 
+```java
+class TestContinueLabel{
+    public static void main (String args[]){
+        outer:
+        for(int i = 1; i < 5; i++){ 
+            System.out.println("Begin outer for i="+i);inner:
+            for (int j = 1; j < 5; j++){
+                if (j == i) continue outer; 
+                System.out.println("inner: i=" + i + " j="+j );
+            }
+            System.out.println("End outer for i="+i);
+        }
+            System.out.println("Finished.");
+    } 
+}
+```
+
+Result:
+```
+Begin outer for i=1
+Begin outer for i=2
+inner: i=2 j=1
+Begin outer for i=3
+inner: i=3 j=1
+inner: i=3 j=2
+Begin outer for i=4
+inner: i=4 j=1
+inner: i=4 j=2
+inner: i=4 j=3
+Finished.
+```
+
+```java
+class TestBreakLabel{
+    public static void main (String args[]){
+        outer:
+        for(int i = 1; i < 5; i++){ 
+            System.out.println("Begin outer for i="+i);
+            inner:
+            for (int j = 1; j < 5; j++){
+                if (j == i) break outer; 
+                System.out.println("inner: i=" + i + " j="+j );
+            }
+            System.out.println("End outer for i="+i);
+        }
+        System.out.println("Finished.");
+    } 
+}
+```
+
+Result:
+```
+Begin outer for i=1
+Finished.
+```
+
+C++ only use **goto** to achieve this feature
+
+```cpp
+void TestContinueLabel(){
+    for (int i = 1; i < 5; ++i)
+    {
+        cout << "Begin outer for i=" << i << endl;
+        for (int j = 1; j < 5; ++j)
+        {
+            if(i == j)
+                goto ContinueTry;
+            cout << "inner: i=" << i << " j=" << j << endl;
+        }
+        cout << "End outer for i=" << i << endl;
+        ContinueTry:;
+    }
+    cout << "Finished." << endl;
+}
+```
+
+```cpp
+void TestBreakLabel(){
+    for (int i = 1; i < 5; ++i)
+    {
+        cout << "Begin outer for i=" << i << endl;
+        for (int j = 1; j < 5; ++j)
+        {
+            if(i == j)
+                goto BreakTry;
+            cout << "inner: i=" << i << " j=" << j << endl;
+        }
+        cout << "End outer for i=" << i << endl;
+    }
+    BreakTry:
+    cout << "Finished." << endl;
+}
+```
 
