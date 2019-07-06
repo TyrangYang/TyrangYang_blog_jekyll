@@ -11,12 +11,12 @@ Here have some good pictures that is helpful for understanding git and contain t
 ## Concept Map
 Here is a concept map given by Udcity.com. This picture shows the relationship between these basic git concept. 
 
-![Concept map]({{ site.url }}{{ site.baseurl }}/images/conceptMap.png "Concept Map")
+![Concept map]({{ site.url }}{{ site.baseurl }}/public/images/conceptMap.png "Concept Map")
 
 ## Git Data Transport Map
 Git have four working zones. This map shows that using which commend to shift your code from one zone to another.
 
-![Git Data Transport Map]({{ site.url }}{{ site.baseurl }}/images/git-transport.png "Git Data Transport Map")
+![Git Data Transport Map]({{ site.url }}{{ site.baseurl }}/public/images/git-transport.png "Git Data Transport Map")
 
 *This photo is provide by [osteele](https://blog.osteele.com/2008/05/my-git-workflow/)*
 
