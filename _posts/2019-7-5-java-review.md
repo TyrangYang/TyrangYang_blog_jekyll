@@ -2,7 +2,7 @@
 layout: post
 title: Review java - OO
 author: Haolin Yang
-catagories: note
+categories: note
 ---
 
 ## Class & Object
