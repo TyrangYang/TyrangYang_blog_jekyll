@@ -112,7 +112,7 @@ ___
 ## Special sign using HTML
 **&plusmn;** &plusmn; &radic; &rArr;  &hArr;
 space: &nbsp;
-![Special symbol]({{site.url}}{{site.baseurl}}/images/specialSymbol)
+![Special symbol]({{site.url}}{{site.baseurl}}/images/specialSymbol.png)
 
 ## Image
 ![what is here](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")

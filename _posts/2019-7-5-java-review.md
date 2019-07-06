@@ -23,7 +23,7 @@ _**Access control** allows for encapsulation_
 
 | Qualifier | class | package | subclass | outside the package |
 | :---:     | :---: | :---:   | :---:    | :---:               |
-| public    |&radic;| &radic; | &radic;  | &radic;             |
-| protected |&radic;|&radic;|&radic;| X |
-| default   |&radic;|&radic;| X | X |
-| private   |&radic;| X | X | X |
+| public    |&radic;| &radic; | &radic;  | &radic; |
+| protected |&radic;| &radic; | &radic;  | X |
+| default   |&radic;| &radic; | X        | X |
+| private   |&radic;| X       | X        | X |
