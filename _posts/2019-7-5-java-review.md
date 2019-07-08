@@ -98,3 +98,29 @@ Change constructor into:
     }
 ...
 ```
+
+## Method overloading
+
+Whenever two or more methods have the same name but different input parameters.
+
+## Write a java class
+
+1. Instance veriable
+2. Constructors
+3. Accessors(getter)
+4. Mutators(setter)
+5. Service Methods
+6. *toString()* method
+
+With the toString() method, the object can be printed with a user-defined format.
+
+```java
+public string toString(){
+    return "< user-defined format";
+}
+```
+
+7. A test class
+
+
+
