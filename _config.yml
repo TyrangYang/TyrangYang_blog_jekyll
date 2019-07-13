@@ -16,11 +16,12 @@
 title: TyrangYang
 email: haolinyang95@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-baseurl: "/TyrangYang_blog" # the subpath of your site, e.g. /blog
-url: "https://tyrangyang.github.io"
+# baseurl: "/TyrangYang_blog" # the subpath of your site, e.g. /blog
+# url: "https://tyrangyang.github.io"
 twitter_username: 499768797Tyrang
 github_username:  TyrangYang
 logo: 
+search_full_content: true
 footer_links:
   - title: Twitter
     url: https://twitter.com/499768797Tyrang

@@ -2,7 +2,10 @@
 layout: post
 title: Review java - Array
 author: Haolin Yang
-categories: note java
+categories: Java
+tags: 
+    - review
+    - java
 ---
 
 ## Declaring an array

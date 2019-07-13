@@ -2,7 +2,10 @@
 layout: post
 title: Container comparison - c++ & java
 author: Haolin Yang
-categories: note langage-comparison
+categories: Langage-comparison
+tags: 
+    - c++
+    - java
 ---
 
 ## Container comparison

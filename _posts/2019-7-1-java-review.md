@@ -2,7 +2,10 @@
 layout: post
 title: Review java - Variable
 author: Haolin Yang
-categories: note java
+categories: Java
+tags: 
+    - review
+    - java
 ---
 
 ## Basic types

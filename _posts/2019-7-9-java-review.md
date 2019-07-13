@@ -2,7 +2,10 @@
 layout: post
 title: Review java - javadoc
 author: Haolin Yang
-categories: note java
+categories: Java
+tags: 
+    - review
+    - java
 ---
 
 ## JavaDocs

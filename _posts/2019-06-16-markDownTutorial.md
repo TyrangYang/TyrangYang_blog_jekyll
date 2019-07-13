@@ -3,7 +3,7 @@ layout: post
 title: Learning MarkDown
 date: 2019-06-16
 author: Haolin Yang
-categories: note
+categories: MarkDown
 ---
 
 This is learning note for MarkDown

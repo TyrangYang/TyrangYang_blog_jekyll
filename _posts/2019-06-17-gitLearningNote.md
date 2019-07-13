@@ -3,7 +3,7 @@ layout: post
 title: Learning Git
 date: 2019-06-16
 author: Haolin Yang
-categories: note
+categories: Git
 ---
 
 Here have some good pictures that is helpful for understanding git and contain the record for git commend
