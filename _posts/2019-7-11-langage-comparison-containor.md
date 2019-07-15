@@ -14,7 +14,7 @@ C++ version is c++11. Java version is java se8.
 
 |  C++  | JAVA  | Description |
 | :---: | :---: | :---        |
-| array |  [ ]  | 固定大小的数组 |
+| array / [ ] |  [ ]  | 固定大小的数组 |
 | vector| ArrayList | 可变长度的数组 |
 |       | Vector | 可变长度的数组，支持同步操作，效率比ArrayList略差 |
 | list  | LinkedList | 双链表，便于增删 |

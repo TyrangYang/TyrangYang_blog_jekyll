@@ -109,10 +109,17 @@ This the official [guide](https://www.markdownguide.org/basic-syntax/ "cool link
 ***
 ___
 
+## Subscript element
+H<sub>2</sub>O
+
+## Superscript element
+E=MC<sup>2</sup>
+
 ## Special sign using HTML
 **&plusmn;** &plusmn; &radic; &rArr;  &hArr;
 space: &nbsp;
 ![Special symbol]({{site.url}}{{site.baseurl}}/public/images/specialSymbol.png)
+[Website](https://blog.csdn.net/qiao13633426513/article/details/85112664)
 
 ## Image
 ![what is here](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
