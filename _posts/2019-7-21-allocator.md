@@ -2,7 +2,7 @@
 layout: post
 title: Allocator in c++
 author: Haolin Yang
-categories: STL study note
+categories: STL-study-note
 tags:
     - c++
     - STL
