@@ -51,3 +51,25 @@ union obj {
 
 
 萬一山窮水盡，整個 system heap 空間都不夠了(以至無法為記憶池注入活水源 頭)，malloc() 行動失敗，chunk_alloc() 就四處尋找有無「尚有未用區塊， 且區塊夠大」之 free lists。找到的話就挖一塊交出，找不到的話就呼叫第一級配 置器。第一級配置器其實也是使用 malloc() 來配置記憶體，但它有 out-of-memory 處理機制(類似 new-handler 機制)，或許有機會釋放其他的記憶體拿來此處使用。 如果可以，就成功，否則發出 bad_alloc 異常。
+
+## Memory basic processing function
+
+STL 定义了五个全域式函数，用作于内存未被初始化的空间上。construct(), destroy(),uninitialized_copy(),uninitialized_fill(),uninitialized_fill_n().
+
+construct(), destroy()是用来构造和解构对象的。
+
+uninitialized_copy(),uninitialized_fill(),uninitialized_fill_n()是对三个non-POD类型(non-Plain Old Data).内存算法。对于POD(像是基本类型)会调用高级函数(copy(),fill(),fill_n())
+
+### uninitialized_copy(begin,end,begin2)
+将迭代器begin1\~end(尾后迭代器)所代表的输入范围copy到begin2开始的内存,begin2所指向的内存必须大于begin\~end所需的；
+
+### uninitialized_fill(begin,end,t)
+在迭代器begin~end范围内构建t的拷贝；
+
+### uninitialized_fill_n(begin,n,t)
+从begin开始的内存构建n个t的拷贝；
+
+
+## Summary
+
+allocator 是用来开辟空间的。 construct和destroy是用来构建对象。剩下的三个函数是算法。对一段空间的拷贝。对一个对象的重复拷贝。

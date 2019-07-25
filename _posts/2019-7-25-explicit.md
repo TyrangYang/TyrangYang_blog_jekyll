@@ -1,0 +1,58 @@
+---
+layout: post
+title: explicit and implicit in c++
+author: Haolin Yang
+categories: Note
+tags:
+    - c++
+---
+
+## explicit and implicit
+
+In C++, constructor can be explicit and implicit.
+
+The reserve word explicit affect constructor with only one parameter or only one parameter without given initial value. 
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class test1
+{
+    int data;
+public:
+    test1(int t):data(t){};
+    ~test1(){};
+
+    int getData(){return data;};
+};
+
+class test2
+{
+    int data;
+public:
+    // explicit test2(int t):data(t){};
+    explicit test2(int t, int a = 0):data(t){};
+    ~test2(){};
+
+    int getData(){return data;};
+};
+
+int main(int argc, char const *argv[])
+{
+    test1 t1(1); //explicit constructor
+    cout << t1.getData() << endl;
+
+    test1 t2 = 1; //implicit constructor
+    cout << t2.getData() << endl;
+
+    test1 t3 = 'a';
+    cout << t3.getData() << endl;
+
+    test2 t4('a');// explicit constructor is OK
+    cout << t4.getData() << endl;
+
+    test2 t5 = 'a'; //error. Must be explicit.
+    return 0;
+}
+```
