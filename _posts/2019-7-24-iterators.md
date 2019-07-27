@@ -66,13 +66,14 @@ yanghaoli
 2. **Output iterator**: Write only.
 3. **Forward iterator**: Allow write and only one direction.(only operator++). Some algorithms use one direction enough.(like *replace()*) 
 4. **Bidirectional iterator**: For some algorithm will move both direction. Support operator++ and operator--.
-5. **Random access iterator**: Support more operator. p+n, p-n, p[n], p1-p2, p1>p2.
+5. **Random access iterator**: Support more operator. p+n, p-n, p[n], p1-p2, p1 < p2.
 
 <div class="mermaid">
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
+graph LR;
+    Input_Iterator --> Forward_Iterator ;
+    Output_Iterator --> Forward_Iterator ;
+    Forward_Iterator --> Bidirectional_Iterator;
+    Bidirectional_Iterator --> Random_Access_Iterator;
 </div>
+
 
