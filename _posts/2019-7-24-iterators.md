@@ -7,7 +7,7 @@ tags:
     - c++
     - STL
 ---
-<script src="/js/mermaid.js"></script>
+<script src="https://tyrangyang.github.io/TyrangYang_blog/js/mermaid.js"></script>
 
 ## Iterator设计思维
 
