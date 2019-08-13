@@ -76,4 +76,25 @@ graph LR;
     Bidirectional_Iterator --> Random_Access_Iterator;
 </div>
 
+## iterator & const_iterator
 
+const_iterator is read only.
+```cpp
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main(int argc, char const *argv[])
+{
+  vector<int> iv = {1,2,3,4,5};
+  vector<int>::iterator a = iv.begin();
+  vector<int>::const_iterator b = iv.begin();
+
+  *a = 12;
+  cout << *a << endl;
+
+  // *b = 100; // NOT WORK
+  cout << *b << endl;
+}
+```

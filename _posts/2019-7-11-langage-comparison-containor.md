@@ -6,6 +6,7 @@ categories: Langage-comparison
 tags: 
     - c++
     - java
+    - container
 ---
 
 ## Container comparison
