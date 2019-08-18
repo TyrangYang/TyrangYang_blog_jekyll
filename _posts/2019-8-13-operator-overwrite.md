@@ -21,6 +21,25 @@ private:
 public:
     INT(int i):m_i(i){};
 
+    friend bool operator==(INT& test1, INT& test2){
+        return test1.m_i == test2.m_i;
+    }
+
+    friend bool operator!=(INT& test1, INT& test2){
+        return test1.m_i != test2.m_i;
+    }
+
+    friend INT operator+(INT& test1, INT& test2){
+        int temp = test1.m_i + test2.m_i;
+        INT res(temp);
+        return res;
+    }
+
+    INT& operator=(INT& test){
+        this->m_i = test.m_i;
+        return *this;
+    }
+
     int& operator*() const{
         return (int&)this->m_i;
     }
@@ -52,10 +71,16 @@ public:
 int main(int argc, char const *argv[])
 {
     INT test(1);
-    cout << ++test << endl;
-    cout << test++ << endl;
-    cout << test << endl;
-    cout << *test << endl;
+    INT test1(10);
+    INT test2(3);
+    cout << ++test << endl; //[2]
+    cout << test++ << endl; //[2]
+    cout << test << endl; //[3]
+    cout << *test << endl; //3
+    cout << (test + test2) << endl; //[6]
+    cout << boolalpha << (test == test2) << endl; //true
+    test = test1;
+    cout << test << endl; //[10]
     return 0;
 }
 ```
