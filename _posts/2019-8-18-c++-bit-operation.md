@@ -114,8 +114,10 @@ int main(int argc, char const *argv[])
     cout << (foo & bar) << endl; // 0001
     cout << (foo | bar) << endl; // 1011
     cout << (foo ^ bar) << endl; // 1010
-    cout << foo &= bar << endl; // foo = 0001
+    cout << "foo = " << (foo |= bar) << endl; // foo = 1011
 
+    // foo = 1011
+    // foo[0] = 1; foo[2] = 1; foo[3] = 0; foo[4] = 1;
     for (int i = 0; i < 4; ++i)
     {
         cout << foo[i] << ' ';
