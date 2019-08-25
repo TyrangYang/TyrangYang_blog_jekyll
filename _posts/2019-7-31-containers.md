@@ -119,7 +119,7 @@ This algorithm is O(nlogn). It roughly a merge sort.
 This [**website**](https://blog.csdn.net/qq_31720329/article/details/85535787) has a sample show the algorithm step by step.
 
 But STL sort algorithm is better.
-
+![sort list]({{ site.url }}{{ site.baseurl }}/public/images/2019-7-31-containers/sort_list.png)
 ---
 
 ## Deque
@@ -303,5 +303,39 @@ You can modify the value by iterator bu not the key. Therefore, it neither a con
 
 STL::find() is work. But better using map::find().
 
+Map could use operator[] to access by providing a key. But the problem is that if the key your provided not exist in map, that will insert this key. Therefore, if you want to modify value but not add new key-value pair, you can use map.at(). If you just want to know this exist or not, you can use map.count() which will return 1 or 0.
 
+```cpp
+#include <iostream>
+#include <map>
+using namespace std;
 
+int main(int argc, char const *argv[])
+{
+    map<char, int> mymap;
+    
+    mymap['b'] = 100;
+    mymap['a'] = 200;
+    mymap['c'] = 300;
+
+    mymap['d'] == 100 ? cout << "find" << endl : cout << "not find" << endl;
+
+    mymap.count('e') ? cout << "find" << endl : cout << "not find" << endl;
+
+    for(auto i: mymap){
+        cout << i.first << " " << i.second << endl;
+    }
+}
+```
+
+## multimap & multiset
+
+Could have several key.
+
+## Hashtable
+
+### Linear probing
+
+### Quadratic probing
+
+### Seperate chaining
