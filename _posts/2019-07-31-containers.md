@@ -120,6 +120,7 @@ This [**website**](https://blog.csdn.net/qq_31720329/article/details/85535787) h
 
 But STL sort algorithm is better.
 ![sort list]({{ site.url }}{{ site.baseurl }}/public/images/2019-7-31-containers/sort_list.png)
+
 ---
 
 ## Deque
@@ -138,6 +139,8 @@ Deque structure:
 If 20 integer in a deque, the iterator is:
 ![dequeIterator]({{site.url}}{{site.baseurl}}/public/images/2019-7-31-containers/map_iterator.png)
 
+---
+
 ## Stack
 
 Stack is deque which close one end. STL design stack base on deque, therefore stack is not classified as container but classified as adopter.  
@@ -147,6 +150,8 @@ FILO
 **NO iterator**
 
 Can be inplemented by list.
+
+---
 
 ## Queue
 
@@ -328,14 +333,44 @@ int main(int argc, char const *argv[])
 }
 ```
 
+---
+
 ## multimap & multiset
 
 Could have several key.
+
+---
 
 ## Hashtable
 
 ### Linear probing
 
+
 ### Quadratic probing
+After find a collision, Change the hash function.
+
+Mutiplication is not good, especially i power 2.
+
+>H<sub>i</sub> = H<sub>0</sub> + i<sup>2</sup>(mod M)
+>
+>H<sub>i+1</sub> = H<sub>0</sub> + (i+1)<sup>2</sup>(mod M)
+
+But we can do:
+
+>H<sub>i+1</sub> - H<sub>i</sub> = (i+1)<sup>2</sup>(mod M) - i<sup>2</sup>(mod M)
+>
+>H<sub>i+1</sub> - H<sub>i</sub> = (i+1)<sup>2</sup> - i<sup>2</sup>(mod M)
+>
+>H<sub>i+1</sub> - H<sub>i</sub> = 2i + 1 (mod M)
+>
+>H<sub>i+1</sub> = H<sub>i</sub> + 2i + 1 (mod M)
+
+We can use left shift to multiple 2 which is a acceptable method.
 
 ### Seperate chaining
+
+C++ use seperate chaining to achieve Hashtable.
+
+In STL, hashtable use a vector and linked-list (not list in STL).
+
+![hashtable_iterator]({{site.baseurl}}{{site.url}}/public/images/2019-7-31-containers/hashtable_iterator.png)
