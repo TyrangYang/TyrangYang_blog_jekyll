@@ -16,8 +16,10 @@
 title: TyrangYang
 email: haolinyang95@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-# baseurl: "/TyrangYang_blog" # the subpath of your site, e.g. /blog
-# url: "https://tyrangyang.github.io"
+# baseurl: ""
+# url: "127.0.0.1:4000"
+baseurl: "/TyrangYang_blog"
+url: "https://tyrangyang.github.io"
 twitter_username: 499768797Tyrang
 github_username:  TyrangYang
 logo: 
@@ -38,7 +40,7 @@ markdown: kramdown
 remote_theme: "mmistakes/so-simple-theme"
 
 ## math expression
-mathjax: true
+# mathjax: true
 # Pagination - https://jekyllrb.com/docs/pagination/
 paginate: 10
 paginate_path: /page:num/
