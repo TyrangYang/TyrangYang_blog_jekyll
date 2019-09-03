@@ -37,6 +37,8 @@ markdown: kramdown
 # theme: jekyll-theme-so-simple
 remote_theme: "mmistakes/so-simple-theme"
 
+## math expression
+mathjax: true
 # Pagination - https://jekyllrb.com/docs/pagination/
 paginate: 10
 paginate_path: /page:num/
@@ -47,13 +49,6 @@ tag_archive_path: "/tags/#"
 plugins:
   - jekyll-feed
 
-# defaults:
-#   -
-#     scope:
-#       path: ""
-#       type: "posts"
-#     values:
-#       layout: "post" 
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
