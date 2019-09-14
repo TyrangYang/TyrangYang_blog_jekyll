@@ -46,7 +46,7 @@ while(!flag){
 await !flag
 ```
 
-![transtion system]({{site.baseurl}}{{site.url}}/public/images/2019-09-04-concurrent-programming-2/transition-system.png)
+![transtion system]({{site.url}}{{site.baseurl}}/public/images/2019-09-04-concurrent-programming-2/transition-system.png)
 
 no (p4,q4) which two thread in critical sekction at same time.
 
