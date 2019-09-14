@@ -16,14 +16,17 @@
 title: TyrangYang
 email: haolinyang95@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-# baseurl: ""
-# url: "127.0.0.1:4000"
-baseurl: "/TyrangYang_blog"
-url: "https://tyrangyang.github.io"
+baseurl: ""
+url: "127.0.0.1:4000"
+# baseurl: "/TyrangYang_blog"
+# url: "https://tyrangyang.github.io"
 twitter_username: 499768797Tyrang
 github_username:  TyrangYang
 logo: 
+
+#Search setting
 search_full_content: true
+
 footer_links:
   - title: Twitter
     url: https://twitter.com/499768797Tyrang
@@ -31,13 +34,32 @@ footer_links:
   - title: Github
     url: https://github.com/TyrangYang
     icon: fab fa-github-square
+
 # Build settings
 markdown: kramdown
-# theme: jekyll-swiss
-# remote_theme: broccolini/swiss
-# theme: minima
-# theme: jekyll-theme-so-simple
 remote_theme: "mmistakes/so-simple-theme"
+
+collections:
+  recipes:
+    output: true
+    permalink: /:collection/:path/
+
+defaults:
+  # Post defaults
+  - scope:
+      path: "_posts"
+      type: "posts"
+    values:
+      share: true
+  # Recipe defaults
+  - scope:
+      path: "_recipes"
+      type: recipes
+    values:
+      layout: post
+      # comments: true
+      share: true
+
 
 ## math expression
 # mathjax: true
