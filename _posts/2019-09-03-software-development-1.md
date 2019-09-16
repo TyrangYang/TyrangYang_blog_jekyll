@@ -50,4 +50,55 @@ Time and effort invested in plans&uarr; --> risk&darr; ; lost of market share&ua
 
 
 * RUP where you most focus on the biggest risk first contrast with XP. XP release frequently.
-* 
+
+## Corporate Culture
+
+Agile is self organizing teams. Frequently delivering and feedback. Manager help team to self organize, ask question.
+
+## Todoy's Topic
+
+* Requirments: Plan driven
+* Use Cases: RUP approach
+* User Story: Agile approach
+
+
+## User story
+
+Template: As a (role) I want (something) so that (benefit).
+
+### User Story Components
+
+* **Title** – a short handle for the story. Present tense verb in active voice is desirable
+* **Acceptance test** - the name of a method to test the story
+  - How to determine if the functionality is provided?
+  - Acceptance test helps to flesh out the details of the user story
+* **Priority** – decided by the customer (1 to 10. 1 is higher)
+* **Story points** – estimated time to implement expressed in relative units (Use Fibonacci number)
+* **Description** – one to three sentences describing the story
+
+### Planning Poker
+
+* Goal: estimate relative effort for each user story
+* Participants
+  * Developers estimate effort
+  * Scrum Master optimizes the process
+  * Product owner answers questions
+* Process
+  * Describe the user story
+  * Each developer assigns effort
+  * Continue until consensus
+
+### INVEST
+
+* **Independent** in context and scheduling
+* **Negotiable** between customer and developers
+* **Valuable** to the customer
+* **Esimable** value to customer & effort for developers
+* **Small** in scope
+* **Testable** include sufficient details to allow testing
+
+### limitation
+
+* may lack of look-ahead --> Developers need quick responses from customers
+* may lack of context --> statement is terse/too concise
+* may lack of completeness --> Gaps may arise as the user stories and product evolve
