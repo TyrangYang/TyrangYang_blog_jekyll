@@ -14,8 +14,8 @@ tags:
 
 * Sequence container
     - array (build in)
-    - vector
-    - heap
+    - [vector](#vector)
+    - [heap](#heap)
     - priority queue
     - list
     - slist (not standard)
