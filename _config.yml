@@ -51,6 +51,8 @@ defaults:
       type: "posts"
     values:
       share: true
+      layout: post
+      author: "Haolin Yang"
   # Recipe defaults
   - scope:
       path: "_recipes"
