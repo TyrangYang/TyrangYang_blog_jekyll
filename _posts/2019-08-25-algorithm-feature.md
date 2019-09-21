@@ -1,7 +1,7 @@
 ---
 layout: post
 author: Haolin Yang
-title: Algorithm in c++ STL
+title: Algorithm feature in c++ STL
 categories: STL-study-note
 tags: 
     - c++
@@ -9,9 +9,12 @@ tags:
     - algorithm
 ---
 
+# **See all algorithm [click here]({{site.url}}{{site.baseurl}}/stl-study-note/2019/09/20/all-algorithm.html)**
+
 ## Mutating and Non-mutating algorithms
 
 ### Mutating algorithms
+
 Mutating algorithms means this algorithm will change the content that iterator pointed to. Like copy, swap, replace, fill, remove, permutation, partition, random shuffling and sort.
 
 If your give these algorithms a const iterator, only error will be returned.
@@ -45,9 +48,11 @@ int main(int argc, char const *argv[])
 ```
 
 ### Non-mutating algorithm
+
 Algorithm not change any element that iterator pointed to. Like: find, search, for_each, count, equal_mismatch, max, min.
 
 Some algorithms have functor like for_each to change element.
+
 ```cpp
 #include <iostream>
 #include <vector>
@@ -93,11 +98,12 @@ Each algorithm need different type and is Backward compatible.
 
 That may have some different version for one function.
 
-Some may need a functor. like, find and find_if.
+Some may need a functor. like, find and find_if. Usually, it appear on some function which need comparison. 
 
 For mutating algorithm, normally have two version. One is in-place and another is copy. like replace and replace_if.
 
-## Generalization
+
+
 
 
 

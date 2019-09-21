@@ -9,6 +9,7 @@ tags:
 ---
 
 ## Agile Vs Traditional SDLC Models
+
 Agile is based on the **adaptive software development methods**, whereas the traditional SDLC models like the **waterfall model is based on a predictive approach**. Predictive teams in the traditional SDLC models usually work with detailed planning and have a complete forecast of the exact tasks and features to be delivered in the next few months or during the product life cycle.
 
 Predictive methods entirely depend on the requirement analysis and planning done in the beginning of cycle. Any changes to be incorporated go through a strict change control management and prioritization.

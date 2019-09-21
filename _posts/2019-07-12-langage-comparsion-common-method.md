@@ -20,6 +20,7 @@ This method sorts elements in the range [first, last).
 
 Result is in ascending order by deflaut.
 
+Introsort.
 ```cpp
 // sort algorithm example
 #include <iostream>     // std::cout
