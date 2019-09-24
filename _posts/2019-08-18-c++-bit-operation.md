@@ -21,6 +21,8 @@ tags:
 
 ### Operator: & 
 
+x is a bit
+
 x & 1 = x
 
 x & 0 = 0

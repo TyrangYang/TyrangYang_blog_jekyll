@@ -22,8 +22,8 @@ tags:
 
 | Algorithm Name | Usage | Mutating? | Head File |
 | :---:          | :---: | :---: | :---: |
-| [accumulate](#number) | accumulate elements | N | numeric |
-| [adjacent_difference](#number) | difference between close elements | Y (if in-place) | numeric|
+| [accumulate](#number) | Accumulate values in range | N | numeric |
+| [adjacent_difference](#number) | s | Y (if in-place) | numeric|
 | adjacent_find | | N | algorithm |
 | all_of* | | N | algorithm |
 | any_of* | | N | algorithm |
@@ -48,7 +48,7 @@ tags:
 | generate_n | | Y | algorithm |
 | includes | | N | algorithm |
 | inplace_merge | | | algorithm |
-| inner_product | | N | numeric |
+| [inner_product](#number) | Compute cumulative inner product of range | N | numeric |
 | inplace_merge | | Y | algorithm |
 | [iota](#number) | Store increasing sequence | Y | numeric |
 | [is_heap*](#heap) | Test if range is heap | N | algorithm |
@@ -76,7 +76,7 @@ tags:
 | nth_element | | Y | algorithm |
 | [partial_sort](#sort) | Partially sort elements in range while the remaining elements are left without any order | Y | algorithm |
 | [partial_sort_copy](#sort) | Copy and partially sort range | Y (if in-place) | algorithm |
-| partial_sum | | Y (if in-place) | numeric |
+| [partial_sum](#number) | Compute partial sums of range | Y (if in-place) | numeric |
 | partition | | Y | algorithm |
 | partition_copy* | |  | algorithm |
 | partition_point* | | | algorithm |
@@ -170,6 +170,10 @@ int main(int argc, char const *argv[]){
 [Back to top](#content)
 
 ## Number
+
+iota just make a increasing sequence start from a given number.
+
+
 
 ```cpp
 #include <i>

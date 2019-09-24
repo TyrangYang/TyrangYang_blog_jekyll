@@ -119,8 +119,12 @@ thread Consumer: {
 ```
 
 ## Reader & Writer
+
 Mutiple reader could read.
+
 No reader can read when writer writing
+
+The first one grab the resourse and the last one release it.
 
 ``` java
 Semaphore resource = new Semaphore(1);
@@ -151,3 +155,78 @@ thread Reader: {
     }
 }
 ```
+
+## Man & Woman Bar
+
+
+## 
+
+```java
+Semaphore permToLoad = new Semaphore(0);
+Semaphore doneLoading = new Semaphore(0);
+
+Semaphore track[] = {new Semaphore(1); new Semaphore(1)};
+Semaphore freight = new Semaphore(1);
+
+thread PassengerTrain(i) {
+  track[i].acquire();
+  track[i].release();
+}
+
+thread FreightTrain(i) {
+  freight.acquire();
+  track[i].acquire();
+  track[1-i].acquire();
+  freight.release();
+  
+  permToLoad.release();
+  doneLoading.acquire();
+  
+  track[i].release();
+  track[1-i].release();
+ 
+}
+
+thread LoadingMachine: {
+  while (true) {
+    permToLoad.acquire();
+    // process vehicle
+    
+    doneLoading.release();
+  }
+}
+```
+
+
+## Car
+
+```java
+
+Semaphore permToProcess = {new Semaphore(0), new Semaphore(0), new Semaphore(0)};
+Semaphore doneProcessing = {new Semaphore(0), new Semaphore(0), new Semaphore(0)};
+
+Semaphore station0 = new Semaphore(1);
+Semaphore station1 = new Semaphore(1);
+Semaphore station2 = new Semaphore(1);
+
+thread car{
+    station0.acquire();
+    permToProcess[0].release();
+    doneProcessing[0].acquire();
+    station1.acquire();
+    station0.release();
+    permToProcess[1].release();
+    doneProcessing[1].acquire();
+    station2.acquire();
+    station1.release();
+    permToProcess[2].release();
+    doneProcessing[2].acquire();
+    station2.release();
+}
+
+thread MachineAtStation(i) {
+    while(true){
+        permToProcess[i].acquire();
+        doneProcessing[i].release();
+    }
+}
