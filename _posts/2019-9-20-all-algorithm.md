@@ -23,7 +23,7 @@ tags:
 | Algorithm Name | Usage | Mutating? | Head File |
 | :---:          | :---: | :---: | :---: |
 | [accumulate](#number) | Accumulate values in range | N | numeric |
-| [adjacent_difference](#number) | s | Y (if in-place) | numeric|
+| [adjacent_difference](#number) | Compute adjacent difference of range and return to another place | N | numeric|
 | adjacent_find | | N | algorithm |
 | all_of* | | N | algorithm |
 | any_of* | | N | algorithm |
@@ -61,29 +61,28 @@ tags:
 | lexicographical_compare | | N | algorithm |
 | lower_bond | | N | algorithm |
 | [make_heap](#heap) | Make heap from range | Y | algorithm |
-| max | | N | algorithm |
-| max_element | | N | algorithm |
+| [max](#number) | Returns the largest of a and b. If both are equivalent, a is returned. | N |algorithm |
+| [max_element](#number) | Return largest element in range | N | algorithm |
 | merge | | Y (if in-place) | algorithm |
-| min | | N | algorithm |
-| minmax* | | | algorithm |
-| minmax_element* | | | algorithm |
-| min_element | | N | algorithm |
+| [min](#number) | Returns the smallest of a and b. If both are equivalent, a is returned. | N | algorithm |
+| [minmax*](#number) | Return smallest and largest elements from give 2 value or initializer | N | algorithm |
+| [minmax_element*](#number) | Return smallest and largest elements in range | N | algorithm |
+| [min_element](#number) | Return smallest element in range | N | algorithm |
 | mismatch | | N | algorithm |
 | move* | | | algorithm |
 | move_backward* | | | algorithm |
 | next_permutation | | Y | algorithm |
 | none_of* | | | algorithm |
-| nth_element | | Y | algorithm |
+| nth_element |  | Y | algorithm |
 | [partial_sort](#sort) | Partially sort elements in range while the remaining elements are left without any order | Y | algorithm |
 | [partial_sort_copy](#sort) | Copy and partially sort range | Y (if in-place) | algorithm |
-| [partial_sum](#number) | Compute partial sums of range | Y (if in-place) | numeric |
+| [partial_sum](#number) | Compute partial sums of range and return to another place | N | numeric |
 | partition | | Y | algorithm |
 | partition_copy* | |  | algorithm |
 | partition_point* | | | algorithm |
 | [pop_heap](#heap) | Pop element from heap range. Range shrink and value is at end. | Y | algorithm |
 | prev_permutation | | Y | algorithm |
 | [push_heap](#heap) | Push element into heap range. Range extend | Y | algorithm |
-| power | | N | numeric |
 | [random_shuffle](#shuffle) | Randomly rearrange elements in range | Y | algorithm |
 | remove | | Y | algorithm |
 | remove_copy | | Y | algorithm |
@@ -171,12 +170,109 @@ int main(int argc, char const *argv[]){
 
 ## Number
 
+\<numberic\>: iota accumulate inner_product partial_sum adjacent_differenet
+\<algorithm\>: max min max_element min_element minmax
 iota just make a increasing sequence start from a given number.
 
-
-
 ```cpp
-#include <i>
+#include <iostream>
+#include <vector>
+#include <numeric>
+#include <algorithm>
+#include <functional>
+#include <utility>
+using namespace std;
+
+int main(int argc, char const *argv[])
+{
+	
+	vector<int> iv(5);
+
+	// iota
+	iota(iv.begin(), iv.end(), 1); // 1 2 3 4 5
+
+	// accumulate
+	cout << accumulate(iv.begin(), iv.end(), 0) << endl; // 15
+	// init + *iv + *(iv+1) + ...
+	
+	cout << accumulate(iv.begin(), iv.end(), 0, minus<int>()) << endl; // -15
+	// init - *iv - *(iv+1) - ...
+
+	// inner_product
+
+	vector<int> iv1 = {10, 20, 30};
+	vector<int> iv2 = {1, 2, 3};
+
+	cout << inner_product(iv1.begin(), iv1.end(), iv2.begin(), 0) << endl;
+	// 0 + 10 * 1 + 20 * 2 + 30 * 3 = 140
+
+	cout << inner_product(iv1.begin(), iv1.end(), iv2.begin(), 0, 
+		minus<int>(), divides<int>()) << endl;
+	// 0 - 10 / 1 - 20 / 2 - 30 / 3 = -30
+
+	// partial_sum
+	vector<int> res(5);
+	partial_sum(iv.begin(), iv.end(), res.begin());
+	// iv: 1 2 3 4 5
+	// res: 1 3 6 10 15
+
+	partial_sum(iv.begin(), iv.end(),res.begin(), minus<int>());
+	// iv: 1 2 3 4 5
+	// res: 1 -1 -4 -8 -13 
+
+	adjacent_difference(iv.begin(), iv.end(), res.begin());
+	// iv: 1 2 3 4 5
+	// res: 1 1 1 1 1
+
+	adjacent_difference(iv.begin(), iv.end(), res.begin(), multiplies<int>());
+	// iv: 1 2 3 4 5
+	// res: 1 2 6 12 20
+
+	// adjacent_difference calculate every two adjacent elements
+	// y0 = x0 
+	// y1 = x1 - x0 
+	// y2 = x2 - x1 
+	// y3 = x3 - x2 
+	// y4 = x4 - x3  ...
+
+	// parial_sum calculate all elements b
+	// y0 = x0 
+	// y1 = x0 + x1 
+	// y2 = x0 + x1 + x2 
+	// y3 = x0 + x1 + x2 + x3 
+	// y4 = x0 + x1 + x2 + x3 + x4  ...
+
+	// max 
+	cout << max(1, 3) << endl; // 3
+	cout << max(2, 2) << endl; // 2
+
+	// max element
+	auto max_e = max_element(iv.begin(), iv.end());
+	cout << *max_e << endl; // 5
+
+	// min 
+	cout << min(1, 3) << endl; // 1
+	cout << min(2, 2) << endl; // 2
+
+	// min element
+	auto min_e = min_element(iv.begin(), iv.end());
+	cout << *min_e << endl; // 1
+
+	// minmax
+	pair<int, int> min_max = minmax({5,2,3,1,4});
+	min_max = minmax(1,5);
+	cout << min_max.first << " " << min_max.second << endl; // 1 5
+
+	// minmax_element
+	pair<vector<int>::iterator, vector<int>::iterator> 
+		min_max_element = minmax_element(iv.begin(), iv.end());
+	cout << "max= "<< *min_max_element.first << " at position " << min_max_element.first - iv.begin() << endl;
+	// max= 1 at position 0
+	cout << "min= "<< *min_max_element.first << " at position " << min_max_element.second - iv.begin() << endl;
+	// min= 1 at position 4
+ 	
+	return 0;
+}
 ```
 
 [Back to top](#content)
