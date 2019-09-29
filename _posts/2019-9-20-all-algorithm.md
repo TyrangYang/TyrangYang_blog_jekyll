@@ -12,6 +12,9 @@ tags:
 - [Algorithm Overview](#algorithm-overview)
 - [Heap](#heap)
 - [Number](#number)
+- [Partition](#partition)
+- [permutation](#permutation)
+- [Search](#search)
 - [Set](#set)
 - [Shuffle](#shuffle)
 - [Sort](#sort)
@@ -20,99 +23,99 @@ tags:
 
 **'*' --> new feature from C++11**
 
-| Algorithm Name | Usage | Mutating? | Head File |
-| :---:          | :---: | :---: | :---: |
-| [accumulate](#number) | Accumulate values in range | N | numeric |
-| [adjacent_difference](#number) | Compute adjacent difference of range and return to another place | N | numeric|
-| adjacent_find | | N | algorithm |
-| all_of* | | N | algorithm |
-| any_of* | | N | algorithm |
-| binary_search | binary search | N | algorithm |
-| copy | | Y (if in-place) | algorithm |
-| copy_backward | | Y (if in-place) | algorithm |
-| copy_if* | | | algorithm |
-| copy_n* | | Y (if in-place) | algorithm |
-| count | | N | algorithm |
-| count_if | | N | algorithm |
-| equal | | N | algorithm |
-| equal_range | | N | algorithm |
-| fill | | Y | algorithm |
-| fill_n | | Y | algorithm |
-| find | | N | algorithm |
-| find_end | | | algorithm |
-| find_first_of | | N | algorithm |
-| find_if | | N | algorithm |
-| find_if_not* | | N | algorithm |
-| for_each | | N | algorithm |
-| generate | | Y | algorithm |
-| generate_n | | Y | algorithm |
-| includes | | N | algorithm |
-| inplace_merge | | | algorithm |
-| [inner_product](#number) | Compute cumulative inner product of range | N | numeric |
-| inplace_merge | | Y | algorithm |
-| [iota](#number) | Store increasing sequence | Y | numeric |
-| [is_heap*](#heap) | Test if range is heap | N | algorithm |
-| [is_heap_until*](#heap) | Find first element not in heap order. | N | algorithm |
-| is_partitioned* | | | algorithm |
-| is_permutation* | | | algorithm |
-| [is_sorted*](#sort) | Check whether range is sorted | N | algorithm |
-| [is_sorted_until*](#sort) | Find first unsorted element in range | N | algorithm |
-| iter_swap | | Y | algorithm |
-| lexicographical_compare | | N | algorithm |
-| lower_bond | | N | algorithm |
-| [make_heap](#heap) | Make heap from range | Y | algorithm |
-| [max](#number) | Returns the largest of a and b. If both are equivalent, a is returned. | N |algorithm |
-| [max_element](#number) | Return largest element in range | N | algorithm |
-| merge | | Y (if in-place) | algorithm |
-| [min](#number) | Returns the smallest of a and b. If both are equivalent, a is returned. | N | algorithm |
-| [minmax*](#number) | Return smallest and largest elements from give 2 value or initializer | N | algorithm |
-| [minmax_element*](#number) | Return smallest and largest elements in range | N | algorithm |
-| [min_element](#number) | Return smallest element in range | N | algorithm |
-| mismatch | | N | algorithm |
-| move* | | | algorithm |
-| move_backward* | | | algorithm |
-| next_permutation | | Y | algorithm |
-| none_of* | | | algorithm |
-| nth_element |  | Y | algorithm |
-| [partial_sort](#sort) | Partially sort elements in range while the remaining elements are left without any order | Y | algorithm |
-| [partial_sort_copy](#sort) | Copy and partially sort range | Y (if in-place) | algorithm |
-| [partial_sum](#number) | Compute partial sums of range and return to another place | N | numeric |
-| partition | | Y | algorithm |
-| partition_copy* | |  | algorithm |
-| partition_point* | | | algorithm |
-| [pop_heap](#heap) | Pop element from heap range. Range shrink and value is at end. | Y | algorithm |
-| prev_permutation | | Y | algorithm |
-| [push_heap](#heap) | Push element into heap range. Range extend | Y | algorithm |
-| [random_shuffle](#shuffle) | Randomly rearrange elements in range | Y | algorithm |
-| remove | | Y | algorithm |
-| remove_copy | | Y | algorithm |
-| remove_copy_if | | Y | algorithm |
-| remove_if | | Y | algorithm |
-| replace | | Y | algorithm |
-| replace_copy | | Y | algorithm |
-| replace_copy_if | | Y | algorithm |
-| replace_if | | Y | algorithm |
-| reverse | | Y | algorithm |
-| reverse_copy | | Y | algorithm |
-| rotate | | Y | algorithm |
-| rotate_copy | | Y | algorithm |
-| search | | N | algorithm |
-| search_n | | N | algorithm |
-| set_difference | | Y (if in-place) | algorithm |
-| set_intersection | | Y (if in-place) | algorithm |
-| set_symmetric | | Y (if in-place) | algorithm |
-| set_union | | Y (if in-place) | algorithm |
-| [shuffle*](#shuffle) | Randomly rearrange elements in range using generator | Y | algorithm |
-| [sort](#sort) | Sort elements in range | Y | algorithm |
-| [sort_heap](#heap) | Sort elements of heap | Y | algorithm |
-| stable_partition | | Y | algorithm |
-| [stable_sort](#sort) | Sort elements preserving order of equivalents | Y | algorithm |
-| swap | | Y | algorithm |
-| swap_ranges | | Y | algorithm |
-| transform | | Y | algorithm |
-| unique | | Y | algorithm |
-| unique_copy | | Y | algorithm |
-| upper_bond | | N | algorithm |
+| Algorithm Name | Usage | Mutating? | Head File | Complexity |
+| :---:          | :---: | :---: | :---: | :---: |
+| [accumulate](#number) | Accumulate values in range | N | numeric | O(n) |
+| [adjacent_difference](#number) | Compute adjacent difference of range and return to another place | N |numeric| O(n) |
+| [adjacent_find](#search) | Find first equal adjacent elements in range | N | algorithm | O(n) |
+| all_of* | | N | algorithm | O() |
+| any_of* | | N | algorithm | O() |
+| binary_search | binary search | N | algorithm | O() |
+| copy | | Y (if in-place) | algorithm | O() |
+| copy_backward | | Y (if in-place) | algorithm | O() |
+| copy_if* | | | algorithm | O() |
+| copy_n* | | Y (if in-place) | algorithm | O() |
+| count | | N | algorithm | O() |
+| count_if | | N | algorithm | O() |
+| equal | | N | algorithm | O() |
+| equal_range | | N | algorithm | O() |
+| fill | | Y | algorithm | O() |
+| fill_n | | Y | algorithm | O() |
+| [find](#search) | Find the first element in range | N | algorithm | O(n) |
+| [find_end](#search) | Find last subsequence in range | N | algorithm | O(m*(1+n-m)) |
+| [find_first_of](#search) | Returns an iterator to the first element in the range [first1,last1) that matches any of the elements in [first2,last2) | N | algorithm | O(nm) |
+| [find_if](#search) | Find the first element in range in some condition | N | algorithm | O(n) |
+| [find_if_not*](#search) | Find the first element in range in some condition | N | algorithm | O(n) |
+| for_each | | N | algorithm | O() |
+| generate | | Y | algorithm | O() |
+| generate_n | | Y | algorithm | O() |
+| includes | | N | algorithm | O() |
+| inplace_merge | | | algorithm | O() |
+| [inner_product](#number) | Compute cumulative inner product of range | N | numeric | O(n) |
+| inplace_merge | | Y | algorithm | O() |
+| [iota](#number) | Store increasing sequence | Y | numeric | O(n) |
+| [is_heap*](#heap) | Test if range is heap | N | algorithm | O(n) |
+| [is_heap_until*](#heap) | Find first element not in heap order. | N | algorithm | O(n) |
+| [is_partitioned*](#partition) | Test whether range is partitioned | Y | algorithm | O(n) |
+| is_permutation* | | | algorithm | O() |
+| [is_sorted*](#sort) | Check whether range is sorted | N | algorithm | O(n) |
+| [is_sorted_until*](#sort) | Find first unsorted element in range | N | algorithm | O(n) |
+| iter_swap | | Y | algorithm | O() |
+| lexicographical_compare | | N | algorithm | O() |
+| [lower_bond](#search) | Return iterator to lower bound | N | algorithm | O(logn + 1) for randam access iterator, otherwise O(n) |
+| [make_heap](#heap) | Make heap from range | Y | algorithm | O(3n) |
+| [max](#number) | Returns the largest of a and b. If both are equivalent, a is returned.| N |algorithm |O(1) |
+| [max_element](#number) | Return largest element in range | N | algorithm | O(n) |
+| merge | | Y (if in-place) | algorithm | O() |
+| [min](#number) | Returns the smallest of a and b. If both are equivalent, a is returned. | N | algorithm | O(1) |
+| [minmax*](#number) | Return smallest and largest elements from give 2 value or initializer | N | algorithm | O(1) |
+| [minmax_element*](#number) | Return smallest and largest elements in range | N | algorithm | O(n) |
+| [min_element](#number) | Return smallest element in range | N | algorithm | O(n) |
+| mismatch | | N | algorithm | O() |
+| move* | | | algorithm | O() |
+| move_backward* | | | algorithm | O() |
+| [next_permutation](#permutation) | Transform range to next permutation | Y | algorithm | O(n) |
+| none_of* | | | algorithm | O() |
+| nth_element |  | Y | algorithm | O() |
+| [partial_sort](#sort) | Partially sort elements in range while the remaining elements are left without any order | Y | algorithm | O(mlogn) |
+| [partial_sort_copy](#sort) | Copy and partially sort range | Y (if in-place) | algorithm | O(mlogn) |
+| [partial_sum](#number) | Compute partial sums of range and return to another place | N | numeric | O(n) |
+| [partition](#partition) | Partition range in two and the iterator returned points to the first element of the second group. | Y | algorithm | O(n) |
+| [partition_copy*](#partition) | Partition range into two | N | algorithm | O(n) |
+| [partition_point*](#partition) | Get partition point and Returns an iterator to the first element in second part | N | algorithm | O(logn + 2) |
+| [pop_heap](#heap) | Pop element from heap range. Range shrink and value is at end. | Y | algorithm |O(logn) |
+| [prev_permutation](#permutation) | Transform range to previous permutation | Y | algorithm | O(n) |
+| [push_heap](#heap) | Push element into heap range. Range extend | Y | algorithm | O(logn) |
+| [random_shuffle](#shuffle) | Randomly rearrange elements in range | Y | algorithm | O(n) |
+| remove | | Y | algorithm | O() |
+| remove_copy | | Y | algorithm | O() |
+| remove_copy_if | | Y | algorithm | O() |
+| remove_if | | Y | algorithm | O() |
+| replace | | Y | algorithm | O() |
+| replace_copy | | Y | algorithm | O() |
+| replace_copy_if | | Y | algorithm | O() |
+| replace_if | | Y | algorithm | O() |
+| reverse | | Y | algorithm | O() |
+| reverse_copy | | Y | algorithm | O() |
+| rotate | | Y | algorithm | O() |
+| rotate_copy | | Y | algorithm | O() |
+| [search](#search) | Search range for subsequence | N | algorithm | O(n*m) |
+| [search_n](#search) | Search range for n continue elements | N | algorithm | O(n) |
+| set_difference | | Y (if in-place) | algorithm | O() |
+| set_intersection | | Y (if in-place) | algorithm | O() |
+| set_symmetric | | Y (if in-place) | algorithm | O() |
+| set_union | | Y (if in-place) | algorithm | O() |
+| [shuffle*](#shuffle) | Randomly rearrange elements in range using generator | Y | algorithm | O(n) |
+| [sort](#sort) | Sort elements in range | Y | algorithm | O(nlogn) |
+| [sort_heap](#heap) | Sort elements of heap | Y | algorithm | O(nlogn) |
+| [stable_partition](#partition) | Partition range in two - stable ordering | Y | algorithm | O(n) with enough space. Otherwise O(nlogn) |
+| [stable_sort](#sort) | Sort elements preserving order of equivalents | Y | algorithm | O(nlogn) with enough space, otherwise O(nlognlogn)|
+| swap | | Y | algorithm | O() |
+| swap_ranges | | Y | algorithm | O() |
+| transform | | Y | algorithm | O() |
+| unique | | Y | algorithm | O() |
+| unique_copy | | Y | algorithm | O() |
+| [upper_bond](#search) | Return iterator to upper bound. Since **[first, last)**, the value pointed by the iterator must larger than *val*| N | algorithm | O(logn + 1) for randam access iterator, otherwise O(n) |
 
 
 ## Heap
@@ -160,8 +163,9 @@ int main(int argc, char const *argv[]){
     pop_heap(ia, ia + 10);
 
     // is_heap_until
+    // ia: 8 7 6 3 4 5 2 0 1 9 
     auto iter = is_heap_until(ia, ia + 10);
-    cout << *iter << endl;
+    cout << *iter << endl; // 9
     return 0;
 }
 ```
@@ -170,8 +174,9 @@ int main(int argc, char const *argv[]){
 
 ## Number
 
-\<numberic\>: iota accumulate inner_product partial_sum adjacent_differenet
-\<algorithm\>: max min max_element min_element minmax
+**\<numberic\>:** iota accumulate inner_product partial_sum adjacent_differenet
+
+**\<algorithm\>:** max min max_element min_element minmax
 iota just make a increasing sequence start from a given number.
 
 ```cpp
@@ -185,7 +190,6 @@ using namespace std;
 
 int main(int argc, char const *argv[])
 {
-	
 	vector<int> iv(5);
 
 	// iota
@@ -266,11 +270,313 @@ int main(int argc, char const *argv[])
 	// minmax_element
 	pair<vector<int>::iterator, vector<int>::iterator> 
 		min_max_element = minmax_element(iv.begin(), iv.end());
-	cout << "max= "<< *min_max_element.first << " at position " << min_max_element.first - iv.begin() << endl;
+	cout << "max= "<< *min_max_element.first << 
+		" at position " << min_max_element.first - iv.begin() << endl;
 	// max= 1 at position 0
-	cout << "min= "<< *min_max_element.first << " at position " << min_max_element.second - iv.begin() << endl;
+	cout << "min= "<< *min_max_element.first << 
+		" at position " << min_max_element.second - iv.begin() << endl;
 	// min= 1 at position 4
  	
+	return 0;
+}
+```
+
+[Back to top](#content)
+
+## Partition
+
+is_partitioned partition stable_partition partition_copy partition_point
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <numeric>
+using namespace std;
+
+bool isOdd(int n){return (n % 2 == 1);}
+
+int main(int argc, char const *argv[])
+{
+	vector<int> iv(8);
+	iota(iv.begin(), iv.end(), 1);
+	vector<int>::iterator bond;
+
+	// partition
+	bond = partition(iv.begin(), iv.end(), isOdd); // iv: 1 7 3 5 4 6 2 8
+
+	cout << *bond << endl; // 4
+
+	for (vector<int>::iterator i = iv.begin(); i != bond; ++i){
+		cout << *i << " ";
+	} cout << endl; // 1 7 3 5 
+
+	for (vector<int>::iterator i = bond; i != iv.end(); ++i){
+		cout << *i << " ";
+	} cout << endl; // 4 6 2 8 
+
+
+	// stable_partition
+	iota(iv.begin(), iv.end(), 1); // iv: 1 2 3 4 5 6 7 8
+
+	bond = stable_partition(iv.begin(), iv.end(), isOdd);
+	// iv: 1 3 5 7 2 4 6 8 
+
+	cout << *bond << endl; // 2
+
+	for (vector<int>::iterator i = iv.begin(); i != bond; ++i){
+		cout << *i << " ";
+	} cout << endl; // 1 3 5 7 
+
+	for (vector<int>::iterator i = bond; i != iv.end(); ++i){
+		cout << *i << " ";
+	} cout << endl; // 2 4 6 8
+
+
+	// is_partitioned
+	cout << boolalpha;
+	// iv: 1 3 5 7 2 4 6 8 
+	cout << is_partitioned(iv.begin(), iv.end(), isOdd) << endl; // true
+
+	iota(iv.begin(), iv.end(), 1);
+
+	// iv: 1 2 3 4 5 6 7 8
+	cout << is_partitioned(iv.begin(), iv.end(), isOdd) << endl; // false
+
+
+	// partition_copy
+	// iv: 1 2 3 4 5 6 7 8
+	vector<int> even, odd;
+	odd.resize(4); even.resize(4);
+
+	partition_copy(iv.begin(), iv.end(), odd.begin(), even.begin(), isOdd);
+
+	for (vector<int>::iterator i = odd.begin(); i != odd.end(); ++i){
+		cout << *i << " ";
+	} cout << endl; // 1 3 5 7
+
+	for (vector<int>::iterator i = even.begin(); i != even.end(); ++i){
+		cout << *i << " ";
+	} cout << endl; // 2 4 6 8
+
+
+	// partition_point
+	partition(iv.begin(), iv.end(), isOdd); // iv: 1 7 3 5 4 6 2 8
+	bond = partition_point(iv.begin(), iv.end(), isOdd);
+
+	cout << *bond << endl; // 4
+
+	return 0;
+}
+```
+
+[Back to top](#content)
+
+## permutation
+
+[Back to top](#content)
+
+## Search
+
+*lower_bound upper_bound equal_range.* These 3 method design like binary search. For example:
+
+```cpp
+template <class ForwardIterator, class T>
+  ForwardIterator lower_bound (ForwardIterator first, ForwardIterator last, const T& val)
+{
+  ForwardIterator it;
+  iterator_traits<ForwardIterator>::difference_type count, step;
+  count = distance(first,last);
+  while (count>0)
+  {
+    it = first; step=count/2; advance (it,step);
+    if (*it<val) {                 // or: if (comp(*it,val)), for version (2)
+      first=++it;
+      count-=step+1;
+    }
+    else count=step;
+  }
+  return first;
+}
+
+template <class ForwardIterator, class T>
+  pair<ForwardIterator,ForwardIterator>
+    equal_range (ForwardIterator first, ForwardIterator last, const T& val)
+{
+  ForwardIterator it = std::lower_bound (first,last,val);
+  return std::make_pair ( it, std::upper_bound(it,last,val) );
+}
+```
+
+binary_search search one element and return a boolean.
+
+find search one element and return the first one position.
+
+search is searching a pattern and return the first position.
+
+find_end is searching a pattern and return the last one.
+
+find_first_of find the first element that pattern have.
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <numeric>
+#include <utility>
+using namespace std;
+
+int main(int argc, char const *argv[])
+{
+	vector<int> iv = {10,20,30,30,20,10,10,20};
+
+	sort(iv.begin(), iv.end()); // 10 10 10 20 20 20 30 30
+
+	// lower_bound & upper_bound
+	vector<int>::iterator low, up;
+	low = lower_bound(iv.begin(), iv.end(), 20);
+	up = upper_bound(iv.begin(), iv.end(), 20);
+
+	cout << "lower bound position: " << low - iv.begin() << endl;
+	// lower bound position: 3
+	cout << "upper bound position: " << up - iv.begin() << endl;
+    // upper bound position: 6
+
+
+	// equal_range
+	pair<vector<int>::iterator, vector<int>::iterator> bounds;
+	bounds = equal_range(iv.begin(), iv.end(), 20);
+
+	cout << "bounds at positions " << (bounds.first - iv.begin());
+  	cout << " and " << (bounds.second - iv.begin()) << endl;
+  	// bounds at positions 3 and 6
+
+  	// binary_search
+  	cout << boolalpha;
+  	cout << binary_search(iv.begin(), iv.end(), 20) << endl; // true;
+
+
+  	// find
+
+  	// search
+  	vector<int> searchV;
+  	for (int i = 0; i < 10; ++i) {
+  		searchV.push_back(i*10); 
+  	}
+
+  	vector<int> patternV1 = {30,40,50};
+  	vector<int> patternV2 = {30,50};
+
+  	vector<int>::iterator it = search(searchV.begin(), searchV.end(), patternV1.begin(), patternV1.end());
+
+  	// searchV: 0 10 20 30 40 50 60 70 80 90 
+  	//      patternv1 = 30 40 50
+  	if(it != searchV.end())
+  		cout << "Pattern is find and position is start from: " << it - searchV.begin() << endl;
+  	else
+  		cout << "Pattern not find." << endl;
+  	// Pattern is find and position is start from: 3
+
+
+
+  	it = search(searchV.begin(), searchV.end(), patternV2.begin(), patternV2.end());
+	// searchV: 0 10 20 30 40 50 60 70 80 90 
+  	// patternv1 = 30 50
+  	if(it != searchV.end())
+  		cout << "Pattern is find and position is start from: " << it - searchV.begin() << endl;
+  	else
+  		cout << "Pattern not find." << endl;
+	// Pattern not find.
+
+
+  	// search_n
+  	it = search_n(iv.begin(), iv.end(), 3, 20);
+  	// iv: 10 10 10 20 20 20 30 30
+  	// 	  		   {20 20 20}
+	if(it != iv.end())
+  		cout << "Pattern is find and position is start from: " << it - iv.begin() << endl;
+  	else
+  		cout << "Pattern not find." << endl;
+	// Pattern is find and position is start from: 3
+
+  	it = search_n(iv.begin(), iv.end(), 4, 10);
+  	// iv: 10 10 10 20 20 20 30 30
+  	// {10 10 10 10}
+	if(it != iv.end())
+  		cout << "Pattern is find and position is start from: " << it - iv.begin() << endl;
+  	else
+  		cout << "Pattern not find." << endl;
+	// Pattern not find.
+
+
+  	// find
+	// searchV: 0 10 20 30 40 50 60 70 80 90 
+	// 				       ^
+  	it = find(searchV.begin(), searchV.end(), 40);
+  	if(it != searchV.end())
+  		cout << "Element is find in position: " << it - searchV.begin() << endl;
+  	else
+  		cout << "Element not find." << endl;
+	// Element is find in position 4
+
+
+  	// find_if
+	// searchV: 0 10 20 30 40 50 60 70 80 90 
+	// 				    ^
+  	it = find_if(searchV.begin(), searchV.end(),[](int a){return a!=0 && a%3==0;});
+
+  	if(it != searchV.end())
+  		cout << "Element is find in position: " << it - searchV.begin() << endl;
+  	else
+  		cout << "Element not find." << endl;
+	// Element is find in position 3
+
+  	// find_if_not
+  	// searchV: 0 10 20 30 40 50 60 70 80 90 
+	// 				       ^
+  	it = find_if_not(searchV.begin(), searchV.end(),[](int a){return a < 40;});
+  	if(it != searchV.end())
+  		cout << "Element is find in position: " << it - searchV.begin() << endl;
+  	else
+  		cout << "Element not find." << endl;
+	// Element is find in position 4
+
+
+  	// find_end
+  	vector<int> findV = {1,2,3,4,5,1,2,3,4};
+  	vector<int> pattern3 = {1,2,3};
+  	// findV: 1 2 3 4 5 1 2 3 4
+	//    	   pattern: 1 2 3
+  	it = find_end(findV.begin(), findV.end(), pattern3.begin(), pattern3.end());
+  	if(it != findV.end())
+  		cout << "Element is find in position: " << it - findV.begin() << endl;
+  	else
+  		cout << "Element not find." << endl;
+	// Element is find in position 5
+
+
+  	// find_first_of
+  	vector<int> pattern4 = {0,4};
+  	// findV: 1 2 3 4 5 1 2 3 4
+	//   pattern: 0 4
+	//     			^
+  	it = find_first_of(findV.begin(), findV.end(), pattern4.begin(), pattern4.end());
+  	if(it != findV.end())
+  		cout << "Element is find in position: " << it - findV.begin() << endl;
+  	else
+  		cout << "Element not find." << endl;
+	// Element is find in position 3
+
+	// adjacent_find
+  	// iv: 10 10 10 20 20 20 30 30 
+  	// 	   ^
+  	//              ^
+  	it = adjacent_find(iv.begin(), iv.end());
+  	cout << "The first adjacent number is " << *it << endl; // 10
+
+  	it = adjacent_find(++++it, iv.end());
+  	cout << "The second adjacent number is " << *it << endl; // 20
+	
 	return 0;
 }
 ```

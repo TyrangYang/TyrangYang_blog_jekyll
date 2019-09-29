@@ -159,7 +159,7 @@ thread Reader: {
 ## Man & Woman Bar
 
 
-## 
+## Quiz 3
 
 ```java
 Semaphore permToLoad = new Semaphore(0);

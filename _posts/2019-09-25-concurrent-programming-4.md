@@ -10,8 +10,7 @@ tags:
 signal contidtion --> waiting  moniter --> signaling
 
 
-### producer and consumer
-
+### producer and consumer with a  buffer whose size is one
 
 ```java
 
@@ -37,6 +36,9 @@ moniter PC {
 
 ```
 
+
+## Semaphore
+
 ```java
 // Assuption: E < S < W (Signal and urgent wait)
 moniter Semaphore {
@@ -56,6 +58,68 @@ moniter Semaphore {
         } else{
             permit++;
         }
+    }
+}
+```
+
+## readers and writers
+
+assume start first and stop
+
+```java
+
+monitor RW {
+
+    int readers=0;
+    int writers=0;
+
+    void start_read(){
+        if (writer!=0 || !okToWirte.isempty())
+            okToRead.wait();
+        readers++;
+        okToRead.signal(); // coscadp signaling
+    }
+
+    void stop_read(){
+        readers--;
+        if(readers == 0)
+            okToWrite.signal();
+    }
+
+    void start_write(){
+        if(writers!=0 || readers!=0)
+            okToWrite.wait();
+        writers++;
+    }
+
+    void stop_write(){
+        writers--;
+        if(okToRead.isempty())
+            okToWrite.signal();
+        else
+            okToRead.signal();
+    }
+}
+
+```
+
+## 3 way sequence (booklet q4)
+
+```java
+monitor 3WS{
+    int state;
+    int fisrt, second, third;
+    void first(){
+        first++;
+        okToSec.
+    }
+
+    void second(){
+
+    }
+
+    void third(){
+
     }
 }
 ```
