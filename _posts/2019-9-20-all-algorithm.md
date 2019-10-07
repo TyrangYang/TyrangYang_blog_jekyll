@@ -13,7 +13,7 @@ tags:
 - [Heap](#heap)
 - [Number](#number)
 - [Partition](#partition)
-- [permutation](#permutation)
+- [Permutation](#permutation)
 - [Search](#search)
 - [Set](#set)
 - [Shuffle](#shuffle)
@@ -372,7 +372,12 @@ int main(int argc, char const *argv[])
 
 [Back to top](#content)
 
-## permutation
+## Permutation
+
+If you want go over all permutation, **sort** first.
+
+```cpp
+```
 
 [Back to top](#content)
 
