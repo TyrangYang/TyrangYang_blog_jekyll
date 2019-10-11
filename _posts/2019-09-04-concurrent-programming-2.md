@@ -1,7 +1,7 @@
 ---
 layout: post
 author: Haolin Yang
-title: Concurrent Programming Course note 
+title: Concurrent Programming Course note 2
 categories: Concurrent-programming
 tags: 
     - concurrent

@@ -1,7 +1,7 @@
 ---
 layout: post
 author: Haolin Yang
-title: Concurrent Programming Course note 
+title: Concurrent Programming Course note 3
 categories: Concurrent-programming
 tags: 
     - concurrent
@@ -65,7 +65,8 @@ When fairness is set to true, the semaphore gives permits to access mutual resou
 ```java
 semaphore[] forks = [1,1,1,1,1]; // N = 5;
 semaphore chairs = new semaphore(4); // N-1 
-// if all get the left fork, it is deadlock. Therefore, At least one can get both forks when only four sit in table
+// if all get the left fork, it is deadlock. Therefore, 
+// At least one can get both forks when only four sit in table
 
 thread Philosopher(i) {
     left = i;
@@ -97,7 +98,8 @@ Semaphore mutexC = new Semaphore(1);
 thread Producer: {
     while(true){
         prem_to_produce.acquire();
-        mutexP.acquire(); // critcal section. Protect mutiple producers will affect front.
+        mutexP.acquire(); 
+        // critcal section. Protect mutiple producers will affect front.
         buffer[front] = produce();
         front = (front + 1) % N;
         prem_to_consume.release();       
@@ -107,11 +109,11 @@ thread Producer: {
 
 thread Consumer: {
     while(true) {
-        prem_to_produce.acquire();
+        prem_to_consume.acquire();
         mutexC.acquire(); // Portect rear from mutiple consumers.
         consume(buffer[rear]);
         rear = (rear + 1) % N;
-        prem_to_consume.release();
+        prem_to_produce.release();
         mutexC.release();
     }
 }
@@ -131,16 +133,15 @@ Semaphore resource = new Semaphore(1);
 Semaphore mutexR = new Semaphore(1);
 int readers = 0;
 thread Writer: {
-    while(true){
+    // while(true){
         resource.acquire();
         // write
         resource.release();
-    }
+    // }
 }
 
 thread Reader: {
-    while(true){
-
+    // while(true){
         mutexR.acquire();
         reader++;
         if(readers == 1)
@@ -152,7 +153,7 @@ thread Reader: {
         if(readers == 0)
             resource.release();
         mutexR.release();
-    }
+    // }
 }
 ```
 
@@ -191,7 +192,6 @@ thread LoadingMachine: {
   while (true) {
     permToLoad.acquire();
     // process vehicle
-    
     doneLoading.release();
   }
 }
@@ -230,3 +230,45 @@ thread MachineAtStation(i) {
         doneProcessing[i].release();
     }
 }
+
+## bl5 q3
+
+```java
+
+Semaphore[] aboard = {new Semaphore(0), new Semaphore(0)};
+
+thread passager(j){
+    
+    // ticket_East.acquire();
+    aboard[0].acquire();
+    ticket.release();
+    //
+    permitToExit[1-i].acquire();
+    okToBoard.release();
+}
+
+thread ferry(i){
+
+    i = 0;
+
+    while(true){
+        repeat(n){
+           aboard[i].release()
+        }
+
+        repeat(n){ // recieve n ticket
+           ticket.acquire()
+        }
+        i = 1 - i;
+
+        repeat(n){
+            permitToExit[i].release();
+        }
+        repeat(n){
+           okToBoard.acquire();
+        }
+    }
+
+}
+
+```

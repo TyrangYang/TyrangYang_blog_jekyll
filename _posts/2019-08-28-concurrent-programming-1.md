@@ -1,7 +1,7 @@
 ---
 layout: post
 author: Haolin Yang
-title: Concurrent Programming Course note 
+title: Concurrent Programming Course note 1
 categories: Concurrent-programming
 tags: 
     - concurrent
@@ -60,7 +60,7 @@ thread q:{
 If P has m instructions and Q has n instructions, then there
 are:
 
-![interleaving]({{site.baseurl}}{{site.url}}/public/images/2019-08-28-concurrent-programming-1/interleaving.png)
+![interleaving]({{site.url}}{{site.baseurl}}/public/images/2019-08-28-concurrent-programming-1/interleaving.png)
 
 iterleaving.
 
