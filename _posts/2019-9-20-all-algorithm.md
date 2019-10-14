@@ -61,7 +61,7 @@ tags:
 | [is_sorted*](#sort) | Check whether range is sorted | N | algorithm | O(n) |
 | [is_sorted_until*](#sort) | Find first unsorted element in range | N | algorithm | O(n) |
 | iter_swap | | Y | algorithm | O() |
-| lexicographical_compare | | N | algorithm | O() |
+| [lexicographical_compare](#permutation) | Compare two range lexicographically. | N | algorithm | O(n) |
 | [lower_bond](#search) | Return iterator to lower bound | N | algorithm | O(logn + 1) for randam access iterator, otherwise O(n) |
 | [make_heap](#heap) | Make heap from range | Y | algorithm | O(3n) |
 | [max](#number) | Returns the largest of a and b. If both are equivalent, a is returned.| N |algorithm |O(1) |
@@ -74,7 +74,7 @@ tags:
 | mismatch | | N | algorithm | O() |
 | move* | | | algorithm | O() |
 | move_backward* | | | algorithm | O() |
-| [next_permutation](#permutation) | Transform range to next permutation | Y | algorithm | O(n) |
+| [next_permutation](#permutation) | Rearranges the elements in the range [first,last) into the next lexicographically greater permutation | Y | algorithm | O(n) |
 | none_of* | | | algorithm | O() |
 | nth_element |  | Y | algorithm | O() |
 | [partial_sort](#sort) | Partially sort elements in range while the remaining elements are left without any order | Y | algorithm | O(mlogn) |
@@ -84,7 +84,7 @@ tags:
 | [partition_copy*](#partition) | Partition range into two | N | algorithm | O(n) |
 | [partition_point*](#partition) | Get partition point and Returns an iterator to the first element in second part | N | algorithm | O(logn + 2) |
 | [pop_heap](#heap) | Pop element from heap range. Range shrink and value is at end. | Y | algorithm |O(logn) |
-| [prev_permutation](#permutation) | Transform range to previous permutation | Y | algorithm | O(n) |
+| [prev_permutation](#permutation) | Rearranges the elements in the range [first,last) into the previous lexicographically-ordered permutation. | Y | algorithm | O(n) |
 | [push_heap](#heap) | Push element into heap range. Range extend | Y | algorithm | O(logn) |
 | [random_shuffle](#shuffle) | Randomly rearrange elements in range | Y | algorithm | O(n) |
 | remove | | Y | algorithm | O() |
@@ -374,9 +374,74 @@ int main(int argc, char const *argv[])
 
 ## Permutation
 
+lexicographical_compare: Returns true if the range [first1,last1) compares lexicographically less than the range [first2,last2).
+
+next_permutation: next lexicographically-ordered permutation. Return false when input is already the greatest lexicographic permutation.
+
+prev_permutation: previous lexicographically-ordered permutation. Return false when input is already a ascanding permutation.
+
+THis code explain how to find next permutation(prev_permutation with same logic).
+```cpp
+template<class BidirIt> //BidirIt binary direction iterator
+bool next_permutation(BidirIt first, BidirIt last) // [first, last)
+{
+    if (first == last) return false; //0 element
+    BidirIt i = last;
+    if (first == --i) return false; //one element
+ 
+    while (true) {
+        BidirIt i1, i2;
+        i1 = i; // i1 is last element of ascanding sequence
+        if (*--i < *i1) { // i is prev of i1.
+            i2 = last;
+            while (*i > *--i2) // i ≤ i1 ≥ i2 // i2 will be last nember bigger than i
+                ;
+            std::iter_swap(i, i2); // i2 should at i's position in the next permutation. 
+            std::reverse(i1, last); // make sure seq behind i1 become ascanding.
+            return true;
+        }
+        if (i == first) { // the whole sequence is descanding.
+            std::reverse(first, last);
+            return false;
+        }
+    }
+}
+```
+
 If you want go over all permutation, **sort** first.
 
 ```cpp
+#include <iostream>     // std::cout
+#include <algorithm>    // std::next_permutation, std::sort
+#include <string>
+#include <vector>
+using namespace std;
+
+int main () {
+	vector<int> myints = {1,2,3};
+	sort(myints.begin(), myints.end()); // 1 2 3
+
+	do {
+	std::cout << myints[0] << ' ' << myints[1] << ' ' << myints[2] << '\n';
+	} while ( next_permutation(myints.begin(), myints.end()) );
+
+	std::cout << "After loop: " << myints[0] << ' ' << myints[1] << ' ' << myints[2] << '\n';
+
+	reverse(myints.begin(), myints.end()); // 3 2 1
+
+	do {
+	std::cout << myints[0] << ' ' << myints[1] << ' ' << myints[2] << '\n';
+	} while ( prev_permutation(myints.begin(), myints.end()) );
+
+	std::cout << "After loop: " << myints[0] << ' ' << myints[1] << ' ' << myints[2] << '\n';
+
+	string myStr = "abc"; // string is also work
+	next_permutation(myStr.begin(), myStr.end());
+	cout << myStr << endl; // acb
+
+
+	return 0;
+}
 ```
 
 [Back to top](#content)
@@ -395,7 +460,7 @@ template <class ForwardIterator, class T>
   while (count>0)
   {
     it = first; step=count/2; advance (it,step);
-    if (*it<val) {                 // or: if (comp(*it,val)), for version (2)
+    if (*it<val) {// or: if (comp(*it,val)), for version (2)
       first=++it;
       count-=step+1;
     }
@@ -419,7 +484,7 @@ find search one element and return the first one position.
 
 search is searching a pattern and return the first position.
 
-find_end is searching a pattern and return the last one.
+find_end is searching a pattern and return the last one (compare with search).
 
 find_first_of find the first element that pattern have.
 
@@ -497,7 +562,7 @@ int main(int argc, char const *argv[])
   	// search_n
   	it = search_n(iv.begin(), iv.end(), 3, 20);
   	// iv: 10 10 10 20 20 20 30 30
-  	// 	  		   {20 20 20}
+  	//             {20 20 20}
 	if(it != iv.end())
   		cout << "Pattern is find and position is start from: " << it - iv.begin() << endl;
   	else
@@ -516,7 +581,7 @@ int main(int argc, char const *argv[])
 
   	// find
 	// searchV: 0 10 20 30 40 50 60 70 80 90 
-	// 				       ^
+	//                     ^
   	it = find(searchV.begin(), searchV.end(), 40);
   	if(it != searchV.end())
   		cout << "Element is find in position: " << it - searchV.begin() << endl;
@@ -527,7 +592,7 @@ int main(int argc, char const *argv[])
 
   	// find_if
 	// searchV: 0 10 20 30 40 50 60 70 80 90 
-	// 				    ^
+	//                  ^
   	it = find_if(searchV.begin(), searchV.end(),[](int a){return a!=0 && a%3==0;});
 
   	if(it != searchV.end())
@@ -538,7 +603,7 @@ int main(int argc, char const *argv[])
 
   	// find_if_not
   	// searchV: 0 10 20 30 40 50 60 70 80 90 
-	// 				       ^
+	//                     ^
   	it = find_if_not(searchV.begin(), searchV.end(),[](int a){return a < 40;});
   	if(it != searchV.end())
   		cout << "Element is find in position: " << it - searchV.begin() << endl;
@@ -564,7 +629,7 @@ int main(int argc, char const *argv[])
   	vector<int> pattern4 = {0,4};
   	// findV: 1 2 3 4 5 1 2 3 4
 	//   pattern: 0 4
-	//     			^
+	//              ^
   	it = find_first_of(findV.begin(), findV.end(), pattern4.begin(), pattern4.end());
   	if(it != findV.end())
   		cout << "Element is find in position: " << it - findV.begin() << endl;
