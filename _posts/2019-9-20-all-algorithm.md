@@ -45,17 +45,17 @@ tags:
 | count | | N | algorithm | O() |
 | count_if | | N | algorithm | O() |
 | equal | | N | algorithm | O() |
-| equal_range | | N | algorithm | O() |
-| fill | | Y | algorithm | O() |
-| fill_n | | Y | algorithm | O() |
+| [equal_range](#search) | Returns the bounds of the subrange that includes all the elements of the range [first,last) with values equivalent to val | N | algorithm | O(2logn + 1) for randam access iterator, otherwise O(n) |
+| [fill](#generation) | Assigns val to all the elements in the range [first,last) | Y | algorithm | O() |
+| [fill_n](#generation) | Assigns val to the first n elements of the sequence pointed by first | Y | algorithm | O(n) |
 | [find](#search) | Find the first element in range | N | algorithm | O(n) |
 | [find_end](#search) | Find last subsequence in range | N | algorithm | O(m*(1+n-m)) |
 | [find_first_of](#search) | Returns an iterator to the first element in the range [first1,last1) that matches any of the elements in [first2,last2) | N | algorithm | O(nm) |
 | [find_if](#search) | Find the first element in range in some condition | N | algorithm | O(n) |
 | [find_if_not*](#search) | Find the first element in range in some condition | N | algorithm | O(n) |
 | for_each | | N | algorithm | O() |
-| generate | | Y | algorithm | O() |
-| generate_n | | Y | algorithm | O() |
+| [generate](#generation) | Assigns the value returned by successive calls to gen to the elements in the range [first,last) | Y | algorithm | O(n) |
+| [generate_n](#generation) | Assigns the value returned by successive calls to gen to the first n elements of the sequence pointed by first | Y | algorithm | O(n) |
 | includes | | N | algorithm | O() |
 | inplace_merge | | | algorithm | O() |
 | [inner_product](#number) | Compute cumulative inner product of range | N | numeric | O(n) |
@@ -118,7 +118,7 @@ tags:
 | [stable_partition](#partition) | Partition range in two - stable ordering | Y | algorithm | O(n) with enough space. Otherwise O(nlogn) |
 | [stable_sort](#sort) | Sort elements preserving order of equivalents | Y | algorithm | O(nlogn) with enough space, otherwise O(nlognlogn)|
 | [swap](#swap) | Exchanges the values of a and b | Y | algorithm | O(1) |
-| [swap_ranges](#swap) | Exchanges a range of value | Y | algorithm | O(1) |
+| [swap_ranges](#swap) | Exchanges a range of value | Y | algorithm | O(n) |
 | transform | | Y | algorithm | O() |
 | unique | | Y | algorithm | O() |
 | unique_copy | | Y | algorithm | O() |
@@ -127,6 +127,39 @@ tags:
 ## Generation
 fill fill_n generate generate_n
 
+```cpp
+#include <iostream>
+#include <algorithm>
+#include <vector>
+using namespace std;
+
+struct StartFrom
+{
+	int start;
+	StartFrom(int s):start(s){};
+	int operator() (){return start++;};
+};
+
+int main(int argc, char const *argv[])
+{
+	vector<int> iv1(8); //iv1: 0 0 0 0 0 0 0 0
+	fill(iv1.begin(), iv1.begin()+4, 1);
+	//iv1: 1 1 1 1 0 0 0 0
+	fill_n(iv1.begin()+4, 3, 2);
+	//iv1: 1 1 1 1 2 2 2 0
+
+	vector<int> iv2(8); //iv2: 0 0 0 0 0 0 0 0
+
+	StartFrom s1(5);
+	generate(iv2.begin(), iv2.begin()+4, s1);
+	//iv2: 5 6 7 8 0 0 0 0 
+	StartFrom s2(10);
+	generate_n(iv2.begin()+4, 2, s2);
+	//iv2: 5 6 7 8 10 11 0 0 
+
+	return 0;
+}
+```
 
 ## Heap
 
@@ -812,8 +845,8 @@ swap: Only use for swap two variable
 swap_ranges: Exchanges the values of each of the elements in the range [first1,last1) with those of their respective elements in the range beginning at first2.
 
 ```cpp
-#include <iostream>     // std::cout
-#include <algorithm>    // std::next_permutation, std::sort
+#include <iostream> 
+#include <algorithm> 
 #include <vector>
 using namespace std;
 
