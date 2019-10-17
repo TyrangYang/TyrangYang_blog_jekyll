@@ -11,14 +11,20 @@ tags:
 ## Content
 - [Content](#content)
 - [Algorithm Overview](#algorithm-overview)
+- [Generation](#generation)
 - [Heap](#heap)
 - [Number](#number)
 - [Partition](#partition)
 - [Permutation](#permutation)
+- [Remove](#remove)
+- [Replace](#replace)
+- [Reverse](#reverse)
+- [rotate](#rotate)
 - [Search](#search)
 - [Set](#set)
 - [Shuffle](#shuffle)
 - [Sort](#sort)
+- [Swap](#swap)
 
 ## Algorithm Overview
 
@@ -31,7 +37,7 @@ tags:
 | [adjacent_find](#search) | Find first equal adjacent elements in range | N | algorithm | O(n) |
 | all_of* | | N | algorithm | O() |
 | any_of* | | N | algorithm | O() |
-| binary_search | binary search | N | algorithm | O() |
+| [binary_search](#search) | eturns true if any element in the range [first,last) is equivalent to val, and false otherwise. | N | algorithm | O(logn) |
 | copy | | Y (if in-place) | algorithm | O() |
 | copy_backward | | Y (if in-place) | algorithm | O() |
 | copy_if* | | | algorithm | O() |
@@ -58,10 +64,10 @@ tags:
 | [is_heap*](#heap) | Test if range is heap | N | algorithm | O(n) |
 | [is_heap_until*](#heap) | Find first element not in heap order. | N | algorithm | O(n) |
 | [is_partitioned*](#partition) | Test whether range is partitioned | Y | algorithm | O(n) |
-| is_permutation* | | | algorithm | O() |
+| [is_permutation*](#permutation) | Compares the elements in the range [first1,last1) with those in the range beginning at first2, and returns true if they just different permutation | N | algorithm | O(n) |
 | [is_sorted*](#sort) | Check whether range is sorted | N | algorithm | O(n) |
 | [is_sorted_until*](#sort) | Find first unsorted element in range | N | algorithm | O(n) |
-| iter_swap | | Y | algorithm | O() |
+| [iter_swap](#swap) | Swaps the elements pointed to by a and b | Y | algorithm | O(1) |
 | [lexicographical_compare](#permutation) | Compare two range lexicographically. | N | algorithm | O(n) |
 | [lower_bond](#search) | Return iterator to lower bound | N | algorithm | O(logn + 1) for randam access iterator, otherwise O(n) |
 | [make_heap](#heap) | Make heap from range | Y | algorithm | O(3n) |
@@ -77,7 +83,7 @@ tags:
 | move_backward* | | | algorithm | O() |
 | [next_permutation](#permutation) | Rearranges the elements in the range [first,last) into the next lexicographically greater permutation | Y | algorithm | O(n) |
 | none_of* | | | algorithm | O() |
-| nth_element |  | Y | algorithm | O() |
+| [nth_element](#sort) | Find the nth element and put it the exact palce.(quick select) | Y | algorithm | O() |
 | [partial_sort](#sort) | Partially sort elements in range while the remaining elements are left without any order | Y | algorithm | O(mlogn) |
 | [partial_sort_copy](#sort) | Copy and partially sort range | Y (if in-place) | algorithm | O(mlogn) |
 | [partial_sum](#number) | Compute partial sums of range and return to another place | N | numeric | O(n) |
@@ -111,12 +117,15 @@ tags:
 | [sort_heap](#heap) | Sort elements of heap | Y | algorithm | O(nlogn) |
 | [stable_partition](#partition) | Partition range in two - stable ordering | Y | algorithm | O(n) with enough space. Otherwise O(nlogn) |
 | [stable_sort](#sort) | Sort elements preserving order of equivalents | Y | algorithm | O(nlogn) with enough space, otherwise O(nlognlogn)|
-| swap | | Y | algorithm | O() |
-| swap_ranges | | Y | algorithm | O() |
+| [swap](#swap) | Exchanges the values of a and b | Y | algorithm | O(1) |
+| [swap_ranges](#swap) | Exchanges a range of value | Y | algorithm | O(1) |
 | transform | | Y | algorithm | O() |
 | unique | | Y | algorithm | O() |
 | unique_copy | | Y | algorithm | O() |
 | [upper_bond](#search) | Return iterator to upper bound. Since **[first, last)**, the value pointed by the iterator must larger than *val*| N | algorithm | O(logn + 1) for randam access iterator, otherwise O(n) |
+
+## Generation
+fill fill_n generate generate_n
 
 
 ## Heap
@@ -440,12 +449,22 @@ int main () {
 	next_permutation(myStr.begin(), myStr.end());
 	cout << myStr << endl; // acb
 
+	string myStr2 = "cba";
+	cout << is_permutation(myStr.begin(), myStr.end(), myStr2.begin()) << endl;
 
 	return 0;
 }
 ```
 
 [Back to top](#content)
+
+## Remove
+
+## Replace
+
+## Reverse
+
+## rotate
 
 ## Search
 
@@ -479,6 +498,8 @@ template <class ForwardIterator, class T>
 }
 ```
 
+lower_bound is more like a binary search
+
 binary_search search one element and return a boolean.
 
 find search one element and return the first one position.
@@ -494,7 +515,8 @@ find_first_of find the first element that pattern have.
 #include <vector>
 #include <algorithm>
 #include <numeric>
-#include <utility>
+#include <utility> // pair
+#include <functional> // greater<int>
 using namespace std;
 
 int main(int argc, char const *argv[])
@@ -513,6 +535,9 @@ int main(int argc, char const *argv[])
 	cout << "upper bound position: " << up - iv.begin() << endl;
     // upper bound position: 6
 
+	vector<int> test = {1,2,3,0,0,0};
+	//                    low ^
+	low = lower_bound(iv.begin(), iv.end(), 0, greater<int>());
 
 	// equal_range
 	pair<vector<int>::iterator, vector<int>::iterator> bounds;
@@ -525,7 +550,6 @@ int main(int argc, char const *argv[])
   	// binary_search
   	cout << boolalpha;
   	cout << binary_search(iv.begin(), iv.end(), 20) << endl; // true;
-
 
   	// find
 
@@ -705,6 +729,10 @@ stable_sort() using merage sort. When space is enough, the complexity is O(nlogn
 
 partial_sort using heapsort.
 
+nth_element: Rearranges the elements in the range [first,last), in such a way that the element at the nth position is the element that would be in that position in a sorted sequence.
+
+nth_element is quick selection. Find the nth element and put it the exact palce. On the right part is smaller than nth element and bigger on the left without specific sequence.
+
 Something different in java. You can see: [Here]({{site.url}}{{site.baseurl}}/langage-comparison/2019/07/12/langage-comparsion-common-method.html)
 
 ```cpp
@@ -739,7 +767,6 @@ int main(int argc, char const *argv[])
 	cout << *iter1 << endl; // ???
 	cout << *iter2 << endl; // 26
 
-
 	// partial_sort
 	vector<int> iv2 = {32,71,12,45,26,80,53,33};
 
@@ -765,8 +792,51 @@ int main(int argc, char const *argv[])
 	stable_sort(iv3.begin(), iv3.end(), less_pair); 
     //(1 1) (2 1) (2 2) (2 3) (3 1) (4 1)
 
+	// nth_element
+	vector<int> iv4 = {32,71,12,45,26,80,53,33};
+	nth_element(iv4.begin(), iv4.begin()+4 , iv4.end());
+	// 26 12 32 33 45 53 71 80 
+	//        n is ^ 
 	return 0;
 }
 ```
 
 [Back to top](#content)
+
+## Swap
+
+iter_swap: Swap the value of two iterators.
+
+swap: Only use for swap two variable
+
+swap_ranges: Exchanges the values of each of the elements in the range [first1,last1) with those of their respective elements in the range beginning at first2.
+
+```cpp
+#include <iostream>     // std::cout
+#include <algorithm>    // std::next_permutation, std::sort
+#include <vector>
+using namespace std;
+
+int main(int argc, char const *argv[])
+{	
+	int a = 1, b = 2;
+	swap(a, b); // b = 2, a = 1
+
+	vector<int> iv = {1,2,3,4,5,6};
+
+	int myints[] = {10,20,30,40,50,60}; 
+
+	iter_swap(iv.begin(), iv.begin()+3); // 4 2 3 1 5 6
+	iter_swap(myints, myints + 3); // 40 20 30 10 50 60
+
+	iter_swap(iv.begin(), myints);
+	// iv: 40 2 3 1 5 6
+	// myints: 4 20 30 10 50 60
+
+	// iv: 40 [2 3 1 5] 6
+	// myints: [4 20 30 10] 50 60
+	std::swap_ranges(iv.begin()+1, iv.end()-1, myints);
+	// iv: 40 [4 20 30 10] 6
+	// myints: [2 3 1 5] 50 60
+}
+```
