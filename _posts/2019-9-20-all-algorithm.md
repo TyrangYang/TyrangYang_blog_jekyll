@@ -93,14 +93,14 @@ tags:
 | [prev_permutation](#permutation) | Rearranges the elements in the range [first,last) into the previous lexicographically-ordered permutation. | Y | algorithm | O(n) |
 | [push_heap](#heap) | Push element into heap range. Range extend | Y | algorithm | O(logn) |
 | [random_shuffle](#shuffle) | Randomly rearrange elements in range | Y | algorithm | O(n) |
-| remove | | Y | algorithm | O() |
-| remove_copy | | Y | algorithm | O() |
-| remove_copy_if | | Y | algorithm | O() |
-| remove_if | | Y | algorithm | O() |
-| replace | | Y | algorithm | O() |
-| replace_copy | | Y | algorithm | O() |
-| replace_copy_if | | Y | algorithm | O() |
-| replace_if | | Y | algorithm | O() |
+| [remove](#remove) | Removed element equal to val and returns an iterator to the new end of that range. | Y | algorithm | O(n) |
+| [remove_copy](#remove) | Remove and copy to new place | Y | algorithm | O(n) |
+| [remove_copy_if](#remove) | Remove in a given condition and copy | Y | algorithm | O(n) |
+| [remove_if](#remove) | Remove in a given condition | Y | algorithm | O(n) |
+| [replace](#replace) | Assigns new_value to all the elements that compare equal to old_value | Y | algorithm | O(n) |
+| [replace_copy](#replace) | Replace and copy | Y | algorithm | O(n) |
+| [replace_copy_if](#replace) | Replace in a given condition and copy | Y | algorithm | O(n) |
+| [replace_if](#replace) | Replace in a given condition | Y | algorithm | O(n) |
 | [reverse](#reverse) | Reverses the order of the elements in the range [first,last) | Y | algorithm | O(n) |
 | [reverse_copy](#reverse) | Copies the elements in [first,last) but in reverse order | Y | algorithm | O(n) |
 | [rotate](#rotate) | Rotates the order of the elements and middle becomes the new first element| Y | algorithm | O(n) |
@@ -492,7 +492,85 @@ int main () {
 
 ## Remove
 
+```cpp
+#include <iostream>
+#include <algorithm>
+#include <vector>
+using namespace std;
+
+int main(int argc, char const *argv[])
+{
+	vector<int> iv = {10,20,30,30,20,10,10,20};
+
+	vector<int>::iterator newEnd = remove(iv.begin(), iv.end(), 20);
+	//iv: 10 30 30 10 10 10 10 20
+	//           newEnd: ^
+
+	for (vector<int>::iterator i = iv.begin(); i != newEnd; ++i)
+	{
+		cout << *i << " ";
+	}cout << endl; // res: 10 30 30 10 10 
+
+	vector<int> iv2 = {10,20,30,30,20,10,10,20};
+	vector<int> iv3(5);
+
+	remove_copy(iv2.begin(), iv2.end(), iv3.begin(), 20);
+	// iv3: 10 30 30 10 10
+
+
+	vector<int> iv4 = {1,2,3,4,5,6,7,8,9};
+	newEnd = remove_if(iv4.begin(), iv4.end(), [](int a){ return a % 2 == 0;});
+
+	for (vector<int>::iterator i = iv4.begin(); i != newEnd; ++i)
+	{
+		cout << *i << " ";
+	}cout << endl; // res: 1 3 5 7 9
+	// iv4: 1 3 5 7 9 6 7 8 9
+
+	vector<int> iv5 = {1,2,3,4,5,6,7,8,9};
+	vector<int> iv6(5);
+	remove_copy_if(iv4.begin(), iv4.end(), iv6.begin() , [](int a){ return a % 2 == 0;});
+	// iv6: 1 3 5 7 9 
+
+	return 0;
+}
+```
+
+[Back to top](#content)
+
+
 ## Replace
+
+```cpp
+#include <iostream>
+#include <algorithm>
+#include <vector>
+using namespace std;
+
+int main(int argc, char const *argv[])
+{
+	vector<int> iv = {10, 20, 30, 30, 20, 10, 10, 20};
+
+	replace(iv.begin(), iv.end(), 20, 99);
+	// iv: 10 99 30 30 99 10 10 99
+
+	vector<int> iv2(8);
+	replace_copy(iv.begin(), iv.end(), iv2.begin(), 99, 1);
+	// iv2: 10 99 30 30 99 10 10 99 
+
+	replace_if(iv.begin(), iv.end(), [](int a){return a % 2 == 0;}, 0);
+	// iv: 0 99 0 0 99 0 0 99 
+
+	vector<int> iv3(8);
+	replace_copy_if(iv.begin(), iv.end(), iv3.begin(), [](int a){return a % 2 == 0;}, 1);
+	// iv3: 1 99 1 1 99 1 1 99 
+
+	return 0;
+}
+```
+
+[Back to top](#content)
+
 
 ## Reverse
 
@@ -517,6 +595,8 @@ int main(int argc, char const *argv[])
 	return 0;
 }
 ```
+
+[Back to top](#content)
 
 ## rotate
 
@@ -566,6 +646,8 @@ int main(int argc, char const *argv[])
 	return 0;
 }
 ```
+
+[Back to top](#content)
 
 ## Search
 
@@ -634,7 +716,7 @@ int main(int argc, char const *argv[])
 	cout << "lower bound position: " << low - iv.begin() << endl;
 	// lower bound position: 3
 	cout << "upper bound position: " << up - iv.begin() << endl;
-    // upper bound position: 6
+	// upper bound position: 6
 
 	vector<int> test = {1,2,3,0,0,0};
 	//                    low ^
@@ -651,8 +733,6 @@ int main(int argc, char const *argv[])
   	// binary_search
   	cout << boolalpha;
   	cout << binary_search(iv.begin(), iv.end(), 20) << endl; // true;
-
-  	// find
 
   	// search
   	vector<int> searchV;
@@ -941,3 +1021,4 @@ int main(int argc, char const *argv[])
 	// myints: [2 3 1 5] 50 60
 }
 ```
+[Back to top](#content)
