@@ -57,7 +57,6 @@ tags:
 | [generate](#generation) | Assigns the value returned by successive calls to gen to the elements in the range [first,last) | Y | algorithm | O(n) |
 | [generate_n](#generation) | Assigns the value returned by successive calls to gen to the first n elements of the sequence pointed by first | Y | algorithm | O(n) |
 | includes | | N | algorithm | O() |
-| inplace_merge | | | algorithm | O() |
 | [inner_product](#number) | Compute cumulative inner product of range | N | numeric | O(n) |
 | inplace_merge | | Y | algorithm | O() |
 | [iota](#number) | Store increasing sequence | Y | numeric | O(n) |
@@ -102,10 +101,10 @@ tags:
 | replace_copy | | Y | algorithm | O() |
 | replace_copy_if | | Y | algorithm | O() |
 | replace_if | | Y | algorithm | O() |
-| reverse | | Y | algorithm | O() |
-| reverse_copy | | Y | algorithm | O() |
-| rotate | | Y | algorithm | O() |
-| rotate_copy | | Y | algorithm | O() |
+| [reverse](#reverse) | Reverses the order of the elements in the range [first,last) | Y | algorithm | O(n) |
+| [reverse_copy](#reverse) | Copies the elements in [first,last) but in reverse order | Y | algorithm | O(n) |
+| [rotate](#rotate) | Rotates the order of the elements and middle becomes the new first element| Y | algorithm | O(n) |
+| [rotate_copy](#rotate) | Rotate and copy | Y | algorithm | O(n) |
 | [search](#search) | Search range for subsequence | N | algorithm | O(n*m) |
 | [search_n](#search) | Search range for n continue elements | N | algorithm | O(n) |
 | set_difference | | Y (if in-place) | algorithm | O() |
@@ -497,7 +496,76 @@ int main () {
 
 ## Reverse
 
+```cpp
+#include <iostream>
+#include <algorithm>
+#include <vector>
+using namespace std;
+
+int main(int argc, char const *argv[])
+{
+	vector<int> iv = {0,1,2,3,4,5,6,7};
+	vector<int> iv2(8);
+
+	reverse(iv.begin(), iv.end());
+	// iv: 7 6 5 4 3 2 1 0
+
+	reverse_copy(iv.begin(), iv.end(), iv2.begin());
+	// iv: 7 6 5 4 3 2 1 0
+	// iv2: 0 1 2 3 4 5 6 7 
+	
+	return 0;
+}
+```
+
 ## rotate
+
+Here is how rotate achieve:
+
+```cpp
+template <class ForwardIterator>
+  void rotate (ForwardIterator first, ForwardIterator middle,
+               ForwardIterator last)
+{
+  ForwardIterator next = middle;
+  while (first!=next)
+  {
+    swap (*first++,*next++);
+    if (next==last) next=middle;
+    else if (first==middle) middle=next; 
+  }
+}
+```
+
+The idea is move a part to the end and adjust it
+
+```
+1 2 3 4 5 6 7 -> 4 5 6 1 2 3 7 -> 4 5 6 7 2 3 1 -> 4 5 6 7 1 3 2 -> 4 5 6 7 1 2 3
+
+^     ^                ^     ^            ^   ^              ^ ^
+```
+
+```cpp
+#include <iostream>
+#include <algorithm>
+#include <vector>
+using namespace std;
+
+int main(int argc, char const *argv[])
+{
+	vector<int> iv = {0,1,2,3,4,5,6,7,8,9};
+	vector<int> iv2(10);
+
+	rotate(iv.begin(), iv.begin()+3, iv.end());
+	// iv: 3 4 5 6 7 8 9 0 1 2 
+
+	rotate_copy(iv.begin(), iv.begin()+3, iv.end(), iv2.begin());
+	// iv: [3 4 5] 6 7 8 9 0 1 2 
+	// iv2: 6 7 8 9 0 1 2 [3 4 5]
+
+	return 0;
+}
+```
 
 ## Search
 
