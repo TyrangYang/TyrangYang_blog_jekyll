@@ -30,6 +30,7 @@ tags:
 - [Sort](#sort)
 - [Swap](#swap)
 - [Test range](#test-range)
+- [Unique](#unique)
 
 ## Algorithm Overview
 
@@ -51,7 +52,7 @@ tags:
 | [count_if](#number) | Returns the number of element in given condition | N | algorithm | O(n) |
 | [equal](#test-range) | Test whether the elements in two ranges are equal | N | algorithm | O(n) |
 | [equal_range](#search) | Returns the bounds of the subrange that includes all the elements of the range [first,last) with values equivalent to val | N | algorithm | O(2logn + 1) for randam access iterator, otherwise O(n) |
-| [fill](#generation) | Assigns val to all the elements in the range [first,last) | Y | algorithm | O() |
+| [fill](#generation) | Assigns val to all the elements in the range [first,last) | Y | algorithm | O(n) |
 | [fill_n](#generation) | Assigns val to the first n elements of the sequence pointed by first | Y | algorithm | O(n) |
 | [find](#search) | Find the first element in range | N | algorithm | O(n) |
 | [find_end](#search) | Find last subsequence in range | N | algorithm | O(m*(1+n-m)) |
@@ -82,7 +83,7 @@ tags:
 | [minmax*](#number) | Return smallest and largest elements from give 2 value or initializer | N | algorithm | O(1) |
 | [minmax_element*](#number) | Return smallest and largest elements in range | N | algorithm | O(n) |
 | [min_element](#number) | Return smallest element in range | N | algorithm | O(n) |
-| mismatch | | N | algorithm | O() |
+| [mismatch](#search) | Return first position where two ranges differ | N | algorithm | O(n) |
 | [move*](#move) | Move range of elements | Y | algorithm | O(n) |
 | [move_backward*](#move) | Move range of elements backward | Y | algorithm | O(n) |
 | [next_permutation](#permutation) | Rearranges the elements in the range [first,last) into the next lexicographically greater permutation | Y | algorithm | O(n) |
@@ -597,6 +598,7 @@ If you want go over all permutation, **sort** first.
 using namespace std;
 
 int main () {
+	// next_permutation
 	vector<int> myints = {1,2,3};
 	sort(myints.begin(), myints.end()); // 1 2 3
 
@@ -606,6 +608,7 @@ int main () {
 
 	std::cout << "After loop: " << myints[0] << ' ' << myints[1] << ' ' << myints[2] << '\n';
 
+	// prev_permutation
 	reverse(myints.begin(), myints.end()); // 3 2 1
 
 	do {
@@ -614,12 +617,20 @@ int main () {
 
 	std::cout << "After loop: " << myints[0] << ' ' << myints[1] << ' ' << myints[2] << '\n';
 
+	// lexicographical_compare
 	string myStr = "abc"; // string is also work
 	next_permutation(myStr.begin(), myStr.end());
 	cout << myStr << endl; // acb
 
 	string myStr2 = "cba";
+	cout << boolalpha;
+	cout << lexicographical_compare(myStr.begin(), myStr.end(), myStr2.begin(), myStr2.end()) << endl;
+	// acb < cba
+	// true
+
+	// is_permutation
 	cout << is_permutation(myStr.begin(), myStr.end(), myStr2.begin()) << endl;
+	// true
 
 	return 0;
 }
@@ -874,7 +885,27 @@ int main(int argc, char const *argv[])
 
 	cout << "bounds at positions " << (bounds.first - iv.begin());
   	cout << " and " << (bounds.second - iv.begin()) << endl;
+  	// 10 10 10 20 20 20 30 30
+  	//          ^        ^
   	// bounds at positions 3 and 6
+
+  	// mismatch
+  	vector<int> mis = {10,10,10,20,20,30,30,40};
+	pair<vector<int>::iterator, vector<int>::iterator> myPair;
+	myPair = mismatch(iv.begin(), iv.end(), mis.begin());
+	//  iv: 10 10 10 20 20 20 30 30
+	//              first: ^ 
+	// mis: 10 10 10 20 20 30 30 40
+	//             second: ^ 
+	cout << "Fisrt mismacth is: " << *myPair.first << " ";
+	cout << "and " << *myPair.second << endl;
+	// Fisrt mismacth is: 20 and 30
+
+	++myPair.first; ++myPair.second;
+	myPair = mismatch(myPair.first, iv.end(), myPair.second);
+	cout << "Fisrt mismacth is: " << *myPair.first << " ";
+	cout << "and " << *myPair.second << endl;
+	// Fisrt mismacth is: 30 and 40
 
   	// binary_search
   	cout << boolalpha;
@@ -1211,5 +1242,9 @@ int main(int argc, char const *argv[])
 	return 0;
 }
 ```
+
+[Back to top](#content)
+
+## Unique
 
 [Back to top](#content)
