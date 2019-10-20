@@ -113,10 +113,10 @@ tags:
 | [rotate_copy](#rotate) | Rotate and copy | Y | algorithm | O(n) |
 | [search](#search) | Search range for subsequence | N | algorithm | O(n*m) |
 | [search_n](#search) | Search range for n continue elements | N | algorithm | O(n) |
-| set_difference | | Y (if in-place) | algorithm | O() |
-| set_intersection | | Y (if in-place) | algorithm | O() |
-| set_symmetric | | Y (if in-place) | algorithm | O() |
-| set_union | | Y (if in-place) | algorithm | O() |
+| [set_difference](#set) | Difference of two sorted ranges | N(copy) | algorithm | O(2(n+m)-1) |
+| [set_intersection](#set) | Intersection of two sorted ranges | N(copy) | algorithm | O(2(n+m)-1) |
+| [set_symmetric_difference](#set) | Symmetric difference of two sorted ranges | N(copy) | algorithm | O(2(n+m)-1) |
+| [set_union](#set) | Union of two sorted ranges | N(copy) | algorithm | O(2(n+m)-1) |
 | [shuffle*](#shuffle) | Randomly rearrange elements in range using generator | Y | algorithm | O(n) |
 | [sort](#sort) | Sort elements in range | Y | algorithm | O(nlogn) |
 | [sort_heap](#heap) | Sort elements of heap | Y | algorithm | O(nlogn) |
@@ -126,7 +126,7 @@ tags:
 | [swap_ranges](#swap) | Exchanges a range of value | Y | algorithm | O(n) |
 | [transform](#move) | Transform range | Y | algorithm | O(n) |
 | [unique](#unique) | Remove consecutive duplicates in range | Y | algorithm | O(n) |
-| [unique_copy](#unique) | | Y | algorithm | O(n) |
+| [unique_copy](#unique) | Copy range removing duplicates | Y | algorithm | O(n) |
 | [upper_bond](#search) | Return iterator to upper bound. Since **[first, last)**, the value pointed by the iterator must larger than *val*| N | algorithm | O(logn + 1) for randam access iterator, otherwise O(n) |
 
 ## Copy
@@ -276,6 +276,8 @@ int main(int argc, char const *argv[]){
 [Back to top](#content)
 
 ## Merge
+
+Sort first!!
 
 ```cpp
 #include <iostream>
@@ -1051,6 +1053,49 @@ int main(int argc, char const *argv[])
 [Back to top](#content)
 
 ## Set
+
+Container must be sorted first. Set is ordered in this code.
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <set>
+using namespace std;
+
+int main(int argc, char const *argv[])
+{
+	set<int> is1 = { 5,10,15,20,25};
+	set<int> is2 = { 50,40,30,20,10};
+
+	// set_union
+	vector<int> iv_union(10);
+	vector<int>::iterator it;
+	it = set_union(is1.begin(), is1.end(), is2.begin(), is2.end(), iv_union.begin());
+	iv_union.resize(it - iv_union.begin());
+	// iv_union: 5 10 15 20 25 30 40 50
+
+	// set_intersection
+	vector<int> iv_intersection(10);
+	it = set_intersection(is1.begin(), is1.end(), is2.begin(), is2.end(), iv_intersection.begin());
+	iv_intersection.resize(it - iv_intersection.begin());
+	// iv_intersection: 10 20
+
+	// set_difference
+	vector<int> iv_difference(10);
+	it = set_difference(is1.begin(), is1.end(), is2.begin(), is2.end(), iv_difference.begin());
+	iv_difference.resize(it - iv_difference.begin());
+	// iv_difference: 5 15 25 // difference only in first container
+
+	// set_symmetric_difference
+	vector<int> iv_symmetric_difference(10);
+	it = set_symmetric_difference(is1.begin(), is1.end(), is2.begin(), is2.end(), iv_symmetric_difference.begin());
+	iv_symmetric_difference.resize(it - iv_symmetric_difference.begin());
+	// iv_symmetric_difference: 5 15 25 30 40 50 // difference only in both containers
+
+	return 0;
+}
+```
 
 [Back to top](#content)
 
