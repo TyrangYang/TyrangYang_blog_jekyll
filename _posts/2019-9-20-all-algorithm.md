@@ -43,16 +43,16 @@ tags:
 | [adjacent_find](#search) | Find first equal adjacent elements in range | N | algorithm | O(n) |
 | [all_of*](#test-range) | Test whether the elements in two ranges are equal | N | algorithm | O(n) |
 | [any_of*](#test-range) | Test if any element in range fulfills condition | N | algorithm | O(n) |
-| [binary_search](#search) | eturns true if any element in the range [first,last) is equivalent to val, and false otherwise. | N | algorithm | O(logn) |
-| [copy](#copy) | Copies the elements in the range | Y | algorithm | O(n) |
-| [copy_backward](#copy) | Copies the elements in the range starting from the end into the range terminating at result. | Y | algorithm | O(n) |
-| [copy_if*](#copy) | Copies the elements in the range with given condition | Y | algorithm | O(n) |
-| [copy_n*](#copy) | Copies the first n elements from the range beginning | Y | algorithm | O(n) |
-| [count](#number) | Returns the number of the element | N | algorithm | O(n) |
-| [count_if](#number) | Returns the number of element in given condition | N | algorithm | O(n) |
+| [binary_search](#search) | Test if value exists in sorted sequence | N | algorithm | On average O(logn + 2). On non-random-access iterator is O(n) |
+| [copy](#copy) | Copy range of elements | N(copy) | algorithm | O(n) |
+| [copy_backward](#copy) | Copy range of elements backward | N(copy) | algorithm | O(n) |
+| [copy_if*](#copy) | Copy certain elements of range | N(copy) | algorithm | O(n) |
+| [copy_n*](#copy) | Copies the first n elements from the range beginning | N(copy) | algorithm | O(n) |
+| [count](#number) | Count appearances of value in range | N | algorithm | O(n) |
+| [count_if](#number) | Return number of elements in range satisfying condition | N | algorithm | O(n) |
 | [equal](#test-range) | Test whether the elements in two ranges are equal | N | algorithm | O(n) |
-| [equal_range](#search) | Returns the bounds of the subrange that includes all the elements of the range [first,last) with values equivalent to val | N | algorithm | O(2logn + 1) for randam access iterator, otherwise O(n) |
-| [fill](#generation) | Assigns val to all the elements in the range [first,last) | Y | algorithm | O(n) |
+| [equal_range](#search) | Get subrange of equal elements | N | algorithm | O(2logn + 1) for randam access iterator, otherwise O(n) |
+| [fill](#generation) | Fill range with value | Y | algorithm | O(n) |
 | [fill_n](#generation) | Assigns val to the first n elements of the sequence pointed by first | Y | algorithm | O(n) |
 | [find](#search) | Find the first element in range | N | algorithm | O(n) |
 | [find_end](#search) | Find last subsequence in range | N | algorithm | O(m*(1+n-m)) |
