@@ -42,8 +42,8 @@ tags:
 | copy_backward | | Y (if in-place) | algorithm | O() |
 | copy_if* | | | algorithm | O() |
 | copy_n* | | Y (if in-place) | algorithm | O() |
-| count | | N | algorithm | O() |
-| count_if | | N | algorithm | O() |
+| [count](#number) | Returns the number of the element | N | algorithm | O(n) |
+| [count_if](#number) | Returns the number of element in given condition | N | algorithm | O(n) |
 | equal | | N | algorithm | O() |
 | [equal_range](#search) | Returns the bounds of the subrange that includes all the elements of the range [first,last) with values equivalent to val | N | algorithm | O(2logn + 1) for randam access iterator, otherwise O(n) |
 | [fill](#generation) | Assigns val to all the elements in the range [first,last) | Y | algorithm | O() |
@@ -218,7 +218,8 @@ int main(int argc, char const *argv[]){
 
 **\<numberic\>:** iota accumulate inner_product partial_sum adjacent_differenet
 
-**\<algorithm\>:** max min max_element min_element minmax
+**\<algorithm\>:** max min max_element min_element minmax count count_if
+
 iota just make a increasing sequence start from a given number.
 
 ```cpp
@@ -236,6 +237,12 @@ int main(int argc, char const *argv[])
 
 	// iota
 	iota(iv.begin(), iv.end(), 1); // 1 2 3 4 5
+	
+	// count
+	cout << count(iv.begin(), iv.end(), 2) << endl; // 1
+
+	// count_if
+	cout << count_if(iv.begin(), iv.end(), [](int a){return a % 2 == 1;}) << endl; // 3
 
 	// accumulate
 	cout << accumulate(iv.begin(), iv.end(), 0) << endl; // 15
