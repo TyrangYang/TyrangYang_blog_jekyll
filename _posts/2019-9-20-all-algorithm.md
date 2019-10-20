@@ -124,9 +124,9 @@ tags:
 | [stable_sort](#sort) | Sort elements preserving order of equivalents | Y | algorithm | O(nlogn) with enough space, otherwise O(nlognlogn)|
 | [swap](#swap) | Exchanges the values of a and b | Y | algorithm | O(1) |
 | [swap_ranges](#swap) | Exchanges a range of value | Y | algorithm | O(n) |
-| transform | | Y | algorithm | O() |
-| unique | | Y | algorithm | O() |
-| unique_copy | | Y | algorithm | O() |
+| [transform](#move) | Transform range | Y | algorithm | O(n) |
+| [unique](#unique) | Remove consecutive duplicates in range | Y | algorithm | O(n) |
+| [unique_copy](#unique) | | Y | algorithm | O(n) |
 | [upper_bond](#search) | Return iterator to upper bound. Since **[first, last)**, the value pointed by the iterator must larger than *val*| N | algorithm | O(logn + 1) for randam access iterator, otherwise O(n) |
 
 ## Copy
@@ -338,6 +338,20 @@ int main(int argc, char const *argv[])
 	move_backward(foo.begin(), foo.end(), bar.end());
 	// foo:                     // (for empty string)
 	// bar: air water fire earth 
+
+	// transform
+	vector<int> iv1 = {10,20,30,40,50,60};
+	vector<int> iv2 = {1,2,3,4,5,6};
+
+	transform(iv1.begin(), iv1.end(), iv2.begin(), [](int a){return ++a;});
+	// iv1 + 1 and copy to iv2
+	// iv1: 10 20 30 40 50 60 
+	// iv2: 11 21 31 41 51 61 
+
+	transform(iv1.begin(), iv1.end(), iv2.begin(), iv2.begin(), plus<int>());
+	// range: ^    ....    ^; opStart: ^; tansform to: ^
+	// iv1: 10 20 30 40 50 60 
+	// iv2: 21 41 61 81 101 121 
 	
 	return 0;
 }
@@ -1246,5 +1260,41 @@ int main(int argc, char const *argv[])
 [Back to top](#content)
 
 ## Unique
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main(int argc, char const *argv[])
+{
+	vector<int> iv1 = {10,20,20,20,30,30,20,20,10};  
+	
+	vector<int>::iterator it;
+
+	// it point to the new end.
+	it = unique(iv1.begin(), iv1.end());
+
+	for (vector<int>::iterator i = iv1.begin(); i != it; ++i)
+	{
+		cout << *i << " ";
+	}
+	cout << endl;
+	// 10 20 30 20 10 
+
+	vector<int> iv2 = {10,20,20,20,30,30,20,20,10};  
+	vector<int> iv3(5);  
+
+	it = unique_copy(iv2.begin(), iv2.end(), iv3.begin());
+	for (vector<int>::iterator i = iv3.begin(); i != it; ++i)
+	{
+		cout << *i << " ";
+	}
+	cout << endl;
+	// 10 20 30 20 10 
+	return 0;
+}
+```
 
 [Back to top](#content)
