@@ -12,6 +12,7 @@ tags:
 - [Content](#content)
 - [Algorithm Overview](#algorithm-overview)
 - [Copy](#copy)
+- [For each](#for-each)
 - [Generation](#generation)
 - [Heap](#heap)
 - [Merge](#merge)
@@ -57,10 +58,10 @@ tags:
 | [find_first_of](#search) | Returns an iterator to the first element in the range [first1,last1) that matches any of the elements in [first2,last2) | N | algorithm | O(nm) |
 | [find_if](#search) | Find the first element in range in some condition | N | algorithm | O(n) |
 | [find_if_not*](#search) | Find the first element in range in some condition | N | algorithm | O(n) |
-| for_each | | N | algorithm | O() |
+| [for_each](#for-each) | Apply function to range | N | algorithm | O(n) |
 | [generate](#generation) | Assigns the value returned by successive calls to gen to the elements in the range [first,last) | Y | algorithm | O(n) |
 | [generate_n](#generation) | Assigns the value returned by successive calls to gen to the first n elements of the sequence pointed by first | Y | algorithm | O(n) |
-| includes | | N | algorithm | O() |
+| [includes](#test-range) | Test whether sorted range includes another sorted range | N | algorithm | O(n) |
 | [inner_product](#number) | Compute cumulative inner product of range | N | numeric | O(n) |
 | [inplace_merge](#merge) | Merge consecutive sorted ranges | Y | algorithm | O(n) if extra memory is available, otherwise is O(nlogn) |
 | [iota](#number) | Store increasing sequence | Y | numeric | O(n) |
@@ -155,6 +156,25 @@ int main(int argc, char const *argv[])
 	copy_backward(iv.begin(), iv.end(), iv5.end());
 	// iv5: 1 2 3 4 5 6
 
+	return 0;
+}
+```
+
+[Back to top](#content)
+
+## For each
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main(int argc, char const *argv[])
+{
+	vector<int> iv = {1,2,3,4,5,6};
+	for_each(iv.begin(), iv.end(), [](int x){cout << x << " ";});
+	// cout:1 2 3 4 5 6
 	return 0;
 }
 ```
@@ -1183,6 +1203,10 @@ int main(int argc, char const *argv[])
 	// true
 	cout << equal(iv.begin(), iv.end(), iv3.begin()) << endl;
 	// false
+
+	// includes
+	cout << includes(iv2.begin(), iv2.end(), iv3.begin(), iv3.end()) << endl;
+	// true
 	
 	return 0;
 }
