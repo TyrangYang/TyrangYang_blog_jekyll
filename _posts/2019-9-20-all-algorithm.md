@@ -11,8 +11,11 @@ tags:
 ## Content
 - [Content](#content)
 - [Algorithm Overview](#algorithm-overview)
+- [Copy](#copy)
 - [Generation](#generation)
 - [Heap](#heap)
+- [Merge](#merge)
+- [Move](#move)
 - [Number](#number)
 - [Partition](#partition)
 - [Permutation](#permutation)
@@ -25,6 +28,7 @@ tags:
 - [Shuffle](#shuffle)
 - [Sort](#sort)
 - [Swap](#swap)
+- [Test range](#test-range)
 
 ## Algorithm Overview
 
@@ -35,16 +39,16 @@ tags:
 | [accumulate](#number) | Accumulate values in range | N | numeric | O(n) |
 | [adjacent_difference](#number) | Compute adjacent difference of range and return to another place | N |numeric| O(n) |
 | [adjacent_find](#search) | Find first equal adjacent elements in range | N | algorithm | O(n) |
-| all_of* | | N | algorithm | O() |
-| any_of* | | N | algorithm | O() |
+| [all_of*](#test-range) | Test whether the elements in two ranges are equal | N | algorithm | O(n) |
+| [any_of*](#test-range) | Test if any element in range fulfills condition | N | algorithm | O(n) |
 | [binary_search](#search) | eturns true if any element in the range [first,last) is equivalent to val, and false otherwise. | N | algorithm | O(logn) |
-| copy | | Y (if in-place) | algorithm | O() |
-| copy_backward | | Y (if in-place) | algorithm | O() |
-| copy_if* | | | algorithm | O() |
-| copy_n* | | Y (if in-place) | algorithm | O() |
+| [copy](#copy) | Copies the elements in the range | Y | algorithm | O(n) |
+| [copy_backward](#copy) | Copies the elements in the range starting from the end into the range terminating at result. | Y | algorithm | O(n) |
+| [copy_if*](#copy) | Copies the elements in the range with given condition | Y | algorithm | O(n) |
+| [copy_n*](#copy) | Copies the first n elements from the range beginning | Y | algorithm | O(n) |
 | [count](#number) | Returns the number of the element | N | algorithm | O(n) |
 | [count_if](#number) | Returns the number of element in given condition | N | algorithm | O(n) |
-| equal | | N | algorithm | O() |
+| [equal](#test-range) | Test whether the elements in two ranges are equal | N | algorithm | O(n) |
 | [equal_range](#search) | Returns the bounds of the subrange that includes all the elements of the range [first,last) with values equivalent to val | N | algorithm | O(2logn + 1) for randam access iterator, otherwise O(n) |
 | [fill](#generation) | Assigns val to all the elements in the range [first,last) | Y | algorithm | O() |
 | [fill_n](#generation) | Assigns val to the first n elements of the sequence pointed by first | Y | algorithm | O(n) |
@@ -58,7 +62,7 @@ tags:
 | [generate_n](#generation) | Assigns the value returned by successive calls to gen to the first n elements of the sequence pointed by first | Y | algorithm | O(n) |
 | includes | | N | algorithm | O() |
 | [inner_product](#number) | Compute cumulative inner product of range | N | numeric | O(n) |
-| inplace_merge | | Y | algorithm | O() |
+| [inplace_merge](#merge) | Merge consecutive sorted ranges | Y | algorithm | O(n) if extra memory is available, otherwise is O(nlogn) |
 | [iota](#number) | Store increasing sequence | Y | numeric | O(n) |
 | [is_heap*](#heap) | Test if range is heap | N | algorithm | O(n) |
 | [is_heap_until*](#heap) | Find first element not in heap order. | N | algorithm | O(n) |
@@ -72,14 +76,14 @@ tags:
 | [make_heap](#heap) | Make heap from range | Y | algorithm | O(3n) |
 | [max](#number) | Returns the largest of a and b. If both are equivalent, a is returned.| N |algorithm |O(1) |
 | [max_element](#number) | Return largest element in range | N | algorithm | O(n) |
-| merge | | Y (if in-place) | algorithm | O() |
+| [merge](#merge) | Merge sorted ranges | Y | algorithm | O(n) |
 | [min](#number) | Returns the smallest of a and b. If both are equivalent, a is returned. | N | algorithm | O(1) |
 | [minmax*](#number) | Return smallest and largest elements from give 2 value or initializer | N | algorithm | O(1) |
 | [minmax_element*](#number) | Return smallest and largest elements in range | N | algorithm | O(n) |
 | [min_element](#number) | Return smallest element in range | N | algorithm | O(n) |
 | mismatch | | N | algorithm | O() |
-| move* | | | algorithm | O() |
-| move_backward* | | | algorithm | O() |
+| [move*](#move) | Move range of elements | Y | algorithm | O(n) |
+| [move_backward*](#move) | Move range of elements backward | Y | algorithm | O(n) |
 | [next_permutation](#permutation) | Rearranges the elements in the range [first,last) into the next lexicographically greater permutation | Y | algorithm | O(n) |
 | none_of* | | | algorithm | O() |
 | [nth_element](#sort) | Find the nth element and put it the exact palce.(quick select) | Y | algorithm | O() |
@@ -123,6 +127,40 @@ tags:
 | unique_copy | | Y | algorithm | O() |
 | [upper_bond](#search) | Return iterator to upper bound. Since **[first, last)**, the value pointed by the iterator must larger than *val*| N | algorithm | O(logn + 1) for randam access iterator, otherwise O(n) |
 
+## Copy
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main(int argc, char const *argv[])
+{
+	vector<int> iv = {1,2,3,4,5,6};
+
+	vector<int> iv2(6);
+	copy(iv.begin(), iv.end(), iv2.begin());
+	// iv2: 1 2 3 4 5 6
+
+	vector<int> iv3(3);
+	copy_if(iv.begin(), iv.end(), iv3.begin(), [](int a){return a % 2 == 0;});
+	// iv3: 2 4 6
+
+	vector<int> iv4(5);
+	copy_n(iv.begin(), 5, iv4.begin());
+	// iv4: 1 2 3 4 5 6 
+
+	vector<int> iv5(6);
+	copy_backward(iv.begin(), iv.end(), iv5.end());
+	// iv5: 1 2 3 4 5 6
+
+	return 0;
+}
+```
+
+[Back to top](#content)
+
 ## Generation
 fill fill_n generate generate_n
 
@@ -159,6 +197,8 @@ int main(int argc, char const *argv[])
 	return 0;
 }
 ```
+
+[Back to top](#content)
 
 ## Heap
 
@@ -214,6 +254,76 @@ int main(int argc, char const *argv[]){
 
 [Back to top](#content)
 
+## Merge
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main(int argc, char const *argv[])
+{
+	// merge
+	vector<int> iv1 = {5,10,15,20,25};
+	vector<int> iv2 = {50,40,30,20,10};
+	vector<int> res1(10);
+	sort(iv1.begin(), iv1.end());
+	sort(iv2.begin(), iv2.end());
+
+	merge(iv1.begin(), iv1.end(), iv2.begin(), iv2.end(), res1.begin());
+	// res: 5 10 10 15 20 20 25 30 40 50 
+
+	// inplace_merge
+	vector<int> res2(10);
+	auto it = copy(iv1.begin(), iv1.end(), res2.begin());
+	copy(iv2.begin(), iv2.end(), it);
+	// res2: 5 10 15 20 25 10 20 30 40 50 
+
+	inplace_merge(res2.begin(), res2.begin() + 5, res2.end());
+	// res2: 5 10 10 15 20 20 25 30 40 50 
+
+	return 0;
+}
+```
+
+[Back to top](#content)
+
+## Move
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <string>
+using namespace std;
+
+int main(int argc, char const *argv[])
+{
+	vector<string> foo = {"air","water","fire","earth"};
+	vector<string> bar (4);
+
+	// move
+	move(foo.begin(), foo.end(), bar.begin());
+	// foo:                     // (for empty string)
+	// bar: air water fire earth 
+
+	foo = move(bar);
+	// foo: air water fire earth 
+	// bar:    // nothing here.
+
+	// move_backward
+	bar.resize(4);
+	move_backward(foo.begin(), foo.end(), bar.end());
+	// foo:                     // (for empty string)
+	// bar: air water fire earth 
+	
+	return 0;
+}
+```
+
+[Back to top](#content)
+
 ## Number
 
 **\<numberic\>:** iota accumulate inner_product partial_sum adjacent_differenet
@@ -237,7 +347,7 @@ int main(int argc, char const *argv[])
 
 	// iota
 	iota(iv.begin(), iv.end(), 1); // 1 2 3 4 5
-	
+
 	// count
 	cout << count(iv.begin(), iv.end(), 2) << endl; // 1
 
@@ -509,6 +619,7 @@ int main(int argc, char const *argv[])
 {
 	vector<int> iv = {10,20,30,30,20,10,10,20};
 
+	//remove
 	vector<int>::iterator newEnd = remove(iv.begin(), iv.end(), 20);
 	//iv: 10 30 30 10 10 10 10 20
 	//           newEnd: ^
@@ -521,10 +632,11 @@ int main(int argc, char const *argv[])
 	vector<int> iv2 = {10,20,30,30,20,10,10,20};
 	vector<int> iv3(5);
 
+	// remove_copy
 	remove_copy(iv2.begin(), iv2.end(), iv3.begin(), 20);
 	// iv3: 10 30 30 10 10
 
-
+	// remove_if
 	vector<int> iv4 = {1,2,3,4,5,6,7,8,9};
 	newEnd = remove_if(iv4.begin(), iv4.end(), [](int a){ return a % 2 == 0;});
 
@@ -534,6 +646,7 @@ int main(int argc, char const *argv[])
 	}cout << endl; // res: 1 3 5 7 9
 	// iv4: 1 3 5 7 9 6 7 8 9
 
+	// remove_copy_if
 	vector<int> iv5 = {1,2,3,4,5,6,7,8,9};
 	vector<int> iv6(5);
 	remove_copy_if(iv4.begin(), iv4.end(), iv6.begin() , [](int a){ return a % 2 == 0;});
@@ -558,16 +671,20 @@ int main(int argc, char const *argv[])
 {
 	vector<int> iv = {10, 20, 30, 30, 20, 10, 10, 20};
 
+	// replace
 	replace(iv.begin(), iv.end(), 20, 99);
 	// iv: 10 99 30 30 99 10 10 99
 
+	// replace_copy
 	vector<int> iv2(8);
 	replace_copy(iv.begin(), iv.end(), iv2.begin(), 99, 1);
 	// iv2: 10 99 30 30 99 10 10 99 
 
+	// replace_if
 	replace_if(iv.begin(), iv.end(), [](int a){return a % 2 == 0;}, 0);
 	// iv: 0 99 0 0 99 0 0 99 
 
+	// replace_copy_if
 	vector<int> iv3(8);
 	replace_copy_if(iv.begin(), iv.end(), iv3.begin(), [](int a){return a % 2 == 0;}, 1);
 	// iv3: 1 99 1 1 99 1 1 99 
@@ -592,9 +709,11 @@ int main(int argc, char const *argv[])
 	vector<int> iv = {0,1,2,3,4,5,6,7};
 	vector<int> iv2(8);
 
+	// reverse
 	reverse(iv.begin(), iv.end());
 	// iv: 7 6 5 4 3 2 1 0
 
+	// reverse_copy
 	reverse_copy(iv.begin(), iv.end(), iv2.begin());
 	// iv: 7 6 5 4 3 2 1 0
 	// iv2: 0 1 2 3 4 5 6 7 
@@ -1028,4 +1147,41 @@ int main(int argc, char const *argv[])
 	// myints: [2 3 1 5] 50 60
 }
 ```
+
+[Back to top](#content)
+
+## Test range
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <string>
+using namespace std;
+
+int main(int argc, char const *argv[])
+{	
+	cout << boolalpha;
+	// all_of
+	vector<int> iv = {1,2,3,4,5,6};
+	cout << all_of(iv.begin(), iv.end(), [](int a){return a<10;}) << endl;
+	//true
+
+	// any_of
+	cout << any_of(iv.begin(), iv.end(), [](int a){return a>10;}) << endl;
+	// false
+
+	// equal
+	vector<int> iv2 = {1,2,3,4,5,6};
+	vector<int> iv3 = {1,2,3,4,5};
+
+	cout << equal(iv.begin(), iv.end(), iv2.begin()) << endl;
+	// true
+	cout << equal(iv.begin(), iv.end(), iv3.begin()) << endl;
+	// false
+	
+	return 0;
+}
+```
+
 [Back to top](#content)
