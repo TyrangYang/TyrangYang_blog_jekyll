@@ -85,7 +85,7 @@ tags:
 | [move*](#move) | Move range of elements | Y | algorithm | O(n) |
 | [move_backward*](#move) | Move range of elements backward | Y | algorithm | O(n) |
 | [next_permutation](#permutation) | Rearranges the elements in the range [first,last) into the next lexicographically greater permutation | Y | algorithm | O(n) |
-| none_of* | | | algorithm | O() |
+| [none_of*](#test-range) | Test if no elements fulfill condition | N | algorithm | O(n) |
 | [nth_element](#sort) | Find the nth element and put it the exact palce.(quick select) | Y | algorithm | O() |
 | [partial_sort](#sort) | Partially sort elements in range while the remaining elements are left without any order | Y | algorithm | O(mlogn) |
 | [partial_sort_copy](#sort) | Copy and partially sort range | Y (if in-place) | algorithm | O(mlogn) |
@@ -1170,6 +1170,10 @@ int main(int argc, char const *argv[])
 	// any_of
 	cout << any_of(iv.begin(), iv.end(), [](int a){return a>10;}) << endl;
 	// false
+
+	// none_of
+	cout << none_of(iv.begin(), iv.end(), [](int a){return a>10;}) << endl;
+	// true
 
 	// equal
 	vector<int> iv2 = {1,2,3,4,5,6};
