@@ -22,12 +22,12 @@ Agile uses **an adaptive approach** where there is *no detailed planning* and th
 
 ## Rational unified process (RUP)
 
-1. Develop iterativly
+1. Develop iteratively
 2. Manage requirement
 3. Use component-base architecture
 4. Model software visually
 5. Continuously verify software quality
-6. Contral changes
+6. Control changes
 
 ## Boehm's risk exposure comparison
 
@@ -43,9 +43,9 @@ Time and effort invested in plans&uarr; --> risk&darr; ; lost of market share&ua
 6. Refactoring - Not changing the behavior and update the code
 7. Pair Programming
 8. Collective ownership - Everyone not knows everything but knows something about every part
-9. Continuous integration - integrate and test frequently. Ruduce problem and easy to find who break the code
+9. Continuous integration - integrate and test frequently. Reduce problem and easy to find who break the code
 10. Sustainable pace - not work too hard
-11. Whole team - customer is memeber of team
+11. Whole team - customer is member of team
 12. Coding standard
 
 
@@ -56,9 +56,9 @@ Time and effort invested in plans&uarr; --> risk&darr; ; lost of market share&ua
 
 Agile is self organizing teams. Frequently delivering and feedback. Manager help team to self organize, ask question.
 
-## Todoy's Topic
+## Today's Topic
 
-* Requirments: Plan driven
+* Requirements: Plan driven
 * Use Cases: RUP approach
 * User Story: Agile approach
 
@@ -94,7 +94,7 @@ Template: As a (role) I want (something) so that (benefit).
 * **Independent** in context and scheduling
 * **Negotiable** between customer and developers
 * **Valuable** to the customer
-* **Esimable** value to customer & effort for developers
+* **Estimable** value to customer & effort for developers
 * **Small** in scope
 * **Testable** include sufficient details to allow testing
 

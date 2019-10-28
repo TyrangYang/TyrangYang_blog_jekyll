@@ -10,14 +10,14 @@ tags:
 
 ## Bit operator
 
-| operator | function | example |
-| :---:    | ---|   ---   |
-| <<       | left shift | 0001 --> 0010  |
-| >>       | right shift | 0010 --> 0001  |
-| &        | and (bit by bit)| 1100 & 1010 = 1000|
-| \|       | or (bit by bit) | 1010 \| 0101 = 1111 |
-| ~        | reverse | ~0000 = 1111|
-| ^        | XOR |  0110 ^ 1100 = 1010 |
+| operator | function         | example             |
+| :------: | ---------------- | ------------------- |
+|    <<    | left shift       | 0001 --> 0010       |
+|    >>    | right shift      | 0010 --> 0001       |
+|    &     | and (bit by bit) | 1100 & 1010 = 1000  |
+|    \|    | or (bit by bit)  | 1010 \| 0101 = 1111 |
+|    ~     | reverse          | ~0000 = 1111        |
+|    ^     | XOR              | 0110 ^ 1100 = 1010  |
 
 ### Operator: & 
 
@@ -92,7 +92,7 @@ bitset is stable structure that boolean value in only one bit. It need prefix th
 
 **vector\<bool\>** have same feature but **never use it** because bitset was designed to replace it.
 
-The defect of bitset is that it cannot extend. **vector\<bool\>** don't need to arry about the size however that is defective at design level. Instead, we can use vector\<char\>. (char is 4 bits in c++)
+The defect of bitset is that it cannot extend. **vector\<bool\>** don't need to array about the size however that is defective at design level. Instead, we can use vector\<char\>. (char is 4 bits in c++)
 
 bitset use for a huge mount of boolean data. Bitset need 8 bytes at beginning(64 bit memory). If the array of boolean data is small( <8 bytes), you better use a integer or long integer to store and use bit operator to manipulate. Definitely, bitset is more easy to use.
 

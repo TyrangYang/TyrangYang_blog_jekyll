@@ -50,7 +50,7 @@ public class Turnstile extends Thread {
 }
 ```
 
-#### Strong semaphor
+#### Strong semaphore
 
 Possibility of starvation is caused by the fact that blocked processes are placed in a **set** of processes. But this can be remedied by changing the set to be a queue.
 
@@ -71,7 +71,7 @@ semaphore chairs = new semaphore(4); // N-1
 thread Philosopher(i) {
     left = i;
     right = (i+1) % 5
-    while(ture){
+    while(true){
         chairs.acquire();
         fork(left).acquire();
         fork(right).acquire();
@@ -99,7 +99,7 @@ thread Producer: {
     while(true){
         prem_to_produce.acquire();
         mutexP.acquire(); 
-        // critcal section. Protect mutiple producers will affect front.
+        // critical section. Protect multiple producers will affect front.
         buffer[front] = produce();
         front = (front + 1) % N;
         prem_to_consume.release();       
@@ -110,7 +110,7 @@ thread Producer: {
 thread Consumer: {
     while(true) {
         prem_to_consume.acquire();
-        mutexC.acquire(); // Portect rear from mutiple consumers.
+        mutexC.acquire(); // Protect rear from multiple consumers.
         consume(buffer[rear]);
         rear = (rear + 1) % N;
         prem_to_produce.release();
@@ -122,11 +122,11 @@ thread Consumer: {
 
 ## Reader & Writer
 
-Mutiple reader could read.
+Multiple reader could read.
 
 No reader can read when writer writing
 
-The first one grab the resourse and the last one release it.
+The first one grab the resource and the last one release it.
 
 ``` java
 Semaphore resource = new Semaphore(1);
@@ -237,7 +237,7 @@ thread MachineAtStation(i) {
 
 Semaphore[] aboard = {new Semaphore(0), new Semaphore(0)};
 
-thread passager(j){
+thread passenger(j){
     
     // ticket_East.acquire();
     aboard[0].acquire();
@@ -256,7 +256,7 @@ thread ferry(i){
            aboard[i].release()
         }
 
-        repeat(n){ // recieve n ticket
+        repeat(n){ // receive n ticket
            ticket.acquire()
         }
         i = 1 - i;

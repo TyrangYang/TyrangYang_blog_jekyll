@@ -47,12 +47,12 @@ or
     2. sub 2
 3. line 3
 
-## Blockqutoes
-Use '>' for a qutoes
-> This is a qutoe.
+## BlockQuotes
+Use '>' for a quotes
+> This is a quote.
 > 
-> All other syntax can use in quto
-> > This is a nested qutoe
+> All other syntax can use in quote
+> > This is a nested quote
 > > Use '>>'
 
 ## Code block
@@ -66,7 +66,7 @@ Just on tab
 ## Code
 This is a code part `function foo()`
 
-``Escaping Tick Marks `funtion foo()` ``
+``Escaping Tick Marks `function foo()` ``
 
 ```cpp
 int add(int a, int b){
@@ -87,11 +87,11 @@ def add(self, a, b):
 
 ## Table (For github)
 
-| a     | pdf   | fed   | afd   | 2     |
-|------ |-----  |-----  |-----  |---    |
-| adfs  | sda   | pdf   | 1     | 3     |
-| fads  | pdf   | 1     | 1     | 3     |
-| fast  | 1     | 1     | 2     | 3     |
+| a    | pdf | fed | afd | 2   |
+| ---- | --- | --- | --- | --- |
+| adf  | sda | pdf | 1   | 3   |
+| fads | pdf | 1   | 1   | 3   |
+| fast | 1   | 1   | 2   | 3   |
 
 Here is the [markdown table generator](https://www.tablesgenerator.com/markdown_tables)
 

@@ -25,6 +25,6 @@ MathJax.Hub.Config({
 </script>
 <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
 
-## Document structor
+## Document constructor
 
 $$f(x) = sin(x)$$

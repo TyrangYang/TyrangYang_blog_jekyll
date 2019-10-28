@@ -9,9 +9,9 @@ tags:
 ---
 
 ## JavaDocs
-JavaDocs is able to easily generate a code "maintance manual"
+JavaDocs is able to easily generate a code "maintenance manual"
 
-A doc comment is made up of two parts -- a discrption and two or more tag.
+A doc comment is made up of two parts -- a description and two or more tag.
 
 ```java
 /**

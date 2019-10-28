@@ -34,11 +34,11 @@ tags:
     - hash_multimap (not standard)
     - hash_multiset (not standard)
 
-Associative contatiner have a key-value pair. It do not have back and front so they never have push_back, pop_back.
+Associative container have a key-value pair. It do not have back and front so they never have push_back, pop_back.
 
 ## Vector
 
-This is similar with grow array. Vector use seqential space.
+This is similar with grow array. Vector use sequential space.
 
 ### insert(position, n, x)
 
@@ -94,7 +94,7 @@ graph TD;
 
 transfer() can move some element in specific range*( [first, last) )* to a specific location.
 
-It is a basic function to move element in list and fundation of other complicated function like sort(), reverse(), splice().
+It is a basic function to move element in list and foundation of other complicated function like sort(), reverse(), splice().
 
 ```cpp
 void transfer(iterator position, iterator first, iterator last) {
@@ -109,7 +109,7 @@ void transfer(iterator position, iterator first, iterator last) {
     } 
 }
 ```
-![transfor]({{ site.url }}{{ site.baseurl }}/public/images/2019-7-31-containers/transfer.png)
+![transfer]({{ site.url }}{{ site.baseurl }}/public/images/2019-7-31-containers/transfer.png)
 
 ### sort()
 
@@ -131,7 +131,7 @@ Deque do not have capacity, therefore push and pop on back and front in constant
 
 Deque provide Random Access Iterator but it iterator is not same with vector and very complicated. If want **sort** deque, copy to vector, sort and copy back.
 
-When deque space has been filled, it will connect a contnuous space. Therefore, deque use saperate continuous linear space.
+When deque space has been filled, it will connect a continuous space. Therefore, deque use separate continuous linear space.
 
 Deque structure:
 ![deque]({{site.url}}{{site.baseurl}}/public/images/2019-7-31-containers/map.png)
@@ -149,23 +149,23 @@ FILO
 
 **NO iterator**
 
-Can be inplemented by list.
+Can be implemented by list.
 
 ---
 
 ## Queue
 
-Samilar thing with stack. FIFO.
+Similar thing with stack. FIFO.
 
 **NO iterator**
 
-Can be inplemented by list.
+Can be implemented by list.
 
 ---
 
 ## Heap
 
-Heap is not a cantainer in STL but it is the basement of priority_queue.
+Heap is not a container in STL but it is the basement of priority_queue.
 
 Heap is a complete binary tree and array can store all elements in heap. However, we want to change the capacity of array. We can use a vector and some algorithm to make up a heap.
 
@@ -208,7 +208,7 @@ template <class RandomAccessIterator, class Distance, class T> void __adjust_hea
 ```
 
 ### sort_heap
-Everytime pop a element, will stay at the end of array. After pop all element, heap must empty and array is sorted.
+After pop a element, will stay at the end of array. After pop all element, heap must empty and array is sorted.
 
 ![sort_heap1]({{site.url}}{{site.baseurl}}/public/images/2019-7-31-containers/sort_heap1.png)
 ![sort_heap2]({{site.url}}{{site.baseurl}}/public/images/2019-7-31-containers/sort_heap2.png)
@@ -268,9 +268,9 @@ Forward_list is a single linked list.
 
 Forward iterator
 
-### insert_after() & earse_after()
+### insert_after() & erase_after()
 
-In c++, insert() and earse() will add or remove element before the position your given. But it is more cost that insert or earse in a single linked list. Therefore, forward_list only provide insert_after() and earse_after() which you can add or remove element after the position your provided.
+In c++, insert() and erase() will add or remove element before the position your given. But it is more cost that insert or erase in a single linked list. Therefore, forward_list only provide insert_after() and erase_after() which you can add or remove element after the position your provided.
 
 ### push_front() & pop_front()
 
@@ -317,17 +317,17 @@ using namespace std;
 
 int main(int argc, char const *argv[])
 {
-    map<char, int> mymap;
+    map<char, int> my_map;
     
-    mymap['b'] = 100;
-    mymap['a'] = 200;
-    mymap['c'] = 300;
+    my_map['b'] = 100;
+    my_map['a'] = 200;
+    my_map['c'] = 300;
 
-    mymap['d'] == 100 ? cout << "find" << endl : cout << "not find" << endl;
+    my_map['d'] == 100 ? cout << "find" << endl : cout << "not find" << endl;
 
-    mymap.count('e') ? cout << "find" << endl : cout << "not find" << endl;
+    my_map.count('e') ? cout << "find" << endl : cout << "not find" << endl;
 
-    for(auto i: mymap){
+    for(auto i: my_map){
         cout << i.first << " " << i.second << endl;
     }
 }
@@ -341,7 +341,7 @@ Could have several key.
 
 ---
 
-## Hashtable
+## HashTable
 
 ### Linear probing
 
@@ -349,7 +349,7 @@ Could have several key.
 ### Quadratic probing
 After find a collision, Change the hash function.
 
-Mutiplication is not good, especially i power 2.
+Multiplication is not good, especially i power 2.
 
 >H<sub>i</sub> = H<sub>0</sub> + i<sup>2</sup>(mod M)
 >
@@ -367,10 +367,10 @@ But we can do:
 
 We can use left shift to multiple 2 which is a acceptable method.
 
-### Seperate chaining
+### Separate chaining
 
-C++ use seperate chaining to achieve Hashtable.
+C++ use separate chaining to achieve hash table.
 
-In STL, hashtable use a vector and linked-list (not list in STL).
+In STL, hash table use a vector and linked-list (not list in STL).
 
-![hashtable_iterator]({{site.baseurl}}{{site.url}}/public/images/2019-7-31-containers/hashtable_iterator.png)
+![hashTable_iterator]({{site.baseurl}}{{site.url}}/public/images/2019-7-31-containers/hashtable_iterator.png)

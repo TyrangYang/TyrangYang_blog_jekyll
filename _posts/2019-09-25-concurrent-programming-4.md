@@ -6,15 +6,15 @@ tags:
     - course note
 ---
 
-## Moniter
-signal contidtion --> waiting  moniter --> signaling
+## Monitor
+signal condition --> waiting  monitor --> signaling
 
 
 ### producer and consumer with a  buffer whose size is one
 
 ```java
 
-moniter PC {
+monitor PC {
     Object buffer;
 
     void produce(Object o){
@@ -40,20 +40,20 @@ moniter PC {
 ## Semaphore
 
 ```java
-// Assuption: E < S < W (Signal and urgent wait)
-moniter Semaphore {
+// Assumption: E < S < W (Signal and urgent wait)
+monitor Semaphore {
     int permit;
 
-    void accquire() {
+    void acquire() {
         if(permit == 0){
             permitsAvailable.wait();
         } else {
-            permint--;
+            permit--;
         }
     }
 
     void release(){
-        if(!permitAvaible.isempty()){
+        if(!permitAvailable.isEmpty()){
             permitsAvailable.signal();
         } else{
             permit++;
@@ -74,7 +74,7 @@ monitor RW {
     int writers=0;
 
     void start_read(){
-        if (writer!=0 || !okToWirte.isempty())
+        if (writer!=0 || !okToWrite.isEmpty())
             okToRead.wait();
         readers++;
         okToRead.signal(); // coscadp signaling
@@ -94,7 +94,7 @@ monitor RW {
 
     void stop_write(){
         writers--;
-        if(okToRead.isempty())
+        if(okToRead.isEmpty())
             okToWrite.signal();
         else
             okToRead.signal();
@@ -108,7 +108,7 @@ monitor RW {
 ```java
 monitor 3WS{
     int state = 1;
-    condition fisrt, second, third;
+    condition first, second, third;
     void first(){
         while(state != 1)
             first.wait();
@@ -158,7 +158,7 @@ monitor myBarrier{
 E = W < S
 
 ```java
-moniter Pizzeria{
+monitor Pizzeria{
     int small, large;
     condition smallAvail, largeAvail;
 

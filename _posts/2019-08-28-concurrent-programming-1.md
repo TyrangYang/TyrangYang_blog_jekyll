@@ -10,7 +10,7 @@ tags:
 
 ## What is concurrency
 
-Systems of interacting computer programs which share rescourse and run concurrently.
+Systems of interacting computer programs which share resource and run concurrently.
 
 ### parallelism and concurrency
 
@@ -22,7 +22,7 @@ Concurrency: Occurring logically at the same time.
 
 Process synchronization: Ensure the instructions are executed in certain order.
 
-Synchronization is irrelevent if processes do not interact with each other. 
+Synchronization is irrelevant if processes do not interact with each other. 
 
 Concurrency, and hence process synchronized, is useful only when processes interact with each other.
 
@@ -62,12 +62,12 @@ are:
 
 ![interleaving]({{site.url}}{{site.baseurl}}/public/images/2019-08-28-concurrent-programming-1/interleaving.png)
 
-iterleaving.
+interleaving.
 
 For this one. m = n = 2. That will have 4!/2!2! = 24 / 4 = 6.
 
-There are 6 interleavings. 
+There are 6 interleaving. 
 
-All 6 interleavings are called transition system.
+All 6 interleaving are called transition system.
 
 

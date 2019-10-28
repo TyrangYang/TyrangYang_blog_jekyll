@@ -39,7 +39,7 @@ System.arraycopy(nums, 0, nums, 0, nums.length);
 1. An array needs to know its size at the time of creation, arrayList does not.
 2. To assign an object in array you must assign it to a specific index.
 3. Array use array syntax ([]). 
-4. ArrayList is parameterized. `ArrayList<stirng>`
+4. ArrayList is parameterized. `ArrayList<string>`
 
 ## ArrayList
 

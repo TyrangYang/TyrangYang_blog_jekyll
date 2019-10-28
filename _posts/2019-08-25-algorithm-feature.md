@@ -82,7 +82,7 @@ int main(int argc, char const *argv[])
 }
 ```
 
-## Genaral form in STL algorithm
+## General form in STL algorithm
 
 ### [first, last)
 

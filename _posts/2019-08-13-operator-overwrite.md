@@ -43,9 +43,9 @@ public:
     int& operator*() const{
         return (int&)this->m_i;
     }
-    // int a() const {}; This means a() connot change any member in class.
+    // int a() const {}; This means a() cannot change any member in class.
 
-    INT& operator++(){ //pretfix. ++test;
+    INT& operator++(){ //prefix. ++test;
         this->m_i += 1;
         return *this;
     }
@@ -57,9 +57,9 @@ public:
         this->m_i += 1;
         return temp;
     }
-    // Postfix must be const. Because it return a temperory varible and it not support test++++.
+    // Postfix must be const. Because it return a temporary variable and it not support test++++.
     // You can try int i = 1; i++++;
-    // This is invaild.
+    // This is invalid.
     
     friend ostream& operator<<(ostream& s, const INT& i){
         s << '[' << i.m_i << ']';

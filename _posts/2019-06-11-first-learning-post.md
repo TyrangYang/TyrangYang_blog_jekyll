@@ -5,12 +5,12 @@ date: "2019-06-11"
 author: Haolin Yang
 categories: "jekyll"
 # permalink: first/:title
-# The page is store in _site folder. The default url is decided by date. However the url will be change when you have categories. Permalink can decided the url utimatly if that exist.
+# The page is store in _site folder. The default url is decided by date. However the url will be change when you have categories. Permalink can decided the url ultimately if that exist.
 ---
 
 This is learning note for Jekyll
 
-## Forder
+## Folder
 
 * _posts
 

@@ -6,7 +6,7 @@ tag:
     - using
 ---
 
-## [shapecatcher](http://shapecatcher.com/index.html)
+## [shapeCatcher](http://shapecatcher.com/index.html)
 
 Draw a character and find the ASCII code 
 

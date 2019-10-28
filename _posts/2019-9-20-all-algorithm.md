@@ -51,7 +51,7 @@ tags:
 | [count](#number) | Count appearances of value in range | N | algorithm | O(n) |
 | [count_if](#number) | Return number of elements in range satisfying condition | N | algorithm | O(n) |
 | [equal](#test-range) | Test whether the elements in two ranges are equal | N | algorithm | O(n) |
-| [equal_range](#search) | Get subrange of equal elements | N | algorithm | O(2logn + 1) for randam access iterator, otherwise O(n) |
+| [equal_range](#search) | Get sub range of equal elements | N | algorithm | O(2logn + 1) for random access iterator, otherwise O(n) |
 | [fill](#generation) | Fill range with value | Y | algorithm | O(n) |
 | [fill_n](#generation) | Assigns val to the first n elements of the sequence pointed by first | Y | algorithm | O(n) |
 | [find](#search) | Find the first element in range | N | algorithm | O(n) |
@@ -74,7 +74,7 @@ tags:
 | [is_sorted_until*](#sort) | Find first unsorted element in range | N | algorithm | O(n) |
 | [iter_swap](#swap) | Swaps the elements pointed to by a and b | Y | algorithm | O(1) |
 | [lexicographical_compare](#permutation) | Compare two range lexicographically. | N | algorithm | O(n) |
-| [lower_bond](#search) | Return iterator to lower bound | N | algorithm | O(logn + 1) for randam access iterator, otherwise O(n) |
+| [lower_bond](#search) | Return iterator to lower bound | N | algorithm | O(logn + 1) for random access iterator, otherwise O(n) |
 | [make_heap](#heap) | Make heap from range | Y | algorithm | O(3n) |
 | [max](#number) | Returns the largest of a and b. If both are equivalent, a is returned.| N |algorithm |O(1) |
 | [max_element](#number) | Return largest element in range | N | algorithm | O(n) |
@@ -127,7 +127,7 @@ tags:
 | [transform](#move) | Transform range | Y | algorithm | O(n) |
 | [unique](#unique) | Remove consecutive duplicates in range | Y | algorithm | O(n) |
 | [unique_copy](#unique) | Copy range removing duplicates | Y | algorithm | O(n) |
-| [upper_bond](#search) | Return iterator to upper bound. Since **[first, last)**, the value pointed by the iterator must larger than *val*| N | algorithm | O(logn + 1) for randam access iterator, otherwise O(n) |
+| [upper_bond](#search) | Return iterator to upper bound. Since **[first, last)**, the value pointed by the iterator must larger than *val*| N | algorithm | O(logn + 1) for random access iterator, otherwise O(n) |
 
 ## Copy
 
@@ -435,7 +435,7 @@ int main(int argc, char const *argv[])
 	// y3 = x3 - x2 
 	// y4 = x4 - x3  ...
 
-	// parial_sum calculate all elements b
+	// partial_sum calculate all elements b
 	// y0 = x0 
 	// y1 = x0 + x1 
 	// y2 = x0 + x1 + x2 
@@ -574,7 +574,7 @@ lexicographical_compare: Returns true if the range [first1,last1) compares lexic
 
 next_permutation: next lexicographically-ordered permutation. Return false when input is already the greatest lexicographic permutation.
 
-prev_permutation: previous lexicographically-ordered permutation. Return false when input is already a ascanding permutation.
+prev_permutation: previous lexicographically-ordered permutation. Return false when input is already a ascending permutation.
 
 THis code explain how to find next permutation(prev_permutation with same logic).
 ```cpp
@@ -587,16 +587,16 @@ bool next_permutation(BidirIt first, BidirIt last) // [first, last)
  
     while (true) {
         BidirIt i1, i2;
-        i1 = i; // i1 is last element of ascanding sequence
+        i1 = i; // i1 is last element of ascending sequence
         if (*--i < *i1) { // i is prev of i1.
             i2 = last;
-            while (*i > *--i2) // i ≤ i1 ≥ i2 // i2 will be last nember bigger than i
+            while (*i > *--i2) // i ≤ i1 ≥ i2 // i2 will be last number bigger than i
                 ;
             std::iter_swap(i, i2); // i2 should at i's position in the next permutation. 
-            std::reverse(i1, last); // make sure seq behind i1 become ascanding.
+            std::reverse(i1, last); // make sure seq behind i1 become ascending.
             return true;
         }
-        if (i == first) { // the whole sequence is descanding.
+        if (i == first) { // the whole sequence is descending.
             std::reverse(first, last);
             return false;
         }
@@ -913,15 +913,15 @@ int main(int argc, char const *argv[])
 	//              first: ^ 
 	// mis: 10 10 10 20 20 30 30 40
 	//             second: ^ 
-	cout << "Fisrt mismacth is: " << *myPair.first << " ";
+	cout << "First mismacth is: " << *myPair.first << " ";
 	cout << "and " << *myPair.second << endl;
-	// Fisrt mismacth is: 20 and 30
+	// First mismacth is: 20 and 30
 
 	++myPair.first; ++myPair.second;
 	myPair = mismatch(myPair.first, iv.end(), myPair.second);
-	cout << "Fisrt mismacth is: " << *myPair.first << " ";
+	cout << "First mismacth is: " << *myPair.first << " ";
 	cout << "and " << *myPair.second << endl;
-	// Fisrt mismacth is: 30 and 40
+	// First mismacth is: 30 and 40
 
   	// binary_search
   	cout << boolalpha;
@@ -939,7 +939,7 @@ int main(int argc, char const *argv[])
   	vector<int>::iterator it = search(searchV.begin(), searchV.end(), patternV1.begin(), patternV1.end());
 
   	// searchV: 0 10 20 30 40 50 60 70 80 90 
-  	//      patternv1 = 30 40 50
+  	//       pattern1 = 30 40 50
   	if(it != searchV.end())
   		cout << "Pattern is find and position is start from: " << it - searchV.begin() << endl;
   	else
@@ -950,7 +950,7 @@ int main(int argc, char const *argv[])
 
   	it = search(searchV.begin(), searchV.end(), patternV2.begin(), patternV2.end());
 	// searchV: 0 10 20 30 40 50 60 70 80 90 
-  	// patternv1 = 30 50
+  	// pattern1 = 30 50
   	if(it != searchV.end())
   		cout << "Pattern is find and position is start from: " << it - searchV.begin() << endl;
   	else
@@ -1140,7 +1140,7 @@ int main(int argc, char const *argv[])
 
 ## Sort
 
-sort() in c++ using itrosort which is combine quicksort and heapsort.
+sort() in c++ using intro sort which is combine quicksort and heap sort.
 
 stable_sort() using merage sort. When space is enough, the complexity is O(nlogn). Otherwise, it is O(n*logn*logn) since many swapping occur in algorithm.
 
@@ -1148,9 +1148,9 @@ partial_sort using heapsort.
 
 nth_element: Rearranges the elements in the range [first,last), in such a way that the element at the nth position is the element that would be in that position in a sorted sequence.
 
-nth_element is quick selection. Find the nth element and put it the exact palce. On the right part is smaller than nth element and bigger on the left without specific sequence.
+nth_element is quick selection. Find the nth element and put it the exact place. On the right part is smaller than nth element and bigger on the left without specific sequence.
 
-Something different in java. You can see: [Here]({{site.url}}{{site.baseurl}}/langage-comparison/2019/07/12/langage-comparsion-common-method.html)
+Something different in java. You can see: [Here]({{site.url}}{{site.baseurl}}/language-comparison/2019/07/12/language-Comparison-common-method.html)
 
 ```cpp
 #include <iostream>

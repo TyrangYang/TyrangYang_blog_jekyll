@@ -11,7 +11,7 @@ tags:
 
 ## Iterator设计思维
 
-STL中containor和algorithm是相对独立的，本身设计也是泛型化的。Iterator就是用来将这两者联系在一起的。
+STL中container和algorithm是相对独立的，本身设计也是泛型化的。Iterator就是用来将这两者联系在一起的。
 
 ## Iterator是一种smart pointer
 

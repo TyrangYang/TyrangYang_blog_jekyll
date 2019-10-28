@@ -24,22 +24,22 @@ _**Access control** allows for encapsulation_
 
 ## Access modifiers
 
-| Qualifier | class | package | subclass | outside the package |
-| :---:     | :---: | :---:   | :---:    | :---:               |
-| public    |&radic;| &radic; | &radic;  | &radic; |
-| protected |&radic;| &radic; | &radic;  | X |
-| default   |&radic;| &radic; | X        | X |
-| private   |&radic;| X       | X        | X |
+| Qualifier |  class  | package | subclass | outside the package |
+| :-------: | :-----: | :-----: | :------: | :-----------------: |
+|  public   | &radic; | &radic; | &radic;  |       &radic;       |
+| protected | &radic; | &radic; | &radic;  |          X          |
+|  default  | &radic; | &radic; |    X     |          X          |
+|  private  | &radic; |    X    |    X     |          X          |
 
-## Instance veriable & Local veriable
+## Instance variable & Local variable
 
-**Instance veriable** is declared inside a class but not inside a method.
+**Instance variable** is declared inside a class but not inside a method.
 
-**Local veriable** is declared within a method.
+**Local variable** is declared within a method.
 
 ## Getter & Setter
 
-If a instance veriable is private, constructor should use the setter of that veriable.
+If a instance variable is private, constructor should use the setter of that variable.
 
 Wrong code
 ```java
@@ -108,7 +108,7 @@ Whenever two or more methods have the same name but different input parameters.
 
 ## Write a java class
 
-1. Instance veriable
+1. Instance variable
 2. Constructors
 3. Accessors(getter)
 4. Mutators(setter)
