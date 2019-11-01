@@ -41,7 +41,7 @@ tags:
 | [accumulate](#number) | Accumulate values in range | N | numeric | O(n) |
 | [adjacent_difference](#number) | Compute adjacent difference of range and return to another place | N |numeric| O(n) |
 | [adjacent_find](#search) | Find first equal adjacent elements in range | N | algorithm | O(n) |
-| [all_of*](#test-range) | Test whether the elements in two ranges are equal | N | algorithm | O(n) |
+| [all_of*](#test-range) | Test condition on all elements in range | N | algorithm | O(n) |
 | [any_of*](#test-range) | Test if any element in range fulfills condition | N | algorithm | O(n) |
 | [binary_search](#search) | Test if value exists in sorted sequence | N | algorithm | On average O(logn + 2). On non-random-access iterator is O(n) |
 | [copy](#copy) | Copy range of elements | N(copy) | algorithm | O(n) |
