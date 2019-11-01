@@ -16,10 +16,10 @@
 title: TyrangYang
 email: haolinyang95@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-# baseurl: ""
 # url: "127.0.0.1:4000"
-baseurl: "/TyrangYang_blog"
+# baseurl: ""
 url: "https://tyrangyang.github.io"
+baseurl: "/TyrangYang_blog"
 twitter_username: 499768797Tyrang
 github_username:  TyrangYang
 logo: 
@@ -37,7 +37,7 @@ footer_links:
 
 # Build settings
 markdown: kramdown
-theme: jekyll-theme-so-simple
+# theme: jekyll-theme-so-simple
 remote_theme: "mmistakes/so-simple-theme"
 
 collections:
@@ -75,6 +75,7 @@ tag_archive_path: "/tags/#"
 
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
 
 
 # Exclude from processing.
