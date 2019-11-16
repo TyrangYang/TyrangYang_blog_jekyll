@@ -6,21 +6,32 @@ tag:
     - using
 ---
 
-## [shapeCatcher](http://shapecatcher.com/index.html)
+## shapeCatcher
 
 Draw a character and find the ASCII code 
+
+[http://shapecatcher.com/index.html](http://shapecatcher.com/index.html)
 
 ## draw.io
 
 Draw diagram online
 
-https://www.draw.io
+[https://www.draw.io](https://www.draw.io)
 
 ## regular expression
-https://regexr.com  
+
+Good online tool to test and learn regular expression
+
+[https://regexr.com](https://regexr.com) 
 
 ## 100 front end component design
-https://www.florin-pop.com/blog/2019/09/100-days-100-projects/
+
+100 react component design challenge
+
+[https://www.florin-pop.com/blog/2019/09/100-days-100-projects/](https://www.florin-pop.com/blog/2019/09/100-days-100-projects/)
 
 ## bootswatch
-https://bootswatch.com
+
+Several bootstrap scheme. 
+
+[https://bootswatch.com](https://bootswatch.com)
