@@ -90,6 +90,13 @@ git checkout -b <new branch name>
 ```
 git merge <branch2> <branch3>
 ```
+
+this is merge branch3 into branch2
+
+Eg: `git merge master test` or `git merge test` (when you on master branch)
+
+> merge branch test into master.
+
 >git merge 还将在合并的版本中包含当前检出的分支。因此，如果检出了 branch1，并且运行 git merge branch2 branch3，则合并的版本会将 branch1 以及 branch2 和 branch3 组合起来。由于在你进行合并提交后 branch1 标签将会更新，因此，你不想将 branch1 中的更改包含在合并中是不可能的。有鉴于此，在合并之前应始终检出你打算合并的两个分支之一。应检出哪个分支取决于你想让哪个分支标签指向新的提交。
 >
 >由于检出的分支始终包含在合并中，在合并两个分支时，无需在命令行上将两者都指定为 git merge 的参数。如果想将 branch2 合并到 branch1 中，只需键入 git checkout branch1，然后键入 git merge branch2 即可。键入 git merge branch1 branch2 的唯一原因是，它能帮助你对要合并的分支更加心中有数。

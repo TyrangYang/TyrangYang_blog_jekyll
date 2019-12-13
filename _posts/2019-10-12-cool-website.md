@@ -8,7 +8,7 @@ tag:
 
 ## shapeCatcher
 
-Draw a character and find the ASCII code 
+Draw a character and find the ASCII code
 
 [http://shapecatcher.com/index.html](http://shapecatcher.com/index.html)
 
@@ -22,7 +22,7 @@ Draw diagram online
 
 Good online tool to test and learn regular expression
 
-[https://regexr.com](https://regexr.com) 
+[https://regexr.com](https://regexr.com)
 
 ## 100 front end component design
 
@@ -32,6 +32,12 @@ Good online tool to test and learn regular expression
 
 ## bootswatch
 
-Several bootstrap scheme. 
+Several bootstrap scheme.
 
 [https://bootswatch.com](https://bootswatch.com)
+
+## shields.io
+
+Get or create Readme badge
+
+[https://shields.io](https://shields.io)

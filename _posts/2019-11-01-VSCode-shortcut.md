@@ -6,6 +6,8 @@ tag:
     - shortcut
 ---
 
+[Vscode page for shortcut](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf)
+
 ## Short cut
 
 Source from **Traversy Media** 
