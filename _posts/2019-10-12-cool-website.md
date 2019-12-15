@@ -41,3 +41,9 @@ Several bootstrap scheme.
 Get or create Readme badge
 
 [https://shields.io](https://shields.io)
+
+## animate.css
+
+CSS file add animation
+
+https://daneden.github.io/animate.css/
