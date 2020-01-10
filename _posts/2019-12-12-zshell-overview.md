@@ -1,6 +1,6 @@
 ---
-title: My own zsh setting
-categories: Bash
+title: Z-shell overview
+categories: Terminal
 tag:
     - zsh
     - bash
@@ -10,9 +10,9 @@ tag:
 
 Very useful blog:
 
-http://stevelosh.com/blog/2010/02/my-extravagant-zsh-prompt/#username-and-hostname
+[http://stevelosh.com/blog/2010/02/my-extravagant-zsh-prompt/#username-and-hostname](http://stevelosh.com/blog/2010/02/my-extravagant-zsh-prompt/#username-and-hostname)
 
-http://zsh.sourceforge.net/Intro/intro_12.html#SEC12
+[http://zsh.sourceforge.net/Intro/intro_12.html#SEC12](http://zsh.sourceforge.net/Intro/intro_12.html#SEC12)
 
 ## Variable
 
@@ -102,7 +102,7 @@ function virtualenv_info {
     [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`') '
 }
 
-function getTime {
+function timeClock {
     HOUR=$(date +'%I') # 1 - 12
     MIN=$(date +'%M') # 0 - 59
     if [[ $HOUR -eq 1 && MIN -lt 30 ]]; then echo '\U1F550'
@@ -134,7 +134,7 @@ function getTime {
 
 PROMPT='%{$fg[yellow]%}🜲 %{$fg[red]%}%n%{$reset_color%} %{$fg_bold[green]%}%2~ $(git_prompt_info)%{$reset_color%}$(virtualenv_info)$(prompt_char) '
 
-RPROMPT='$(getTime)'
+RPROMPT='$(timeClock)'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[blue]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"

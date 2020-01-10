@@ -1,10 +1,15 @@
 ---
-title: Some cool website
+title: Some cool websites
 catagories: Note
 tag:
     - website
-    - using
 ---
+
+## Development setting up for Mac
+
+This guide covers the basics of setting up a development environment on a new Mac.
+
+https://sourabhbajaj.com/mac-setup/
 
 ## shapeCatcher
 

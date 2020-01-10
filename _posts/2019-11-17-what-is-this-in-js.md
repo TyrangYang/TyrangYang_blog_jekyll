@@ -1,7 +1,7 @@
 ---
-title: What is **this** in javascript
+title: What is "this" in javascript
 categories: Posts
-tag: 
+tag:
     - javascript
     - nodejs
 ---
@@ -10,19 +10,18 @@ author: Dmitri Pavlutin
 
 reference: [https://dmitripavlutin.com/gentle-explanation-of-this-in-javascript/](https://dmitripavlutin.com/gentle-explanation-of-this-in-javascript/)
 
-
 ## Concept
 
-* **Invocation** of a function is executing the code that makes the body of a function, or simply calling the function. For example `parseInt` function invocation is `parseInt('15')`.
-* **Context** of an invocation is the value of this within function body. For example the invocation of `map.set('key', 'value')` has the context `map`.
-* **Scope** of a function is the set of variables, objects, functions accessible within a function body.
+-   **Invocation** of a function is executing the code that makes the body of a function, or simply calling the function. For example `parseInt` function invocation is `parseInt('15')`.
+-   **Context** of an invocation is the value of this within function body. For example the invocation of `map.set('key', 'value')` has the context `map`.
+-   **Scope** of a function is the set of variables, objects, functions accessible within a function body.
 
 ## Invocations
 
-* **function invocation:** alert('Hello World!')
-* **method invocation:** console.log('Hello World!')
-* **constructor invocation:** new RegExp('\\d')
-* **indirect invocation:** alert.call(undefined, 'Hello World!')
+-   **function invocation:** alert('Hello World!')
+-   **method invocation:** console.log('Hello World!')
+-   **constructor invocation:** new RegExp('\\d')
+-   **indirect invocation:** alert.call(undefined, 'Hello World!')
 
 ## this in different invocations
 
@@ -52,13 +51,13 @@ this is `object` who call the function
 
 ```js
 function Pet(type, legs) {
-  this.type = type;
-  this.legs = legs;
+    this.type = type;
+    this.legs = legs;
 
-  this.logInfo = function() {
-    console.log(this === myCat); // => false
-    console.log(`The ${this.type} has ${this.legs} legs`);
-  }
+    this.logInfo = function() {
+        console.log(this === myCat); // => false
+        console.log(`The ${this.type} has ${this.legs} legs`);
+    };
 }
 
 const myCat = new Pet('Cat', 4);
@@ -77,17 +76,16 @@ this is the newly created object
 
 #### Pitfall: forgetting about new
 
-
 ## Conclusion
 
 Because the function invocation has the biggest impact on this, from now on **do not ask yourself**:
 
-*Where is this taken from?*
+_Where is this taken from?_
 
 but **do** ask yourself:
 
-*How is the function invoked?*
+_How is the function invoked?_
 
 For **an arrow function** ask yourself:
 
-*What is this where the arrow function is defined?*
+_What is this where the arrow function is defined?_

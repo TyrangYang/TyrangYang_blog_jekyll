@@ -8,7 +8,7 @@ function virtualenv_info {
     [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`') '
 }
 
-function getTime {
+function timeClock {
     HOUR=$(date +'%I') # 1 - 12
     MIN=$(date +'%M') # 0 - 59
     if [[ $HOUR -eq 1 && MIN -lt 30 ]]; then echo '\U1F550'
@@ -40,7 +40,7 @@ function getTime {
 
 PROMPT='%{$fg[yellow]%}🜲 %{$fg[red]%}%n%{$reset_color%} %{$fg_bold[green]%}%1~ $(git_prompt_info)%{$reset_color%}$(virtualenv_info)$(prompt_char) '
 
-RPROMPT='$(getTime)'
+RPROMPT='$(timeClock)'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[blue]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
