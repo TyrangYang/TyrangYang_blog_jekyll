@@ -135,7 +135,7 @@ git remote
 git remote -v
 ```
 
-    - giving a new remote name and conncet it to a URL
+    - giving a new remote name and connect it to a URL
 
 ```
 git remote add <remote name> <URL>

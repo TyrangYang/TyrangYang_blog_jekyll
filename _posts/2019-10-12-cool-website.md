@@ -9,7 +9,7 @@ tag:
 
 This guide covers the basics of setting up a development environment on a new Mac.
 
-https://sourabhbajaj.com/mac-setup/
+[https://sourabhbajaj.com/mac-setup/](https://sourabhbajaj.com/mac-setup/)
 
 ## shapeCatcher
 
