@@ -33,7 +33,7 @@ tags:
 
 ## Algorithm Overview
 
-**'*' --> new feature from C++11**
+**`*` --> new feature from C++11**
 
 | Algorithm Name | Usage | Mutating? | Head File | Complexity |
 | :---:          | :---: | :---: | :---: | :---: |
