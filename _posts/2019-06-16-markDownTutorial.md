@@ -1,46 +1,49 @@
 ---
 layout: post
-title: Learning MarkDown
+title: MarkDown overview
 date: 2019-06-16
 author: Haolin Yang
-categories: MarkDown
+categories: Overview
 ---
 
 This is learning note for MarkDown
 
 # Heading 1
+
 or
 
-Heading 1
-===
+# Heading 1
 
 ## Heading 2
+
 or
 
-Heading 2
----
+## Heading 2
 
 ## Intalic and bold
-*intalic* or _intalic_
-**bold** or __bold__
-***intalic and bold*** or ___intalic and bold___
+
+_intalic_ or _intalic_
+**bold** or **bold**
+**_intalic and bold_** or **_intalic and bold_**
 
 ## Unordered list
-- line 1
-- line 2
-- line 3
-    + sub 1
-    + sub 2
 
-or 
+-   line 1
+-   line 2
+-   line 3
+    -   sub 1
+    -   sub 2
 
-* line 1
-* line 2
-* line 3
-    - sub 1
-    - sub 2
+or
+
+-   line 1
+-   line 2
+-   line 3
+    -   sub 1
+    -   sub 2
 
 ## Ordered list
+
 1. line 1
 2. line 2
     1. sub 1
@@ -48,14 +51,18 @@ or
 3. line 3
 
 ## BlockQuotes
+
 Use '>' for a quotes
+
 > This is a quote.
-> 
+>
 > All other syntax can use in quote
+>
 > > This is a nested quote
 > > Use '>>'
 
 ## Code block
+
 Just on tab
 
     <html>
@@ -64,9 +71,10 @@ Just on tab
     </html>
 
 ## Code
+
 This is a code part `function foo()`
 
-``Escaping Tick Marks `function foo()` ``
+`` Escaping Tick Marks `function foo()` ``
 
 ```cpp
 int add(int a, int b){
@@ -75,8 +83,8 @@ int add(int a, int b){
 ```
 
 ```javascript
-function add(a, b){
-    return a+b;
+function add(a, b) {
+    return a + b;
 }
 ```
 
@@ -95,36 +103,44 @@ def add(self, a, b):
 
 Here is the [markdown table generator](https://www.tablesgenerator.com/markdown_tables)
 
-
 ## Url and Email
+
 <haolinyang95@sina.com>
 
 <https://www.markdownguide.org/basic-syntax/>
 
 ## Links
-This the official [guide](https://www.markdownguide.org/basic-syntax/ "cool link")
+
+This the official [guide](https://www.markdownguide.org/basic-syntax/ 'cool link')
 
 ## Horizontal rule
----
-***
-___
+
+> ---
+
+> ---
+
+> ===
 
 ## Subscript element
+
 H<sub>2</sub>O
 
 ## Superscript element
+
 E=MC<sup>2</sup>
 
 ## Special sign using HTML
-**&plusmn;** &plusmn; &radic; &rArr;  &hArr;
+
+**&plusmn;** &plusmn; &radic; &rArr; &hArr;
 space: &nbsp;
 ![Special symbol]({{site.url}}{{site.baseurl}}/public/images/specialSymbol.png)
 [Website](https://blog.csdn.net/qiao13633426513/article/details/85112664)
 
 ## Image
-![what is here](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+
+![what is here](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png 'Logo Title Text 1')
 ![anything?][logo]
 
 Write by Haolin Yang
 
-[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
+[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png 'Logo Title Text 2'

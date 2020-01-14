@@ -1,6 +1,6 @@
 ---
 title: Git overview
-categories: Note
+categories: Overview
 tag:
     - git
 ---

@@ -1,6 +1,6 @@
 ---
 title: Makefile overview
-categories: Note
+categories: Overview
 tag:
     - makefile
 ---
