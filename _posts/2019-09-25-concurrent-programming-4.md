@@ -1,16 +1,16 @@
 ---
 title: Concurrent Programming Course note 4
 categories: Concurrent-programming
-tags: 
+tags:
     - concurrent
     - course note
 ---
 
 ## Monitor
-signal condition --> waiting  monitor --> signaling
 
+signal condition --> waiting monitor --> signaling
 
-### producer and consumer with a  buffer whose size is one
+### producer and consumer with a buffer whose size is one
 
 ```java
 
@@ -35,7 +35,6 @@ monitor PC {
 }
 
 ```
-
 
 ## Semaphore
 
@@ -77,7 +76,7 @@ monitor RW {
         if (writer!=0 || !okToWrite.isEmpty())
             okToRead.wait();
         readers++;
-        okToRead.signal(); // coscadp signaling
+        okToRead.signal(); // cascade signaling
     }
 
     void stop_read(){
@@ -193,7 +192,7 @@ monitor Pizzeria{
 }
 ```
 
-## 
+##
 
 ```java
 public class BarrierExample{
@@ -281,4 +280,3 @@ public class BarrierExample{
         }
     }
 ```
-

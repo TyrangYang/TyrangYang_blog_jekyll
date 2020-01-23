@@ -3,7 +3,7 @@ layout: post
 author: Haolin Yang
 title: Algorithm feature in c++ STL
 categories: STL-study-note
-tags: 
+tags:
     - c++
     - STL
     - algorithm
@@ -92,21 +92,12 @@ The benefit is that if function stop at last position, you this function is end.
 
 ### iterator
 
-Each algorithm need different type and is Backward compatible. 
+Each algorithm need different type and is Backward compatible.
 
 ### different type
 
 That may have some different version for one function.
 
-Some may need a functor. like, find and find_if. Usually, it appear on some function which need comparison. 
+Some may need a functor. like, find and find_if. Usually, it appear on some function which need comparison.
 
 For mutating algorithm, normally have two version. One is in-place and another is copy. like replace and replace_if.
-
-
-
-
-
-
-
-
-

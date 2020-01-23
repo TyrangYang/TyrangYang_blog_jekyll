@@ -3,7 +3,7 @@ layout: post
 author: Haolin Yang
 title: Operator overwrite in c++
 categories: STL-study-note
-tags: 
+tags:
     - c++
     - operator
 ---
@@ -60,12 +60,12 @@ public:
     // Postfix must be const. Because it return a temporary variable and it not support test++++.
     // You can try int i = 1; i++++;
     // This is invalid.
-    
+
     friend ostream& operator<<(ostream& s, const INT& i){
         s << '[' << i.m_i << ']';
         return s;
     }
-    
+
 };
 
 int main(int argc, char const *argv[])

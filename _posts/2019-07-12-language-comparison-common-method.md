@@ -8,7 +8,7 @@ tags:
     - java
 ---
 
-## sort( )
+## Sort
 
 ### C++
 
@@ -52,7 +52,7 @@ On average, linearithmic in the distance between first and last: Performs approx
 
 #### stable_sort()
 
-`sort()` is **unstable**. However, ***[`stable_sort()`](http://www.cplusplus.com/reference/algorithm/stable_sort/)*** preserves the relative order of the elements with equvilent value.
+`sort()` is **unstable**. However, ***[`stable_sort()`](http://www.cplusplus.com/reference/algorithm/stable_sort/)*** preserves the relative order of the elements with equivalent value.
 
 If enough extra memory is available, linearithmic in the distance between first and last: Performs up to N*log<sub>2</sub>(N) element comparisons (where N is this distance), and up to that many element moves.
 
@@ -60,7 +60,7 @@ Otherwise, polyloglinear in that distance: Performs up to N*log<sub>2</sub><sup>
 
 #### partial_sort()
 
-`partial_sort()` sort first severl elements while the remaining elements are left without any specific order.
+`partial_sort()` sort first several elements while the remaining elements are left without any specific order.
 
 ```c++
 int main(int argc, char const *argv[])
@@ -136,7 +136,7 @@ public class test{
 
 *The sorting algorithm is a parallel sort-merge that breaks the array into sub-arrays that are themselves sorted and then merged.([JavaDoc](https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/util/Arrays.html#parallelSort(int%5B%5D)))
 
-#### Cantainer
+#### Container
 
 ```java
 import java.util.Collections;

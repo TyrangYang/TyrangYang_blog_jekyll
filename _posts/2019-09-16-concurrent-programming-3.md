@@ -3,7 +3,7 @@ layout: post
 author: Haolin Yang
 title: Concurrent Programming Course note 3
 categories: Concurrent-programming
-tags: 
+tags:
     - concurrent
     - course note
 ---
@@ -12,11 +12,11 @@ tags:
 
 Initialize how many permissions you will use.
 
-*acquire()* will add one permission.
+_acquire()_ will add one permission.
 
-*release()* will remove one permission.
+_release()_ will remove one permission.
 
-Permission must ≥ 0. 
+Permission must ≥ 0.
 
 ### Semaphore solution for the MEP
 
@@ -29,23 +29,23 @@ Absence of deadlock: It never happens that #permission = 0 and #criticalSection 
 ### Java
 
 ```java
-public class Turnstile extends Thread { 
+public class Turnstile extends Thread {
     static volatile int counter = 0; // keyword is recommended for variables that are shared
-    static Semaphore mutex = new Semaphore (1); 
+    static Semaphore mutex = new Semaphore (1);
     public void run() {
-        for(int i = 0; i < 50; i++){ 
+        for(int i = 0; i < 50; i++){
             mutex.acquire();
             counter ++;
             mutex.release();
             System.out.println(id+"- In comes: "+i );
-        } 
+        }
     }
 
-    public static void main(String args[]) { 
+    public static void main(String args[]) {
         try{
             Thread m1 = new Turnstile (1); m1.start();
             Thread m2 = new Turnstile (2); m2.start();
-        } catch(Exception e){} 
+        } catch(Exception e){}
     }
 }
 ```
@@ -64,8 +64,8 @@ When fairness is set to true, the semaphore gives permits to access mutual resou
 
 ```java
 semaphore[] forks = [1,1,1,1,1]; // N = 5;
-semaphore chairs = new semaphore(4); // N-1 
-// if all get the left fork, it is deadlock. Therefore, 
+semaphore chairs = new semaphore(4); // N-1
+// if all get the left fork, it is deadlock. Therefore,
 // At least one can get both forks when only four sit in table
 
 thread Philosopher(i) {
@@ -88,22 +88,22 @@ thread Philosopher(i) {
 
 ## Producer & Consumer
 
-``` java
+```java
 
 Object[] buffer = new Object[N]; //size N
 Semaphore prem_to_produce = new Semaphore(N);
 Semaphore prem_to_consume = new Semaphore(0); // 0 means you want produce first.
-Semaphore mutexP = new Semaphore(1); 
-Semaphore mutexC = new Semaphore(1); 
+Semaphore mutexP = new Semaphore(1);
+Semaphore mutexC = new Semaphore(1);
 thread Producer: {
     while(true){
         prem_to_produce.acquire();
-        mutexP.acquire(); 
+        mutexP.acquire();
         // critical section. Protect multiple producers will affect front.
         buffer[front] = produce();
         front = (front + 1) % N;
-        prem_to_consume.release();       
-        mutexP.release(); 
+        prem_to_consume.release();
+        mutexP.release();
     }
 }
 
@@ -128,7 +128,7 @@ No reader can read when writer writing
 
 The first one grab the resource and the last one release it.
 
-``` java
+```java
 Semaphore resource = new Semaphore(1);
 Semaphore mutexR = new Semaphore(1);
 int readers = 0;
@@ -159,7 +159,6 @@ thread Reader: {
 
 ## Man & Woman Bar
 
-
 ## Quiz 3
 
 ```java
@@ -179,13 +178,13 @@ thread FreightTrain(i) {
   track[i].acquire();
   track[1-i].acquire();
   freight.release();
-  
+
   permToLoad.release();
   doneLoading.acquire();
-  
+
   track[i].release();
   track[1-i].release();
- 
+
 }
 
 thread LoadingMachine: {
@@ -197,10 +196,9 @@ thread LoadingMachine: {
 }
 ```
 
-
 ## Car
 
-```java
+````java
 
 Semaphore permToProcess = {new Semaphore(0), new Semaphore(0), new Semaphore(0)};
 Semaphore doneProcessing = {new Semaphore(0), new Semaphore(0), new Semaphore(0)};
@@ -238,7 +236,7 @@ thread MachineAtStation(i) {
 Semaphore[] aboard = {new Semaphore(0), new Semaphore(0)};
 
 thread passenger(j){
-    
+
     // ticket_East.acquire();
     aboard[0].acquire();
     ticket.release();
@@ -271,4 +269,4 @@ thread ferry(i){
 
 }
 
-```
+````

@@ -66,7 +66,7 @@ uint64_t powermod(uint64_t a, uint64_t n, uint64_t m){
 		if(n % 2 != 0) // n&1 // n is odd, n&1 is true
 			prod = prod * a % m;
 		a = a * a % m; // can not be prod = prod * prod % m
-		// Because prod * prod will multipul extra a inside.
+		// Because prod * prod will multiple extra a inside.
 		// For n = 11, n(binary)=01011, (((prod * a)^2 * a)^2^2 * a)^2. this is wrong
 		// However, prod should be prod * a * a^2 * a^8.
 		n = n / 2; // compiler n>>=1

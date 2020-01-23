@@ -47,7 +47,7 @@ git status
 git log
 ```
 
-    + show all logs in graph and each log in oneline
+    + show all logs in graph and each log in one line
 
 ```
 git log --graph --oneline <branch name> <branch name>

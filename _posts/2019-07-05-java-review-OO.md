@@ -3,16 +3,16 @@ layout: post
 title: Review java - OO
 author: Haolin Yang
 categories: Java
-tags: 
+tags:
     - review
     - java
 ---
 
 ## Class & Object
 
-A **class** only exists at *compile time*; 
+A **class** only exists at _compile time_;
 
-An **object** only exists at *runtime*.
+An **object** only exists at _runtime_.
 
 ## Data Encapsulation
 
@@ -42,6 +42,7 @@ _**Access control** allows for encapsulation_
 If a instance variable is private, constructor should use the setter of that variable.
 
 Wrong code
+
 ```java
 public class Flower {
     private String color;
@@ -79,6 +80,7 @@ public class Flower {
 ```
 
 Test code:
+
 ```java
 public class FlowerTest(){
     public static void main(String[] args) {
@@ -93,6 +95,7 @@ public class FlowerTest(){
 ```
 
 Change constructor into:
+
 ```java
 ...
     public Flower(String c, int h){
@@ -111,9 +114,9 @@ Whenever two or more methods have the same name but different input parameters.
 1. Instance variable
 2. Constructors
 3. Accessors(getter)
-4. Mutators(setter)
+4. Mutator(setter)
 5. Service Methods
-6. *toString()* method
+6. _toString()_ method
 
     With the toString() method, the object can be printed with a user-defined format.
 
@@ -122,7 +125,5 @@ Whenever two or more methods have the same name but different input parameters.
         return "< user-defined format";
     }
     ```
+
 7. A test class
-
-
-

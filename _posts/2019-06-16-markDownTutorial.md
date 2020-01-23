@@ -20,11 +20,11 @@ or
 
 ## Heading 2
 
-## Intalic and bold
+## Italic and bold
 
-_intalic_ or _intalic_
+_italic_ or _italic_
 **bold** or **bold**
-**_intalic and bold_** or **_intalic and bold_**
+**_italic and bold_** or **_italic and bold_**
 
 ## Unordered list
 

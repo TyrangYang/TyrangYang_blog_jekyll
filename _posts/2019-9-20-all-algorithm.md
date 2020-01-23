@@ -1141,7 +1141,7 @@ int main(int argc, char const *argv[])
 
 sort() in c++ using intro sort which is combine quicksort and heap sort.
 
-stable_sort() using merage sort. When space is enough, the complexity is O(nlogn). Otherwise, it is O(n*logn*logn) since many swapping occur in algorithm.
+stable_sort() using merge sort. When space is enough, the complexity is O(nlogn). Otherwise, it is O(n*logn*logn) since many swapping occur in algorithm.
 
 partial_sort using heapsort.
 
@@ -1149,7 +1149,7 @@ nth_element: Rearranges the elements in the range [first,last), in such a way th
 
 nth_element is quick selection. Find the nth element and put it the exact place. On the right part is smaller than nth element and bigger on the left without specific sequence.
 
-Something different in java. You can see: [Here]({{site.url}}{{site.baseurl}}/language-comparison/2019/07/12/language-Comparison-common-method.html)
+Something different in java. You can see: [Here]({{site.url}}{{site.baseurl}}/language-comparison/2019/07/12/language-comparison-common-method.html)
 
 ```cpp
 #include <iostream>

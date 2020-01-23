@@ -1,7 +1,7 @@
 ---
 title: How to have a dynamic class name
 categories: Posts
-tag: 
+tag:
     - html
     - javascript
     - react
@@ -11,7 +11,7 @@ In same case, you may want to have a different style depend on your state or a v
 
 ## classNames
 
-This is a javascript for conditionally joining classNames. 
+This is a javascript for conditionally joining classNames.
 
 Here is: [Github](https://github.com/JedWatson/classnames)
 

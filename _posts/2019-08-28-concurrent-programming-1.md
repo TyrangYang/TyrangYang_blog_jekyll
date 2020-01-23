@@ -3,7 +3,7 @@ layout: post
 author: Haolin Yang
 title: Concurrent Programming Course note 1
 categories: Concurrent-programming
-tags: 
+tags:
     - concurrent
     - course note
 ---
@@ -16,20 +16,21 @@ Systems of interacting computer programs which share resource and run concurrent
 
 Parallelism: Occurring physically at the same time.
 
-Concurrency: Occurring logically at the same time. 
+Concurrency: Occurring logically at the same time.
 
 ### synchronization
 
 Process synchronization: Ensure the instructions are executed in certain order.
 
-Synchronization is irrelevant if processes do not interact with each other. 
+Synchronization is irrelevant if processes do not interact with each other.
 
 Concurrency, and hence process synchronized, is useful only when processes interact with each other.
 
 ### interaction
+
 Share memory is kind of interact.
 
-Two kind of interaction: 
+Two kind of interaction:
 
 1. Shared memory - variable is visible for each thread. : java
 2. Message passing - communicate other thread, I'm using this resource.
@@ -45,6 +46,7 @@ Starvation: One thread always take resource before other thread.
 ## Modelling program execution
 
 If the program is:
+
 ```
 thread p:{
     print("a");
@@ -66,8 +68,6 @@ interleaving.
 
 For this one. m = n = 2. That will have 4!/2!2! = 24 / 4 = 6.
 
-There are 6 interleaving. 
+There are 6 interleaving.
 
 All 6 interleaving are called transition system.
-
-

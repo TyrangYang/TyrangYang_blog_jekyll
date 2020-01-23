@@ -10,7 +10,7 @@ tag:
 
 ## Short cut
 
-Source from **Traversy Media** 
+Source from **Traversy Media**
 
 [YouTube Channel](https://www.youtube.com/channel/UC29ju8bIPH5as8OGnQzwJyA)
 

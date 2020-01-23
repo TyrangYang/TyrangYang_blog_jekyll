@@ -3,7 +3,7 @@ layout: post
 title: Review java - Variable
 author: Haolin Yang
 categories: Java
-tags: 
+tags:
     - review
     - java
 ---
@@ -24,29 +24,35 @@ Every type have a default value:
 |  char   | UNICODE (not ASCII) |     u0000     | 16 bits |    uFFFF    |
 
 ## Difference between i++ and ++i
+
 ```java
 b = 1;
 a = b++; // a = 1; b = 2
 ```
+
 ```java
 b = 1;
 a = ++b; // a = 2; b = 2
 ```
+
 ```java
 int a = 1;
 int res = a++ + a;
 // res = 3 ; a = 2.
 ```
+
 ```java
 int a = 1;
 int res = a + a++;
 // res = 2; a = 2.
 ```
+
 ```java
 int a = 1;
 int res = ++a + a;
 // res = 4; a = 2.
 ```
+
 ```java
 int a = 1;
 int res = a + ++a;
@@ -54,6 +60,7 @@ int res = a + ++a;
 ```
 
 ## For loop
+
 for(**int** i=0; i < n ; i++)
 
 ## Break or continue the outer loop
@@ -62,20 +69,21 @@ for(**int** i=0; i < n ; i++)
 class TestContinueLabel{
     public static void main (String args[]){
         outer:
-        for(int i = 1; i < 5; i++){ 
+        for(int i = 1; i < 5; i++){
             System.out.println("Begin outer for i="+i);inner:
             for (int j = 1; j < 5; j++){
-                if (j == i) continue outer; 
+                if (j == i) continue outer;
                 System.out.println("inner: i=" + i + " j="+j );
             }
             System.out.println("End outer for i="+i);
         }
             System.out.println("Finished.");
-    } 
+    }
 }
 ```
 
 Result:
+
 ```
 Begin outer for i=1
 Begin outer for i=2
@@ -94,21 +102,22 @@ Finished.
 class TestBreakLabel{
     public static void main (String args[]){
         outer:
-        for(int i = 1; i < 5; i++){ 
+        for(int i = 1; i < 5; i++){
             System.out.println("Begin outer for i="+i);
             inner:
             for (int j = 1; j < 5; j++){
-                if (j == i) break outer; 
+                if (j == i) break outer;
                 System.out.println("inner: i=" + i + " j="+j );
             }
             System.out.println("End outer for i="+i);
         }
         System.out.println("Finished.");
-    } 
+    }
 }
 ```
 
 Result:
+
 ```
 Begin outer for i=1
 Finished.
@@ -151,4 +160,3 @@ void TestBreakLabel(){
     cout << "Finished." << endl;
 }
 ```
-

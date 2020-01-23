@@ -19,7 +19,7 @@ tags:
 |    ~     | reverse          | ~0000 = 1111        |
 |    ^     | XOR              | 0110 ^ 1100 = 1010  |
 
-### Operator: & 
+### Operator: &
 
 x is a bit
 
@@ -35,7 +35,7 @@ using namespace std;
 
 int main(int argc, char const *argv[])
 {
-    int testInt = 123; 
+    int testInt = 123;
 
     cout << "The test integer is: " << testInt << endl;
     cout << "The binary number is: " << endl;
@@ -56,7 +56,7 @@ int main(int argc, char const *argv[])
 
 ### Operator: |
 
-Wave Adder. One is 1 result will be 1. 
+Wave Adder. One is 1 result will be 1.
 
 ```cpp
 #include <iostream>
@@ -79,10 +79,11 @@ int main(int argc, char const *argv[])
 }
 ```
 
-### Operator: ^ 
+### Operator: ^
+
 Canceller. Same is 0 otherwise is 1.
 
-a ^ b = c  --->  b = c ^ a
+a ^ b = c ---> b = c ^ a
 
 ---
 
@@ -104,7 +105,7 @@ using namespace std;
 
 int main(int argc, char const *argv[])
 {
-    
+
     bitset<4> foo(9); // 1001
     bitset<4> bar("0011"); // 0011
     bitset<4> baz(0xf);  // 1111
@@ -127,6 +128,3 @@ int main(int argc, char const *argv[])
     cout << endl;
 }
 ```
-
-
-
