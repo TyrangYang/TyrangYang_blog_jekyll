@@ -6,13 +6,15 @@ tag:
     - c++
 ---
 
+Introduction of Lambda expression in C++ and how to use it.
+
 ## What is Lambda in C++
 
 Lambda expression is a new feature since **c++11**. It is used to create anonymous function object to simplify programming process.
 
 ## How Lambda expressions are composed
 
-[_capture_](*parameters*) _mutable_ -> _return type_ {_statement_}
+[_capture_]\(_parameters_) _mutable_ -> _return type_ {_statement_}
 
 ```cpp
 // ...
@@ -38,9 +40,11 @@ Capture variables from context.
 
 Same as parameter in normal function. This part is optional actually when no parameter is needed. "()" parentheses can be omitted as well.
 
-### mutable
+### mutable / exception
 
 It is a optional keyword. In default, lambda return a _const_ range in another word you cannot change value captured from context. You can change it by adding `mutable` keyword.
+
+`exception` is declare the exception type. like `throw(int)`
 
 ### return type
 
