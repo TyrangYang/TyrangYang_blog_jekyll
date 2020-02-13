@@ -56,4 +56,4 @@ Example each step
 3. Swap them.
 4. Since all elements behind the new one is decreasing, reverse them.
 
-![num]({{site.url}}{{site.baseurl}}public/images/2020-02-05-next-permutation/31_nums_graph.png)
+![num]({{site.url}}{{site.baseurl}}/public/images/2020-02-05-next-permutation/31_nums_graph.png)

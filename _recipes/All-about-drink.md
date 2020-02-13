@@ -3,9 +3,9 @@ title: Drink
 image:
 ---
 
-# Beer
+## Beer
 
-## Raw material
+### Raw material
 
 * Malt - 麦芽，谷物是啤酒味道的根基
 * Hop - 啤酒花，一种大麻科的植物。本身有香味型和苦味型，为啤酒带来香味或苦味。同时有杀菌功效，是天然防腐剂。
@@ -13,7 +13,7 @@ image:
 * Yeast - 酵母。顶层发酵酵母（ale）和底层发酵酵母（lager）和野生酵母三种。
 * Others - 像是水果，香料，咖啡豆。增添风味
 
-## Categories
+### Categories
 
 主要为两大派系艾尔（ale）和拉格（lager）。
 * Ale - 艾尔。英国最为常见。加入大量啤酒花防腐，又强烈的香味和苦味。
@@ -26,4 +26,4 @@ image:
 * Trappist/Abbey Bear - 比利时啤酒。一般是顶层发酵，发酵过程加入白糖或黑糖。修道院的一种收入来源。只有达到特拉普协会的标准才能叫特拉普啤酒。否则称之为阿贝啤酒。
 * American Style - 美式。味道更为浓郁
 
-# Wine
+## Wine
