@@ -138,7 +138,6 @@ It is better to use adopter `priority_queue` as heap.
 
 priority_queue<pair<char, int>, vector<pair<char, int>> , less<pair<char,int>> > pq;
 
-
 ```
 
 ## Faster io for C++
@@ -184,3 +183,24 @@ The idea to solve this question is to build a graph (or a State machine) and BFS
 Minimum Genetic Mutation: [leetCode 433](https://leetcode.com/problems/minimum-genetic-mutation/)
 
 Tis question don't have to build a graph since each char only have 4 options. We can just check the one word mutation is stay in dictionary or not.
+
+## Sum O(n^2) -> O(n)
+
+If you want to find all continuous sum in a vector, the naive method is using two for loop:
+
+```cpp
+
+for (int i = 0; i < size; i++)
+{
+    int temp_sum = 0;
+    for (int j = 0; j < size; j++)
+    {
+        temp_sum += v[j]
+    }
+    // temp_sum is sum from i to j. sum(i, j)
+}
+```
+
+We can use some tech to make time complexity down to O(n)
+
+The key idea is `sum(i, j) = sum(0, j) - sum(0, i-1)`;

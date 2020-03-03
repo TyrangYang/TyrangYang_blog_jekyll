@@ -6,8 +6,8 @@ tag:
 ---
 
 Idea to traverse a tree
-## Tree structure
 
+## Tree structure
 
 The tree structure:
 
@@ -44,7 +44,7 @@ void BFS(TreeNode *root){
 }
 ```
 
-Loop for DFS: 
+Loop for DFS:
 
 Pre-order:
 
@@ -99,16 +99,40 @@ void DFS(TreeNode *root){
         }
         cur = s.top();
         s.pop();
+        // if cur have right node and the right not visited (stack must have top)
         if(cur->right != NULL && !s.empty() && s.top() == cur -> right){
+            // cur switch to cur->right. Original node is put back.
             s.pop();
             s.push(cur);
             cur = cur -> right;
         }
+        // node which doesn't have right or right node is already been processed.
         else{
             // do something
             cur = NULL;
         }
     }while(!s.empty());
+}
+```
+
+This is another method which is easy but not actually traverse the tree in post-order. This just can give a correct output res;
+
+```cpp
+vector<int> DFS(TreeNode *root){
+      vector<int> res;
+      stack<TreeNode *> s;
+      s.push(root);
+      while(!s.empty()){
+          TreeNode *temp = s.top();
+          s.pop();
+          res.push_back(temp -> val);
+          // do something
+          if(temp->left != NULL) s.push(temp -> left);
+          if(temp->right != NULL) s.push(temp -> right);
+      }
+
+      reverse(res.begin(), res.end());
+      return res;
 }
 ```
 
