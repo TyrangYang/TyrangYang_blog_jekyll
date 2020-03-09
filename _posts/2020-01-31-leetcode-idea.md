@@ -39,7 +39,7 @@ struct TreeNode {
 };
 ```
 
-### BFS DFS Pre-order In-order Post-order
+### BFS DFS Pre-order In-order Post-order for a **tree**
 
 Loop for BFS:
 
