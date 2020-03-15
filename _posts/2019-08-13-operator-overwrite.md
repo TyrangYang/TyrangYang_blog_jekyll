@@ -10,6 +10,8 @@ tags:
 
 ## Example
 
+increment and decrement operator
+
 ```cpp
 #include <iostream>
 using namespace std;
@@ -81,6 +83,103 @@ int main(int argc, char const *argv[])
     cout << boolalpha << (test == test2) << endl; //true
     test = test1;
     cout << test << endl; //[10]
+    return 0;
+}
+```
+
+## Second Example
+
+convert operator
+
+```cpp
+class Rational
+{
+    int _n;
+    int _d;
+
+public:
+    Rational(int numerator = 0, int denominator = 1) : _n(numerator), _d(denominator){};
+    Rational(const Rational &rhs) // copy constructor
+    {
+        _n = rhs._n;
+        _d = rhs._d;
+    }
+    ~Rational(){};
+
+    Rational operator+(const Rational &rhs) const
+    {
+        return Rational((_n * rhs._d) + (_d * rhs._n), _d * rhs._d);
+    }
+
+    Rational operator-(const Rational &rhs) const
+    {
+        return Rational((_n * rhs._d) - (_d * rhs._n), _d * rhs._d);
+    }
+
+    Rational operator*(const Rational &rhs) const
+    {
+        return Rational(_n * rhs._n, _d * rhs._d);
+    }
+
+    Rational operator/(const Rational &rhs) const
+    {
+        return Rational(_n * rhs._d, _d * rhs._n);
+    }
+
+    Rational &operator=(const Rational &rhs)
+    {
+        if (this != &rhs)
+        {
+            _n = rhs._n;
+            _d = rhs._d;
+        }
+        return *this;
+    }
+    operator std::string() const
+    { // convert operator
+        if (_d == 1)
+            return std::to_string(_n);
+        else
+            return std::to_string(_n) + "/" + std::to_string(_d);
+    }
+
+    int getNomernator() const { return _n; };
+    int getDenomerator() const { return _d; };
+};
+
+ostream &operator<<(ostream &o, const Rational &rhs)
+
+{
+    return o << (string)rhs;
+}
+
+int main(int argc, char const *argv[])
+{
+    Rational t1; // default constructor
+    cout << t1 << endl;
+
+    Rational t2(5, 3); // constructor
+    cout << t2 << endl;
+
+    Rational t3 = t2; // copy constructor
+    cout << t3 << endl;
+
+    t1 = t3 + 2;
+    cout << t1 << endl;
+
+    cout << t1 * t2 << endl;
+
+    string b = "Rational t3 = ";
+
+    b += t3;
+
+    cout << b << endl;
+
+    Rational *t = new (nothrow) Rational[5]; // new operator
+    // nothrow is not throw error when allocate memory fail.
+    if (t == nullptr)
+        return 1; // error
+    delete[] t; // delete operator
     return 0;
 }
 ```

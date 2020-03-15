@@ -204,3 +204,25 @@ for (int i = 0; i < size; i++)
 We can use some tech to make time complexity down to O(n)
 
 The key idea is `sum(i, j) = sum(0, j) - sum(0, i-1)`;
+
+## Monotonic Queue
+
+A monotonic queue is a data structure that all elements is strictly increasing or decreasing.
+
+Any new element only entry at the end of the queue and tick out the elements in the queue to make sure the queue is still monotonic.
+
+### Example
+
+[5,3,1,2,4]
+
+| index | v   | Increasing queue | Decreasing queue |
+| ----- | --- | ---------------- | ---------------- |
+| 1     | 5   | [5]              | [5]              |
+| 2     | 3   | [3]              | [5,3]            |
+| 3     | 1   | [1]              | [5,3,1]          |
+| 4     | 2   | [1,2]            | [5,3,2]          |
+| 5     | 4   | [1,2,4]          | [5,4]            |
+
+### Questions
+
+leetcode 581: [Shortest Unsorted Continuous Subarray](https://leetcode.com/problems/shortest-unsorted-continuous-subarray/)

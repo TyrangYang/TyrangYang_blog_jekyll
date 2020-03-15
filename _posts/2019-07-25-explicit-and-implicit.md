@@ -21,8 +21,18 @@ class test1
 {
     int data;
 public:
-    test1(int t):data(t){};
+    test1(int t = 0):data(t){};
     ~test1(){};
+
+    test1 operator + (const test1 &a) const{
+        return test1(data + a.data);
+    }
+
+    test1& operator = (const test1 &a)
+    {
+        this->data = a.data;
+        return *this;
+    }
 
     int getData(){return data;};
 };
@@ -46,13 +56,18 @@ int main(int argc, char const *argv[])
     test1 t2 = 1; //implicit constructor
     cout << t2.getData() << endl; // 1
 
-    test1 t3 = 'a';
+    test1 t3 = 'a'; //implicit convert integer into char and call implicit constructor
     cout << t3.getData() << endl; // 97
 
-    test2 t4('a');// explicit constructor is OK
-    cout << t4.getData() << endl; // 97
+    test1 t4;
+    t4 = t2 + 3; // + operation will take 3 and call implicit constructor
 
-    test2 t5 = 'a'; //error. Must be explicit.
+    t4 = 3 + t2; // ERROR! + operater belongs the integer and it doesn't know how to convert t2
+
+    test2 t5('a');// explicit constructor is OK
+    cout << t5.getData() << endl; // 97
+
+    test2 t6 = 'a'; //error. Must be explicit.
     return 0;
 }
 ```
