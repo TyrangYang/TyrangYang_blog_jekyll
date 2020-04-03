@@ -56,8 +56,8 @@ void DFS(TreeNode *root){
         TreeNode *temp = s.top();
         s.pop();
         // do something
-        if(temp->left != NULL) s.push(temp -> left);
         if(temp->right != NULL) s.push(temp -> right);
+        if(temp->left != NULL) s.push(temp -> left);
     }
 }
 ```
