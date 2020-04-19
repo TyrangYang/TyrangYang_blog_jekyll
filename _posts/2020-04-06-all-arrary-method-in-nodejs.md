@@ -7,6 +7,32 @@ tag:
     - array
 ---
 
+-   [All methods](#all-methods)
+    -   [foreach](#foreach)
+    -   [map](#map)
+    -   [filter](#filter)
+    -   [reduce](#reduce)
+    -   [slice](#slice)
+    -   [splice](#splice)
+    -   [sort](#sort)
+    -   [concat](#concat)
+    -   [fill](#fill)
+    -   [include](#include)
+    -   [join](#join)
+    -   [reverse](#reverse)
+    -   [push](#push)
+    -   [pop](#pop)
+    -   [unshift](#unshift)
+    -   [shift](#shift)
+    -   [indexOf & lastIndexOf](#indexof--lastindexof)
+    -   [every](#every)
+    -   [some](#some)
+    -   [find](#find)
+    -   [findIndex](#findindex)
+    -   [from](#from)
+    -   [isArray](#isarray)
+    -   [flat](#flat)
+
 ## All methods
 
 ### foreach
