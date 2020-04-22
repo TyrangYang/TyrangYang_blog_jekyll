@@ -1,7 +1,5 @@
 ---
-layout: post
 title: Container comparison - c++ & java
-author: Haolin Yang
 categories: Language-comparison
 tags:
     - c++

@@ -1,7 +1,5 @@
 ---
-layout: post
 title: Iterator in c++
-author: Haolin Yang
 categories: STL-study-note
 tags:
     - c++

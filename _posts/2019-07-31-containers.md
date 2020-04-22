@@ -1,6 +1,4 @@
 ---
-layout: post
-author: Haolin Yang
 title: Container in c++
 categories: STL-study-note
 tags:

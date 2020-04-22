@@ -1,9 +1,7 @@
 ---
-layout: post
 title: Common method comparison - c++ & java
-author: Haolin Yang
 categories: Language-comparison
-tags: 
+tags:
     - c++
     - java
 ---
@@ -16,11 +14,12 @@ For c++, here is [official document](http://www.cplusplus.com/reference/algorith
 
 #### sort()
 
-This method sorts elements in the range [first, last). 
+This method sorts elements in the range [first, last).
 
 Result is in ascending order by deflaut.
 
 Introsort.
+
 ```cpp
 // sort algorithm example
 #include <iostream>     // std::cout
@@ -48,15 +47,15 @@ int main () {
 }
 ```
 
-On average, linearithmic in the distance between first and last: Performs approximately N*log<sub>2</sub>N
+On average, linearithmic in the distance between first and last: Performs approximately N\*log<sub>2</sub>N
 
 #### stable_sort()
 
-`sort()` is **unstable**. However, ***[`stable_sort()`](http://www.cplusplus.com/reference/algorithm/stable_sort/)*** preserves the relative order of the elements with equivalent value.
+`sort()` is **unstable**. However, **_[`stable_sort()`](http://www.cplusplus.com/reference/algorithm/stable_sort/)_** preserves the relative order of the elements with equivalent value.
 
-If enough extra memory is available, linearithmic in the distance between first and last: Performs up to N*log<sub>2</sub>(N) element comparisons (where N is this distance), and up to that many element moves.
+If enough extra memory is available, linearithmic in the distance between first and last: Performs up to N\*log<sub>2</sub>(N) element comparisons (where N is this distance), and up to that many element moves.
 
-Otherwise, polyloglinear in that distance: Performs up to N*log<sub>2</sub><sup>2</sup>(N) element comparisons, and up to that many element swaps.
+Otherwise, polyloglinear in that distance: Performs up to N\*log<sub>2</sub><sup>2</sup>(N) element comparisons, and up to that many element swaps.
 
 #### partial_sort()
 
@@ -68,7 +67,7 @@ int main(int argc, char const *argv[])
     vector<int> myvector = {32,71,12,45,26,80,53,33};
 
     partial_sort(myvector.begin(), myvector.begin() + 4, myvector.end());
-    //(12 26 32 33 71) 80 53 45 
+    //(12 26 32 33 71) 80 53 45
     for(int i : myvector){
         cout << i << " ";
     }
@@ -76,7 +75,7 @@ int main(int argc, char const *argv[])
 }
 ```
 
-----------
+---
 
 ### Java
 
@@ -128,13 +127,13 @@ public class test{
 
 `public static <T> void sort​(T[] a, int fromIndex, int toIndex, Comparator<? super T> c)`
 
-
 ##### Arrays.parallelSort()
-* This is a stable sort algorithm.
 
-* Only if the size of array is larger than *MIN_ARRAY_SORT_GRAN*, algorithm can use multi-thread. (MIN_ARRAY_SORT_GRAN is 1<<13, that is 8192, in source code.)
+-   This is a stable sort algorithm.
 
-*The sorting algorithm is a parallel sort-merge that breaks the array into sub-arrays that are themselves sorted and then merged.([JavaDoc](https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/util/Arrays.html#parallelSort(int%5B%5D)))
+-   Only if the size of array is larger than _MIN_ARRAY_SORT_GRAN_, algorithm can use multi-thread. (MIN_ARRAY_SORT_GRAN is 1<<13, that is 8192, in source code.)
+
+\*The sorting algorithm is a parallel sort-merge that breaks the array into sub-arrays that are themselves sorted and then merged.([JavaDoc](<https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/util/Arrays.html#parallelSort(int%5B%5D)>))
 
 #### Container
 
@@ -155,4 +154,3 @@ public class test{
     }
 }
 ```
-

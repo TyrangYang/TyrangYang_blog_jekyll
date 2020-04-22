@@ -1,6 +1,4 @@
 ---
-layout: post
-author: Haolin Yang
 title: Operator overwrite in c++
 categories: STL-study-note
 tags:

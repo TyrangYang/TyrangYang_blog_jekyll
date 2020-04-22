@@ -1,7 +1,5 @@
 ---
-layout: post
 title: Review java - Variable
-author: Haolin Yang
 categories: Java
 tags:
     - review

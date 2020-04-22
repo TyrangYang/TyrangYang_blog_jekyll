@@ -1,6 +1,4 @@
 ---
-layout: post
-author: Haolin Yang
 title: Bit operation in C++
 categories: STL-study-note
 tags:

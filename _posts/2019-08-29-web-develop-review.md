@@ -1,6 +1,4 @@
 ---
-layout: post
-author: Haolin Yang
 title: Web development review
 categories: Note
 tags:

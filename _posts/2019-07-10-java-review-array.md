@@ -1,7 +1,5 @@
 ---
-layout: post
 title: Review java - Array
-author: Haolin Yang
 categories: Java
 tags:
     - review

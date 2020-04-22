@@ -1,8 +1,5 @@
 ---
-layout: post
 title: MarkDown overview
-date: 2019-06-16
-author: Haolin Yang
 categories: Overview
 ---
 

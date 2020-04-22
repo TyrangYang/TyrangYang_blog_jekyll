@@ -1,7 +1,5 @@
 ---
-layout: post
 title: explicit and implicit in c++
-author: Haolin Yang
 categories: C++
 tags:
     - c++

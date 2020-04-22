@@ -1,6 +1,4 @@
 ---
-layout: post
-author: Haolin Yang
 title: Algorithm feature in c++ STL
 categories: STL-study-note
 tags:

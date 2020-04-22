@@ -1,6 +1,4 @@
 ---
-layout: post
-author: Haolin Yang
 title: Concurrent Programming Course note 1
 categories: Concurrent-programming
 tags:

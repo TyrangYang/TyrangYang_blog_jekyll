@@ -18,51 +18,50 @@ email: haolinyang95@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
 # url: "127.0.0.1:4000"
 # baseurl: ""
-url: "https://tyrangyang.github.io"
-baseurl: "/TyrangYang_blog"
+url: 'https://tyrangyang.github.io'
+baseurl: '/TyrangYang_blog_jekyll'
 twitter_username: 499768797Tyrang
-github_username:  TyrangYang
-logo: 
+github_username: TyrangYang
+logo:
 
 #Search setting
 search_full_content: true
 
 footer_links:
-  - title: Twitter
-    url: https://twitter.com/499768797Tyrang
-    icon: fab fa-twitter-square
-  - title: Github
-    url: https://github.com/TyrangYang
-    icon: fab fa-github-square
+    - title: Twitter
+      url: https://twitter.com/499768797Tyrang
+      icon: fab fa-twitter-square
+    - title: Github
+      url: https://github.com/TyrangYang
+      icon: fab fa-github-square
 
 # Build settings
 markdown: kramdown
 # theme: jekyll-theme-so-simple
-remote_theme: "mmistakes/so-simple-theme"
+remote_theme: 'mmistakes/so-simple-theme'
 
 collections:
-  recipes:
-    output: true
-    permalink: /:collection/:path/
+    recipes:
+        output: true
+        permalink: /:collection/:path/
 
 defaults:
-  # Post defaults
-  - scope:
-      path: "_posts"
-      type: "posts"
-    values:
-      share: true
-      layout: post
-      author: "Haolin Yang"
-  # Recipe defaults
-  - scope:
-      path: "_recipes"
-      type: recipes
-    values:
-      layout: post
-      # comments: true
-      share: true
-
+    # Post defaults
+    - scope:
+          path: '_posts'
+          type: 'posts'
+      values:
+          share: true
+          layout: post
+          author: 'Haolin Yang'
+    # Recipe defaults
+    - scope:
+          path: '_recipes'
+          type: recipes
+      values:
+          layout: post
+          # comments: true
+          share: true
 
 ## math expression
 # mathjax: true
@@ -70,14 +69,12 @@ defaults:
 paginate: 10
 paginate_path: /page:num/
 # Taxonomy pages
-category_archive_path: "/categories/#"
-tag_archive_path: "/tags/#"
+category_archive_path: '/categories/#'
+tag_archive_path: '/tags/#'
 
 plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
-
-
+    - jekyll-feed
+    - jekyll-seo-tag
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
